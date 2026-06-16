@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GroomAI - Expert Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fcf9f8",
+                      "surface": "#fcf9f8",
+                      "surface-variant": "#e4e2e1",
+                      "inverse-primary": "#c6c4df",
+                      "tertiary-container": "#1b1c1b",
+                      "surface-container-low": "#f6f3f2",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#848482",
+                      "surface-bright": "#fcf9f8",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e2e1",
+                      "primary-fixed-dim": "#c6c4df",
+                      "tertiary-fixed-dim": "#c8c6c4",
+                      "primary-container": "#1a1a2e",
+                      "on-tertiary": "#ffffff",
+                      "secondary-container": "#fedaab",
+                      "outline": "#78767d",
+                      "on-tertiary-fixed": "#1b1c1a",
+                      "tertiary": "#000100",
+                      "inverse-surface": "#303030",
+                      "tertiary-fixed": "#e4e2df",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container": "#f0eded",
+                      "outline-variant": "#c8c5cd",
+                      "surface-dim": "#dcd9d9",
+                      "primary": "#00000b",
+                      "primary-fixed": "#e2e0fc",
+                      "on-surface-variant": "#47464c",
+                      "on-primary-fixed-variant": "#45455b",
+                      "secondary-fixed-dim": "#e3c193",
+                      "secondary": "#745a34",
+                      "on-secondary-fixed-variant": "#5a431f",
+                      "secondary-fixed": "#ffddb1",
+                      "surface-container-high": "#eae7e7",
+                      "on-secondary-container": "#785e38",
+                      "on-secondary-fixed": "#291800",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#474745",
+                      "on-primary-container": "#83829b",
+                      "on-error-container": "#93000a",
+                      "on-background": "#1b1c1c",
+                      "surface-tint": "#5d5c74",
+                      "on-primary-fixed": "#1a1a2e",
+                      "inverse-on-surface": "#f3f0f0",
+                      "on-surface": "#1b1c1c",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "base": "8px",
+                      "margin-desktop": "40px",
+                      "sm": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "button": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf9f8;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .luxury-shadow {
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- Top Navigation Anchor -->
+<header class="bg-surface dark:bg-surface-container-low text-primary dark:text-primary-fixed-dim shadow-sm flex justify-between items-center px-margin-mobile h-16 w-full z-50 fixed top-0 left-0">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 transition-transform" data-icon="menu">menu</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">GroomAI</h1>
+</div>
+<div class="flex items-center">
+<button class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 transition-transform" data-icon="notifications">notifications</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto w-full">
+<!-- Progress Header -->
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-base">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Step 2 of 3</span>
+<div class="flex gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">What do you specialize in?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us your area of expertise and set your professional rates.</p>
+</div>
+<!-- Specialization Multi-select -->
+<section class="mb-xl">
+<h3 class="font-button text-button text-on-surface mb-md">Select Specializations</h3>
+<div class="flex flex-wrap gap-sm">
+<!-- Chip Template -->
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-secondary text-on-secondary luxury-shadow transition-all" onclick="toggleChip(this)">Haircut</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-surface text-on-surface-variant hover:border-secondary transition-all" onclick="toggleChip(this)">Beard</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-surface text-on-surface-variant hover:border-secondary transition-all" onclick="toggleChip(this)">Color</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-secondary text-on-secondary luxury-shadow transition-all" onclick="toggleChip(this)">Styling</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-surface text-on-surface-variant hover:border-secondary transition-all" onclick="toggleChip(this)">Nails</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-surface text-on-surface-variant hover:border-secondary transition-all" onclick="toggleChip(this)">Skincare</button>
+<button class="px-md py-sm rounded-full border border-outline-variant font-label-md text-label-md bg-surface text-on-surface-variant hover:border-secondary transition-all" onclick="toggleChip(this)">Massage</button>
+</div>
+</section>
+<!-- Experience Selection -->
+<section class="mb-xl">
+<h3 class="font-button text-button text-on-surface mb-md">Years of experience</h3>
+<div class="relative max-w-sm">
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-md py-3 font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary">
+<option value="0-1">Less than 1 year</option>
+<option value="1-2">1 - 2 years</option>
+<option selected="" value="2-5">2 - 5 years</option>
+<option value="5-10">5 - 10 years</option>
+<option value="10+">10+ years</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3.5 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</section>
+<!-- Services & Pricing Table -->
+<section class="mb-xl">
+<div class="flex justify-between items-end mb-md">
+<h3 class="font-button text-button text-on-surface">Your Services &amp; Pricing</h3>
+<button class="text-secondary font-button text-button flex items-center gap-1 hover:underline transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    Add Service
+                </button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden luxury-shadow border border-surface-variant">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-md py-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Service Name</th>
+<th class="px-md py-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Price</th>
+<th class="px-md py-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Duration</th>
+<th class="px-md py-3 w-12"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-md py-4 font-body-lg text-body-lg text-on-surface">Haircut</td>
+<td class="px-md py-4 font-body-lg text-body-lg text-on-surface text-right">₹499</td>
+<td class="px-md py-4 font-body-md text-body-md text-on-surface-variant text-right">30 min</td>
+<td class="px-md py-4 text-center">
+<button class="material-symbols-outlined text-error hover:scale-110 transition-transform active:opacity-50" data-icon="delete">delete</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-md py-4 font-body-lg text-body-lg text-on-surface">Beard Trim</td>
+<td class="px-md py-4 font-body-lg text-body-lg text-on-surface text-right">₹199</td>
+<td class="px-md py-4 font-body-md text-body-md text-on-surface-variant text-right">20 min</td>
+<td class="px-md py-4 text-center">
+<button class="material-symbols-outlined text-error hover:scale-110 transition-transform active:opacity-50" data-icon="delete">delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Aesthetic Visual Break -->
+<div class="relative w-full h-48 rounded-xl overflow-hidden luxury-shadow my-xxl">
+<img alt="Professional Salon Setup" class="w-full h-full object-cover grayscale-[0.3]" data-alt="A top-down architectural photograph of a high-end, minimalist barber shop station. The surface is pristine white marble featuring artisanal grooming tools crafted from polished steel and dark wood. Soft morning sunlight streams across the scene, creating long shadows and highlighting the warm tones of the wood. The overall mood is sophisticated, clean, and luxurious, matching a premium self-care brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGoJLoOuxFixna1QXDt2zp-HXPbD0-yMyVgi3pd4LKdsjw5bwyzdrQtfWMNl95q0K4UxHYPJQec9BSpmY8a4cOFDyH1SwM2mNZQ1wTpg3TJ21ZJFdrw2E-G1WJZ1H-lHhEyIGT4_av3KtocH3rrGvdjNfrk22a46en57_-xG5g8lIfIFCz9Op9IK9jpBs9rOrHrUwamz6XqkhmJvNbgvq6b92zYpv4vqYZ3T2eFb0Bcg04TFLiuSlz96ObEIq2FwMKV4jeQBlVkTp4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex flex-col justify-end p-lg">
+<p class="text-white font-headline-md text-headline-md">Your work defines your legacy.</p>
+<p class="text-white/80 font-body-md text-body-md">Join 500+ top-rated stylists across India.</p>
+</div>
+</div>
+</main>
+<!-- Navigation Footer (Wizard Specific) -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-surface-variant px-margin-mobile py-md z-50 flex justify-between items-center max-w-none">
+<button class="px-lg py-3 rounded-lg border border-secondary text-secondary font-button text-button hover:bg-secondary/5 transition-colors active:scale-95">
+            Back
+        </button>
+<button class="px-xl py-3 rounded-lg bg-primary text-on-primary font-button text-button hover:opacity-90 transition-opacity active:scale-95 shadow-md flex items-center gap-2">
+            Continue
+            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+<script>
+        function toggleChip(button) {
+            const isSelected = button.classList.contains('bg-secondary');
+            if (isSelected) {
+                button.classList.remove('bg-secondary', 'text-on-secondary', 'luxury-shadow');
+                button.classList.add('bg-surface', 'text-on-surface-variant');
+            } else {
+                button.classList.add('bg-secondary', 'text-on-secondary', 'luxury-shadow');
+                button.classList.remove('bg-surface', 'text-on-surface-variant');
+            }
+        }
+
+        // Micro-interaction for hover states on rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'SPAN') {
+                    // Logic for selecting row if needed
+                }
+            });
+        });
+    </script>
+</body></html>

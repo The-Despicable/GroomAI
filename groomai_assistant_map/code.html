@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>GroomAI - AI Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#00000b",
+                    "on-background": "#1b1c1c",
+                    "tertiary": "#000100",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#1b1c1b",
+                    "surface-container-high": "#eae7e7",
+                    "primary-fixed-dim": "#c6c4df",
+                    "inverse-primary": "#c6c4df",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-container": "#83829b",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#45455b",
+                    "secondary-container": "#fedaab",
+                    "surface-tint": "#5d5c74",
+                    "outline": "#78767d",
+                    "tertiary-fixed": "#e4e2df",
+                    "surface": "#fcf9f8",
+                    "surface-container-highest": "#e4e2e1",
+                    "outline-variant": "#c8c5cd",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "on-surface": "#1b1c1c",
+                    "on-primary-fixed": "#1a1a2e",
+                    "primary-container": "#1a1a2e",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#303030",
+                    "secondary-fixed-dim": "#e3c193",
+                    "on-surface-variant": "#47464c",
+                    "background": "#fcf9f8",
+                    "on-secondary-fixed": "#291800",
+                    "secondary-fixed": "#ffddb1",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dcd9d9",
+                    "on-tertiary-container": "#848482",
+                    "on-secondary-fixed-variant": "#5a431f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#785e38",
+                    "on-tertiary-fixed-variant": "#474745",
+                    "tertiary-fixed-dim": "#c8c6c4",
+                    "secondary": "#745a34",
+                    "inverse-on-surface": "#f3f0f0",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#e2e0fc",
+                    "surface-variant": "#e4e2e1",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "surface-container": "#f0eded"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "xl": "32px",
+                    "margin-desktop": "40px",
+                    "xs": "4px",
+                    "xxl": "48px",
+                    "sm": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Playfair Display"],
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-container::-webkit-scrollbar { display: none; }
+        .chat-container { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-sheet {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(0, 1, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low flex justify-between items-center px-margin-mobile h-16 w-full z-50 shadow-sm fixed top-0 left-0">
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">GroomAI</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 bg-surface-container-low px-3 py-1.5 rounded-full text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform border border-outline-variant/30">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span class="font-label-md text-label-md">Map View</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Map Canvas (45%) -->
+<main class="relative flex-1 mt-16 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<!-- Simulated Map -->
+<div class="w-full h-[442px] bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60 grayscale-[20%]" data-alt="A clean, top-down minimalist street map rendered in a soft monochromatic palette of greys and off-whites. The map shows elegant grid lines and rounded building shapes characteristic of a luxury GPS interface. Subtle navy blue pins indicate premium salon locations in an upscale urban neighborhood, maintaining the warm minimalism aesthetic of the GroomAI brand." data-location="Mumbai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY2xU7yEtaDva37VUHhtLdtdKhdtQn0zlJG79NvKl9pHK7Dt31oxcTVrZLPOnFnv3ngWNyCJ5dULoFj9I2kzUWeeWUrJAcHRivJtQCaRfaVR5UWY_ee2U-AaqD0RvuebSC61F4rmglF7hd_IHvXGY2WlnmLP90ZBR3kuM7KLiHXHPOoWmEeZWj96nxlKHzA84R-O0244wZk0U1gGZxLLEquhM6sptR2IzygSxBx4Xtv1HgM5RWjlLbhKxRoePZAq_XmrkzHw0kRT2s"/>
+<!-- Map Overlays: Search & Controls -->
+<div class="absolute top-4 left-4 right-4 flex flex-col gap-2">
+<div class="bg-white/95 backdrop-blur shadow-sm rounded-xl p-2 flex items-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-outline ml-2">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-md px-2 placeholder:text-outline-variant" placeholder="Search salons, stylists..." type="text"/>
+</div>
+</div>
+<!-- Custom Map Pins -->
+<div class="absolute top-[35%] left-[40%] group cursor-pointer">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg flex items-center gap-2 animate-bounce">
+<span class="material-symbols-outlined text-[16px]">content_cut</span>
+</div>
+<div class="bg-white px-2 py-1 rounded shadow-sm text-[10px] font-bold mt-1 whitespace-nowrap">Urban Barber</div>
+</div>
+<div class="absolute top-[25%] left-[65%] group cursor-pointer">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">content_cut</span>
+</div>
+<div class="bg-white px-2 py-1 rounded shadow-sm text-[10px] font-bold mt-1 whitespace-nowrap">Style Lounge</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-[52%] right-4 flex flex-col gap-2">
+<button class="bg-white w-10 h-10 rounded-xl shadow-md flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<div class="flex flex-col bg-white rounded-xl shadow-md overflow-hidden divide-y divide-outline-variant/10">
+<button class="w-10 h-10 flex items-center justify-center text-primary active:bg-surface-container">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-primary active:bg-surface-container">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Filters -->
+<div class="absolute top-[353px] left-0 right-0 z-10 px-4">
+<div class="flex gap-2 overflow-x-auto pb-4 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 bg-primary text-white rounded-full text-label-md font-bold shadow-md">All</button>
+<button class="whitespace-nowrap px-4 py-2 bg-white text-on-surface-variant border border-outline-variant/30 rounded-full text-label-md hover:bg-surface-container transition-colors">Hair</button>
+<button class="whitespace-nowrap px-4 py-2 bg-white text-on-surface-variant border border-outline-variant/30 rounded-full text-label-md hover:bg-surface-container transition-colors">Beard</button>
+<button class="whitespace-nowrap px-4 py-2 bg-white text-on-surface-variant border border-outline-variant/30 rounded-full text-label-md hover:bg-surface-container transition-colors">Spa</button>
+<button class="whitespace-nowrap px-4 py-2 bg-white text-on-surface-variant border border-outline-variant/30 rounded-full text-label-md hover:bg-surface-container transition-colors">Budget</button>
+</div>
+</div>
+<!-- AI Chat Sheet (Bottom 45%) -->
+<div class="absolute bottom-0 left-0 right-0 h-[52%] glass-sheet rounded-t-[32px] shadow-[0_-8px_24px_rgba(0,0,0,0.08)] flex flex-col z-20 border-t border-white/40">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant/40 rounded-full mx-auto my-3"></div>
+<div class="flex-1 overflow-y-auto chat-container px-margin-mobile flex flex-col gap-4 py-2">
+<!-- Message User -->
+<div class="flex justify-end ml-12">
+<div class="bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tr-none text-body-md shadow-sm">
+                        I need a beard trimming session under ₹300 nearby.
+                    </div>
+</div>
+<!-- Message AI -->
+<div class="flex flex-col gap-3 mr-8">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md opacity-60">GroomAI</span>
+</div>
+<div class="bg-white border border-outline-variant/20 p-4 rounded-2xl rounded-tl-none text-body-md shadow-sm ai-glow">
+<p class="mb-3">I've found 3 salons matching your request. **Map pins updated!**</p>
+<!-- Recommendation Carousel/List -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 p-2 rounded-xl bg-surface-container-low border border-outline-variant/10">
+<div class="w-12 h-12 rounded-lg bg-gray-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a modern barber chair in a minimalist salon. The setting is clean with warm wooden accents and soft lighting, perfectly aligning with a premium male grooming experience. The image evokes a sense of professional care and style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEH4e5LTL1HViZTvw0TGxj6X6yt0qEho2mU3ub5z5a2U6LX3qyNHnZT8WgA49jF2V2wctTMerXL85I79fIdoHPLwv44fbV5a_4nhxzrUtPEGusFoaj_u-MzaF-lkKImlR7z7hSaOL3bs1117p3GQ8K3xne2KZelyMAs3mo9YFUpFkmkONgcTwEal7sdM04riwUr9hr7qxY2Qkt_WnphvQt_363_ZSd20GmiGd1JT30rPIAEVGd2LdOgCgbK4k8_g10F1KtVkjEJKzQ"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-label-md">Urban Barber</h4>
+<p class="text-[10px] text-on-surface-variant">₹250 • 0.4km away</p>
+</div>
+<button class="bg-primary text-white text-[10px] px-3 py-1.5 rounded-lg">Book</button>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl bg-surface-container-low border border-outline-variant/10">
+<div class="w-12 h-12 rounded-lg bg-gray-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A luxury grooming station featuring high-end beard products and sharp scissors on a marble countertop. The scene is bathed in natural light, reflecting a sophisticated and upscale atmosphere. Part of a brand focused on meticulous self-care and minimalist beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Tq-V9F6KAWrB9J_r7NQD6o6UNnCou4kUyRL-ax926B4g3rUk5gBebmAg8sxpkF5XHJQH8NSZSDKMfqmabCOYumjYtG-2FhGHOzP13pXmNuOjryJezwT69QYORVDNhpsWI3ftQiYDLYrcJsj-T6Mehsjsz_V0oCTb2K-dqnB6xhtJjOxtfFTJvmevAEpJZMlwSM7Asgo1FBILHmL-ZAj1gZuPOQovvrW194b358d7Rdwi3WOJZ2kVWvSnbhTNvIFtq_CYAGONrXPS"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-label-md">Style Lounge</h4>
+<p class="text-[10px] text-on-surface-variant">₹290 • 1.2km away</p>
+</div>
+<button class="bg-primary text-white text-[10px] px-3 py-1.5 rounded-lg">Book</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Input Bar -->
+<div class="px-margin-mobile pt-2 pb-10 bg-white/80">
+<div class="bg-surface-container-low rounded-2xl p-2 flex items-center border border-outline-variant/10 shadow-inner">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-md px-2 placeholder:text-outline-variant/60" placeholder="Ask GroomAI anything..." type="text"/>
+<div class="flex items-center gap-1 pr-1">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<button class="p-2 bg-primary text-white rounded-xl shadow-md active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 h-20 bg-surface-container-lowest dark:bg-surface-container-high shadow-[0_-2px_16px_rgba(0,0,0,0.06)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-lg px-3 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-lg px-3 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-lg px-3 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-lg px-3 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md">AI</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-lg px-3 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for map pins
+        const pins = document.querySelectorAll('.group');
+        pins.forEach(pin => {
+            pin.addEventListener('click', () => {
+                pins.forEach(p => p.classList.remove('scale-125'));
+                pin.classList.add('scale-125');
+                pin.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+        });
+
+        // Simple scroll reveal for chat
+        const chatContainer = document.querySelector('.chat-container');
+        setTimeout(() => {
+            chatContainer.scrollTo({
+                top: chatContainer.scrollHeight,
+                behavior: 'smooth'
+            });
+        }, 500);
+    </script>
+</body></html>

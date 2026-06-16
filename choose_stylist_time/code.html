@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>GroomAI - Select Stylist &amp; Time</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .slot-transition {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-primary-fixed-variant": "#45455b",
+                        "on-tertiary-fixed": "#1b1c1a",
+                        "outline-variant": "#c8c5cd",
+                        "surface-container-low": "#f6f3f2",
+                        "primary": "#00000b",
+                        "outline": "#78767d",
+                        "inverse-primary": "#c6c4df",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#e3c193",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffddb1",
+                        "on-surface-variant": "#47464c",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary-fixed-variant": "#474745",
+                        "on-tertiary-container": "#848482",
+                        "primary-fixed": "#e2e0fc",
+                        "surface-tint": "#5d5c74",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1a1a2e",
+                        "on-primary-container": "#83829b",
+                        "on-secondary-container": "#785e38",
+                        "secondary-container": "#fedaab",
+                        "on-primary-fixed": "#1a1a2e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c8c6c4",
+                        "primary-fixed-dim": "#c6c4df",
+                        "tertiary-fixed": "#e4e2df",
+                        "inverse-surface": "#303030",
+                        "secondary": "#745a34",
+                        "surface-container": "#f0eded",
+                        "on-surface": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#000100",
+                        "tertiary-container": "#1b1c1b",
+                        "surface-container-highest": "#e4e2e1",
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#5a431f",
+                        "surface-variant": "#e4e2e1",
+                        "on-secondary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "button": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full h-[80px] z-50 flex items-center px-margin-mobile bg-surface dark:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between w-full max-w-5xl mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-lg-mobile text-primary dark:text-primary-fixed tracking-tight">GroomAI</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-40 px-margin-mobile">
+<div class="max-w-xl mx-auto space-y-xl">
+<!-- Progress Indicator -->
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<span class="font-label-md text-label-md text-on-surface-variant">Step 2/3</span>
+<span class="font-body-md text-body-md font-semibold text-primary">Stylist &amp; Time</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-secondary transition-all duration-500 ease-out"></div>
+</div>
+</div>
+<!-- Stylist Picker -->
+<section class="space-y-md">
+<h2 class="font-headline-md text-headline-md text-primary">Select Stylist</h2>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-xs px-1">
+<!-- Any Option -->
+<button class="stylist-chip flex-shrink-0 flex flex-col items-center gap-sm group" onclick="selectStylist(this, 'Any')">
+<div class="w-20 h-20 rounded-full border-2 border-primary bg-primary flex items-center justify-center text-on-primary shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Any</span>
+</button>
+<!-- Rahul -->
+<button class="stylist-chip flex-shrink-0 flex flex-col items-center gap-sm group" onclick="selectStylist(this, 'Rahul')">
+<div class="w-20 h-20 rounded-full border-2 border-transparent overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male hair stylist with a modern haircut and groomed beard, looking confidently at the camera in a brightly lit, minimalist salon setting. The lighting is soft and high-key, emphasizing a clean and professional aesthetic aligned with high-end grooming brands like Sephora." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFehqCXTwJs-_1vHppyhEIhiNJ4chmzMFHiHanbys54nNjXTSwAcvA8k1yx5Hnio4yIUzaPHYzi0NN_72ICAkmgJJ1_creLmNLgTxHA_AyrKOE3zBricRsmnuiwT01-NLpVo1IhHtAijRvkFodKAUjb3XlCHRfte0Yuwlkj-FZ9snYHlGMRN7wjGEjV2SwA8JrKHWA7ZxgStigK4T8G9WZM6XdH4QJTrY0qW856rzSBpzOK_4r81qCUwdx8pfdTky73H3rD9KYleIJ"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">Rahul</span>
+</button>
+<!-- Priya -->
+<button class="stylist-chip flex-shrink-0 flex flex-col items-center gap-sm group" onclick="selectStylist(this, 'Priya')">
+<div class="w-20 h-20 rounded-full border-2 border-transparent overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95">
+<img class="w-full h-full object-cover" data-alt="Portrait of a female grooming expert with elegantly styled hair and a warm, inviting smile. She is positioned in a sophisticated studio with neutral warm tones and soft diffused lighting, reflecting a luxurious and serene self-care atmosphere characteristic of modern corporate minimalist beauty brands." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgzWKf12PbXN9_Nb9Y44EDP6eAzjBALdICyBGLdCJ5rGw0yKBNpYU-rFMXqYC9xFQpUPIUDM3e-S_PQibdPBkf-LW-nTyhBPKVgDoNmcP7BuJ5wDPKqrBVTJOxOI2nAaEbLGUz58j-Qp3i47rLVVlV2QgQrzPUYFYSABSY4FpHoveuNUb0sReA9vquW6Ja85qW1sSRrolcMpcC7XvRbwTS8_4RNc4W5ntj3gWyKBDaboZZ9PF1YG5fjInbpbjdKykaCueKoVotQfAA"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">Priya</span>
+</button>
+</div>
+</section>
+<!-- Date Picker -->
+<section class="space-y-md">
+<h2 class="font-headline-md text-headline-md text-primary">Select Date</h2>
+<div class="flex gap-sm overflow-x-auto hide-scrollbar pb-xs px-1">
+<button class="flex-shrink-0 px-lg py-md rounded-xl bg-primary text-on-primary shadow-md font-semibold slot-transition">
+<div class="text-xs opacity-80 uppercase tracking-widest">Today</div>
+<div class="text-lg">Jun 16</div>
+</button>
+<button class="flex-shrink-0 px-lg py-md rounded-xl bg-white border border-outline-variant text-on-surface hover:bg-surface-container-low slot-transition">
+<div class="text-xs text-on-surface-variant uppercase tracking-widest">Mon</div>
+<div class="text-lg">Jun 17</div>
+</button>
+<button class="flex-shrink-0 px-lg py-md rounded-xl bg-white border border-outline-variant text-on-surface hover:bg-surface-container-low slot-transition">
+<div class="text-xs text-on-surface-variant uppercase tracking-widest">Tue</div>
+<div class="text-lg">Jun 18</div>
+</button>
+</div>
+</section>
+<!-- Time Slots -->
+<section class="space-y-md">
+<h2 class="font-headline-md text-headline-md text-primary">Available Slots</h2>
+<div class="grid grid-cols-3 gap-sm">
+<button class="time-slot py-md px-base rounded-lg border border-outline-variant text-center hover:border-secondary transition-all active:scale-95" onclick="selectTime(this, '10:00 AM')">
+<span class="font-label-md text-label-md text-primary">10:00 AM</span>
+</button>
+<button class="time-slot py-md px-base rounded-lg border-2 border-primary bg-primary-container text-center transition-all active:scale-95" onclick="selectTime(this, '11:00 AM')">
+<span class="font-label-md text-label-md text-on-primary-container font-bold">11:00 AM</span>
+</button>
+<button class="time-slot py-md px-base rounded-lg border border-outline-variant text-center hover:border-secondary transition-all active:scale-95" onclick="selectTime(this, '12:00 PM')">
+<span class="font-label-md text-label-md text-primary">12:00 PM</span>
+</button>
+<button class="time-slot py-md px-base rounded-lg border border-outline-variant text-center hover:border-secondary transition-all active:scale-95" onclick="selectTime(this, '01:00 PM')">
+<span class="font-label-md text-label-md text-primary">01:00 PM</span>
+</button>
+<button class="time-slot py-md px-base rounded-lg border border-outline-variant text-center opacity-40 cursor-not-allowed" onclick="selectTime(this, '02:00 PM')">
+<span class="font-label-md text-label-md text-on-surface-variant line-through">02:00 PM</span>
+</button>
+<button class="time-slot py-md px-base rounded-lg border border-outline-variant text-center hover:border-secondary transition-all active:scale-95" onclick="selectTime(this, '03:00 PM')">
+<span class="font-label-md text-label-md text-primary">03:00 PM</span>
+</button>
+</div>
+</section>
+<!-- Summary Card -->
+<div class="bg-white p-lg rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.06)] border border-surface-container flex items-center gap-md">
+<div class="p-base bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Selection Summary</h3>
+<p class="font-body-lg text-body-lg font-bold text-primary" id="selection-summary">Selected: Rahul, 11:00 AM</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Actions (Booking Bar) -->
+<footer class="fixed bottom-[72px] left-0 w-full bg-white p-md flex gap-md items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.04)] z-40 max-w-5xl mx-auto md:relative md:bottom-0 md:rounded-t-xl">
+<button class="flex-1 py-md border-2 border-secondary text-secondary font-button uppercase tracking-widest rounded-lg hover:bg-secondary-fixed transition-colors active:scale-95">
+            Back
+        </button>
+<button class="flex-[2] py-md bg-primary text-on-primary font-button uppercase tracking-widest rounded-lg shadow-lg hover:opacity-90 transition-all active:scale-95">
+            Continue
+        </button>
+</footer>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-surface-container-low shadow-[0_-2px_16px_rgba(0,0,0,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed relative after:content-[''] after:w-1 after:h-1 after:bg-primary dark:after:bg-primary-fixed after:rounded-full after:mt-1 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md mt-1">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        let currentStylist = "Rahul";
+        let currentTime = "11:00 AM";
+
+        function updateSummary() {
+            document.getElementById('selection-summary').innerText = `Selected: ${currentStylist}, ${currentTime}`;
+        }
+
+        function selectStylist(element, name) {
+            document.querySelectorAll('.stylist-chip div').forEach(el => {
+                el.classList.remove('border-primary');
+                el.classList.add('border-transparent');
+            });
+            // If Any is clicked
+            if(name === 'Any') {
+                element.querySelector('div').classList.add('border-primary');
+            } else {
+                element.querySelector('div').classList.remove('border-transparent');
+                element.querySelector('div').classList.add('border-primary');
+            }
+            
+            currentStylist = name;
+            updateSummary();
+        }
+
+        function selectTime(element, time) {
+            if(element.classList.contains('cursor-not-allowed')) return;
+            
+            document.querySelectorAll('.time-slot').forEach(el => {
+                el.classList.remove('border-2', 'border-primary', 'bg-primary-container');
+                el.classList.add('border', 'border-outline-variant');
+                el.querySelector('span').classList.remove('font-bold', 'text-on-primary-container');
+                el.querySelector('span').classList.add('text-primary');
+            });
+
+            element.classList.remove('border', 'border-outline-variant');
+            element.classList.add('border-2', 'border-primary', 'bg-primary-container');
+            element.querySelector('span').classList.add('font-bold', 'text-on-primary-container');
+            element.querySelector('span').classList.remove('text-primary');
+
+            currentTime = time;
+            updateSummary();
+        }
+    </script>
+</body></html>

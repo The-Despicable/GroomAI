@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Urban Barber Co. | GroomAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Playfair+Display:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-primary-fixed-variant": "#45455b",
+                        "on-tertiary-fixed": "#1b1c1a",
+                        "outline-variant": "#c8c5cd",
+                        "surface-container-low": "#f6f3f2",
+                        "primary": "#00000b",
+                        "outline": "#78767d",
+                        "inverse-primary": "#c6c4df",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#e3c193",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffddb1",
+                        "on-surface-variant": "#47464c",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary-fixed-variant": "#474745",
+                        "on-tertiary-container": "#848482",
+                        "primary-fixed": "#e2e0fc",
+                        "surface-tint": "#5d5c74",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1a1a2e",
+                        "on-primary-container": "#83829b",
+                        "on-secondary-container": "#785e38",
+                        "secondary-container": "#fedaab",
+                        "on-primary-fixed": "#1a1a2e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c8c6c4",
+                        "primary-fixed-dim": "#c6c4df",
+                        "tertiary-fixed": "#e4e2df",
+                        "inverse-surface": "#303030",
+                        "secondary": "#745a34",
+                        "surface-container": "#f0eded",
+                        "on-surface": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#000100",
+                        "tertiary-container": "#1b1c1b",
+                        "surface-container-highest": "#e4e2e1",
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#5a431f",
+                        "surface-variant": "#e4e2e1",
+                        "on-secondary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "xxl": "48px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "button": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
+        }
+        
+        .booking-bar {
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        .service-card-selected {
+            border-color: #745a34;
+            background-color: #fedaab20;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full h-[80px] z-50 flex items-center px-margin-mobile bg-surface dark:bg-surface-container-high">
+<div class="flex items-center justify-between w-full max-w-7xl mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-lg-mobile text-primary dark:text-primary-fixed tracking-tight">GroomAI</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-[80px]">
+<!-- Hero Gallery -->
+<section class="relative w-full h-[350px] md:h-[500px] overflow-hidden group">
+<div class="flex transition-transform duration-500 ease-out h-full" id="hero-slider">
+<div class="min-w-full h-full relative">
+<img class="w-full h-full object-cover" data-alt="A sophisticated high-end barbershop interior with plush deep navy leather chairs, polished wooden floors, and warm ambient lighting. The atmosphere is luxurious and minimalist, featuring clean lines and a professional finish with gold accents. Large windows allow soft daylight to illuminate the workspace, creating a serene and premium self-care environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNpMb9prc6uyKS-iFUxcyPUC-HhdBKnTSqp9SVqK9JatZm-yUDN9YcG12mZW7MGKj8faHB6TxBku6EVZ0_WFNLUGLfMFsvYc8iEa9UkC6vEKQVOUtDUgmzUt2HtoLAORrGnUWcl-xQt1qZOPB_jnlJbBQMBT47jLdC_43J9WKRFp53gC6o0gBsXMcwqylLtZcQhKSylVOcns488hJKhuhVE_wT_uGOSjQb7nMSnt6KFMbRYZ3c2Cb8A_0g-ccZrfoJEmY3eLCK_sov"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="min-w-full h-full relative">
+<img class="w-full h-full object-cover" data-alt="Close-up of professional grooming tools including silver scissors and a sleek black comb arranged on a white marble countertop. The lighting is soft and high-key, emphasizing a clean and clinical yet inviting aesthetic. The background shows a blurred view of a modern salon with warm wood and navy blue tones, reflecting a focus on precision and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06Gulhu-KBtNIZU0HybBQG4yqhH9WkaibjkLomDPAgD_Z1rNootpcJuTvWH_R5r6M0eo1jXYLH2WDbKJ8ZqzjyrfNwdXmY1LpnqJ-gCiNT0C863AYXZ9BcpnX8bsDGRp62-8QAwCNb6D6nLPRUn1h5vmY5av-CFXIBzpLU5ddYFp_LnStS9Fufk0pzlXNmEalonDdWRhzhXq0gYZ88KPSGbwNhzUoVNbR13xPLkZ0zk_-_CmCyGG5gMubNA1xgqtjdhqwgsdsZxIy"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+</div>
+<!-- Gallery Indicators -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-2 h-2 rounded-full bg-white opacity-100 transition-opacity"></div>
+<div class="w-2 h-2 rounded-full bg-white opacity-40 transition-opacity"></div>
+<div class="w-2 h-2 rounded-full bg-white opacity-40 transition-opacity"></div>
+</div>
+<!-- Back Button overlay -->
+<button class="absolute top-4 left-4 bg-white/20 backdrop-blur-md rounded-full p-2 text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</section>
+<!-- Salon Info & Stats -->
+<section class="px-margin-mobile -mt-10 relative z-10">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.06)] max-w-3xl mx-auto">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-md text-headline-md mb-1">The Urban Barber Co.</h2>
+<p class="text-on-surface-variant flex items-center gap-1 font-body-md">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            Banjara Hills, Hyderabad
+                        </p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-1 font-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.8
+                    </div>
+</div>
+<div class="flex gap-4 mt-4 border-t border-outline-variant pt-4">
+<div class="flex-1 text-center">
+<p class="font-bold text-primary">230+</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-wider">Reviews</p>
+</div>
+<div class="w-[1px] bg-outline-variant h-8 self-center"></div>
+<div class="flex-1 text-center">
+<p class="font-bold text-primary">8+ yrs</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-wider">Exp</p>
+</div>
+<div class="w-[1px] bg-outline-variant h-8 self-center"></div>
+<div class="flex-1 text-center">
+<p class="font-bold text-primary">Open</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-wider">Status</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Summary -->
+<section class="px-margin-mobile mt-lg max-w-3xl mx-auto">
+<div class="bg-primary-container text-on-primary-container p-6 rounded-xl relative overflow-hidden">
+<!-- Decorative Shader Background Placeholder -->
+
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<h3 class="font-bold tracking-tight">AI Insights Summary</h3>
+</div>
+<p class="font-body-lg text-white/90 italic leading-relaxed">
+                    "Customers rave about the precision of their fades and the relaxing beard spa experience. Rahul is highly recommended for modern textured cuts, while the ambiance provides a perfect escape from city noise."
+                </p>
+</div>
+</section>
+<!-- Services -->
+<section class="mt-xl max-w-3xl mx-auto px-margin-mobile">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md">Select Services</h3>
+<button class="text-secondary font-button flex items-center gap-1">View Menu <span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<!-- Service Card 1 -->
+<div class="min-w-[160px] bg-surface-container-lowest border-2 border-transparent p-4 rounded-xl shadow-sm cursor-pointer transition-all hover:shadow-md service-card-selected" onclick="toggleSelection(this)">
+<div class="bg-surface-variant w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-primary">content_cut</span>
+</div>
+<h4 class="font-bold text-primary mb-1">Classic Haircut</h4>
+<p class="text-secondary font-bold">₹499</p>
+<p class="text-xs text-on-surface-variant mt-2">45 mins</p>
+</div>
+<!-- Service Card 2 -->
+<div class="min-w-[160px] bg-surface-container-lowest border-2 border-transparent p-4 rounded-xl shadow-sm cursor-pointer transition-all hover:shadow-md" onclick="toggleSelection(this)">
+<div class="bg-surface-variant w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-primary">face_6</span>
+</div>
+<h4 class="font-bold text-primary mb-1">Beard Sculpt</h4>
+<p class="text-secondary font-bold">₹199</p>
+<p class="text-xs text-on-surface-variant mt-2">30 mins</p>
+</div>
+<!-- Service Card 3 -->
+<div class="min-w-[160px] bg-surface-container-lowest border-2 border-transparent p-4 rounded-xl shadow-sm cursor-pointer transition-all hover:shadow-md" onclick="toggleSelection(this)">
+<div class="bg-surface-variant w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-primary">spa</span>
+</div>
+<h4 class="font-bold text-primary mb-1">Head Massage</h4>
+<p class="text-secondary font-bold">₹299</p>
+<p class="text-xs text-on-surface-variant mt-2">20 mins</p>
+</div>
+</div>
+</section>
+<!-- Stylists -->
+<section class="mt-xl max-w-3xl mx-auto px-margin-mobile">
+<h3 class="font-headline-md text-headline-md mb-md">Top Stylists</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Professional male barber portrait in a modern studio. He has a neatly trimmed beard and is wearing a stylish dark apron over a white shirt. The background is a minimalist gray studio wall with soft, cinematic side lighting that highlights his professional and approachable demeanor. Modern corporate and high-end beauty brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjLGPCjNEKWuOi_qN2OiuC2A7zAb1_jiZ0Lc4vA64kkVmcE0qaSAT-l7cPKn8ytLwuwVhrCnCbIBGV1PJGJ_fIDrASQhKGN_eIJxJWos_fWFpVpTfgwpjciK-JK-KZV0_3_XzC2_k6mxGS3scmmA2hB7AZMwh5Fxlpf_0Qev1aiFdIKm3ARVor_GQJTA5oeioZrFeVnFXMBH5yQi-xR__AqIxqPgOLxVTcOOtCow1SoLyge5TAqtsXUXSneqEmjb6vsz1bycIwjVML"/>
+<div>
+<p class="font-bold text-primary">Rahul K.</p>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[10px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.9 (120)
+                        </div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a professional female hair stylist with a bright, welcoming smile. She is in a high-end salon setting with soft bokeh background showing warm gold and navy accents. The lighting is flattering and high-key, reflecting a premium self-care ritual. She has a modern, clean look that aligns with a sophisticated beauty brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLRcwh_tms0PPSZgj_Wi9jalfFPxPmg_Q2ubIYBypGYaX8i3WtGG8GCnD6PI8tM69mlOOl70BLQvlffOrpOTkuWZgOEV4BvdAAi0LdlFLMcBeRvAFTU0o7L-XExdDDSnSdFzjEf0kk6F9dlWFFEozrEGzA0tU5Tf2fD0MnymtbYAS9a2bJ-V6CbiuV23AJLl_COBdrLINHdEaBM29jlFsxAuMHIgL6tuwq4EzSMpI_VFpO8WQWlifxkPGEMXFDaLwCW34HTh50lqbM"/>
+<div>
+<p class="font-bold text-primary">Priya S.</p>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[10px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.8 (85)
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews -->
+<section class="mt-xl max-w-3xl mx-auto px-margin-mobile mb-10">
+<h3 class="font-headline-md text-headline-md mb-md">Recent Reviews</h3>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-surface-variant">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-on-secondary-container text-xs">A</div>
+<p class="font-bold text-primary text-sm">Aditya Verma</p>
+</div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">Rahul did an amazing job with the fade. Best salon experience in Banjara Hills so far. Definitely coming back!</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-surface-variant">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center font-bold text-white text-xs">M</div>
+<p class="font-bold text-primary text-sm">Manish Rao</p>
+</div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">The beard spa is super relaxing. Great ambiance and polite staff. Highly recommended for weekend grooming.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Booking Bar -->
+<div class="fixed bottom-0 left-0 w-full z-[60] booking-bar bg-white px-margin-mobile py-4 flex items-center justify-between border-t border-surface-variant">
+<div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+<div class="hidden md:block">
+<p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Estimated Total</p>
+<p class="text-headline-md font-bold text-primary" id="total-price">₹499</p>
+</div>
+<div class="flex flex-col md:hidden">
+<p class="text-headline-md font-bold text-primary leading-tight">₹499</p>
+<p class="text-[10px] text-on-surface-variant uppercase">1 Service selected</p>
+</div>
+<button class="bg-secondary text-white px-8 py-3 rounded-lg font-button shadow-lg active:scale-95 transition-all hover:bg-[#5a431f] flex items-center gap-2">
+                Book Appointment
+                <span class="material-symbols-outlined text-sm">calendar_month</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Hidden on details page as per UX mandate to prioritize focus) -->
+<!-- But shown for structural completeness of the app frame -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-surface-container-low shadow-[0_-2px_16px_rgba(0,0,0,0.06)] md:hidden pointer-events-none opacity-0">
+<!-- Suppressed for Focus Journey -->
+</nav>
+<script>
+        function toggleSelection(el) {
+            // Simple selection logic for the demo
+            const cards = document.querySelectorAll('.service-card-selected');
+            cards.forEach(c => c.classList.remove('service-card-selected', 'border-secondary', 'bg-secondary-container/20'));
+            
+            el.classList.add('service-card-selected');
+            
+            // Update total price based on text (just a visual update)
+            const price = el.querySelector('.text-secondary').innerText;
+            document.querySelectorAll('#total-price').forEach(t => t.innerText = price);
+        }
+
+        // Hero Slider Simple Implementation
+        let currentSlide = 0;
+        const slider = document.getElementById('hero-slider');
+        const indicators = document.querySelectorAll('.hero-gradient + div div');
+        
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 2;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators (if needed)
+            // indicators.forEach((ind, i) => {
+            //     ind.style.opacity = i === currentSlide ? '1' : '0.4';
+            // });
+        }, 5000);
+
+        // Micro-interaction for hover effects
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.add('scale-95');
+                setTimeout(() => btn.classList.remove('scale-95'), 150);
+            });
+        });
+    </script>
+</body></html>

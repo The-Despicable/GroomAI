@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GroomAI Stylist Portal | Sign In</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Playfair Display & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fcf9f8",
+            "surface": "#fcf9f8",
+            "surface-variant": "#e4e2e1",
+            "inverse-primary": "#c6c4df",
+            "tertiary-container": "#1b1c1b",
+            "surface-container-low": "#f6f3f2",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#848482",
+            "surface-bright": "#fcf9f8",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e4e2e1",
+            "primary-fixed-dim": "#c6c4df",
+            "tertiary-fixed-dim": "#c8c6c4",
+            "primary-container": "#1a1a2e",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#fedaab",
+            "outline": "#78767d",
+            "on-tertiary-fixed": "#1b1c1a",
+            "tertiary": "#000100",
+            "inverse-surface": "#303030",
+            "tertiary-fixed": "#e4e2df",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-container": "#f0eded",
+            "outline-variant": "#c8c5cd",
+            "surface-dim": "#dcd9d9",
+            "primary": "#00000b",
+            "primary-fixed": "#e2e0fc",
+            "on-surface-variant": "#47464c",
+            "on-primary-fixed-variant": "#45455b",
+            "secondary-fixed-dim": "#e3c193",
+            "secondary": "#745a34",
+            "on-secondary-fixed-variant": "#5a431f",
+            "secondary-fixed": "#ffddb1",
+            "surface-container-high": "#eae7e7",
+            "on-secondary-container": "#785e38",
+            "on-secondary-fixed": "#291800",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#474745",
+            "on-primary-container": "#83829b",
+            "on-error-container": "#93000a",
+            "on-background": "#1b1c1c",
+            "surface-tint": "#5d5c74",
+            "on-primary-fixed": "#1a1a2e",
+            "inverse-on-surface": "#f3f0f0",
+            "on-surface": "#1b1c1c",
+            "on-error": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "xxl": "48px",
+            "xl": "32px",
+            "lg": "24px",
+            "margin-mobile": "20px",
+            "gutter": "16px",
+            "xs": "4px",
+            "base": "8px",
+            "margin-desktop": "40px",
+            "sm": "8px",
+            "md": "16px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Playfair Display"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-md": ["Inter"],
+            "headline-md": ["Playfair Display"],
+            "display-lg": ["Playfair Display"],
+            "button": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .auth-card {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .active-toggle {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    body {
+      background-color: #f8f7f4;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+<main class="flex-grow flex items-center justify-center px-margin-mobile py-xl md:py-xxl relative overflow-hidden">
+<!-- Decorative Ambient Background Elements -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary-container opacity-20 blur-3xl rounded-full"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-fixed opacity-10 blur-3xl rounded-full"></div>
+</div>
+<div class="w-full max-w-md z-10">
+<!-- Brand & Header -->
+<div class="text-center mb-xl">
+<div class="inline-flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight ml-2">GroomAI</h1>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-2">Stylist Portal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your appointments and clients</p>
+</div>
+<!-- Auth Card -->
+<div class="auth-card bg-surface-container-lowest rounded-xl p-lg md:p-xl border border-surface-variant/30">
+<!-- Tabbed Toggle -->
+<div class="flex p-1 bg-surface-container rounded-lg mb-lg">
+<button class="flex-1 py-2 text-label-md font-label-md text-on-surface-variant rounded-md transition-all active-toggle text-primary" id="toggle-phone" onclick="switchAuth('phone')">
+            Phone
+          </button>
+<button class="flex-1 py-2 text-label-md font-label-md text-on-surface-variant rounded-md transition-all" id="toggle-email" onclick="switchAuth('email')">
+            Email
+          </button>
+</div>
+<form class="space-y-md" onsubmit="event.preventDefault();">
+<!-- Phone Input Section -->
+<div class="space-y-md block" id="section-phone">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider ml-1">Phone Number</label>
+<div class="flex gap-2">
+<div class="relative w-24">
+<select class="w-full h-12 bg-surface border border-outline-variant rounded-lg px-3 appearance-none font-body-md focus:ring-1 focus:ring-primary focus:border-primary outline-none">
+<option>+1</option>
+<option>+44</option>
+<option>+91</option>
+<option>+61</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-sm" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<input class="flex-1 h-12 bg-surface border border-outline-variant rounded-lg px-4 font-body-md focus:ring-1 focus:ring-primary focus:border-primary outline-none" placeholder="555-0123" type="tel"/>
+</div>
+</div>
+</div>
+<!-- Email Input Section (Hidden by default) -->
+<div class="space-y-md hidden" id="section-email">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider ml-1">Email Address</label>
+<input class="w-full h-12 bg-surface border border-outline-variant rounded-lg px-4 font-body-md focus:ring-1 focus:ring-primary focus:border-primary outline-none" placeholder="stylist@groomai.com" type="email"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider ml-1">Password</label>
+<div class="relative">
+<input class="w-full h-12 bg-surface border border-outline-variant rounded-lg px-4 font-body-md focus:ring-1 focus:ring-primary focus:border-primary outline-none" id="password-field" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" data-icon="visibility" id="password-icon">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<a class="text-label-md font-label-md text-secondary hover:underline" href="#">Forgot password?</a>
+</div>
+<!-- CTA Button -->
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg font-button text-button flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+            Sign In
+            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-xl text-center">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t border-outline-variant opacity-30"></div></div>
+<span class="relative px-4 bg-surface-container-lowest text-label-md font-label-md text-on-surface-variant italic">or continue with</span>
+</div>
+<!-- Social Auth Buttons -->
+<div class="grid grid-cols-3 gap-md">
+<button class="h-12 border border-outline-variant rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95 group">
+<svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+</button>
+<button class="h-12 border border-outline-variant rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-110 transition-transform" data-icon="key">key</span>
+</button>
+<button class="h-12 border border-outline-variant rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-110 transition-transform" data-icon="apple" style="font-variation-settings: 'FILL' 1;">apps</span>
+</button>
+</div>
+</div>
+<!-- Footer Link -->
+<div class="mt-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Don't have an account? 
+          <a class="font-button text-secondary hover:opacity-80 transition-opacity ml-1" href="#">
+            Register as Stylist →
+          </a>
+</p>
+</div>
+</div>
+</main>
+<!-- Script for Tab Switching & Micro-interactions -->
+<script>
+    function switchAuth(type) {
+      const phoneBtn = document.getElementById('toggle-phone');
+      const emailBtn = document.getElementById('toggle-email');
+      const phoneSection = document.getElementById('section-phone');
+      const emailSection = document.getElementById('section-email');
+
+      if (type === 'phone') {
+        phoneBtn.classList.add('active-toggle', 'text-primary');
+        emailBtn.classList.remove('active-toggle', 'text-primary');
+        phoneSection.classList.remove('hidden');
+        emailSection.classList.add('hidden');
+      } else {
+        emailBtn.classList.add('active-toggle', 'text-primary');
+        phoneBtn.classList.remove('active-toggle', 'text-primary');
+        emailSection.classList.remove('hidden');
+        phoneSection.classList.add('hidden');
+      }
+    }
+
+    function togglePassword() {
+      const pwd = document.getElementById('password-field');
+      const icon = document.getElementById('password-icon');
+      if (pwd.type === 'password') {
+        pwd.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        pwd.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+  </script>
+<!-- Background Imagery (Bento style hint) -->
+<aside class="hidden lg:block fixed right-0 top-0 w-1/3 h-full overflow-hidden bg-surface-container-high">
+<div class="h-full w-full relative grid grid-rows-3 gap-2 p-2">
+<div class="row-span-1 rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105" data-alt="A professional high-end hair stylist in a modern minimalist salon setting, focusing on a client with warm ambient lighting. The atmosphere is sophisticated and quiet, with sleek black chairs and marble accents reflecting the GroomAI brand's premium identity. Soft golden highlights catch the edge of salon tools on a clean white countertop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEvy_IY4-UXC5t6C8ag0BxgPch2iKos-8kSfKd8V0y9ukAJn-SDvi96YVaTbkh9q_h9zqHn7yPPq9eGNygWshiy9rV_nWg99k-HZGGOsYn6yhza8QU-8_k5d8p9Hxwge64YZhaEuT7Pu6PkGe9B1iRk2nOJoPuXbEMCjR3eWPwTbKz6JztsPI9bjRsoKOThMZg7sUyBK1u4IfGUo65nOiKsFPVBdGEpyaw5852R9R7BFFJ4wd6kzKrX7KbtjGafKU3wCyO_o8_aZS1"/>
+</div>
+<div class="row-span-2 rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105" data-alt="Close up of premium barber equipment arranged symmetrically on a warm off-white surface, including professional shears and a sleek black comb. The lighting is editorial and high-contrast, emphasizing the metallic textures and minimalist design. This visual aligns with the professional GroomAI Stylist Portal's focus on precision and high-quality craft." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEEGo8tclIDNAx6WcHkknP1zbmMq3mumo9wMeCru4b_J2QS_PDXpFC8Rpc7OxeDhxw1TvCWeWm5sik6wNz0qFJgBc6T8N8CnI2Zoz2f0l4fKt5aebx-Ldtq2sFzXd9snibHCp_htunjrXRjddvAAR-H68PglSkUHrenfjRBLzWU7E3HOFyLqBRmJN04p-rhOdUYJjD86B6AEWyZcBCl-piM08dO4ecJhhN-_fU3_So6tWr78uTBLF5fDyW7i89b0Igwt_D3HoftqRk"/>
+</div>
+</div>
+</aside>
+</body></html>

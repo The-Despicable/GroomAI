@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GroomAI Stylist Registration - Personal Info</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fcf9f8",
+                      "surface": "#fcf9f8",
+                      "surface-variant": "#e4e2e1",
+                      "inverse-primary": "#c6c4df",
+                      "tertiary-container": "#1b1c1b",
+                      "surface-container-low": "#f6f3f2",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#848482",
+                      "surface-bright": "#fcf9f8",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e2e1",
+                      "primary-fixed-dim": "#c6c4df",
+                      "tertiary-fixed-dim": "#c8c6c4",
+                      "primary-container": "#1a1a2e",
+                      "on-tertiary": "#ffffff",
+                      "secondary-container": "#fedaab",
+                      "outline": "#78767d",
+                      "on-tertiary-fixed": "#1b1c1a",
+                      "tertiary": "#000100",
+                      "inverse-surface": "#303030",
+                      "tertiary-fixed": "#e4e2df",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container": "#f0eded",
+                      "outline-variant": "#c8c5cd",
+                      "surface-dim": "#dcd9d9",
+                      "primary": "#00000b",
+                      "primary-fixed": "#e2e0fc",
+                      "on-surface-variant": "#47464c",
+                      "on-primary-fixed-variant": "#45455b",
+                      "secondary-fixed-dim": "#e3c193",
+                      "secondary": "#745a34",
+                      "on-secondary-fixed-variant": "#5a431f",
+                      "secondary-fixed": "#ffddb1",
+                      "surface-container-high": "#eae7e7",
+                      "on-secondary-container": "#785e38",
+                      "on-secondary-fixed": "#291800",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#474745",
+                      "on-primary-container": "#83829b",
+                      "on-error-container": "#93000a",
+                      "on-background": "#1b1c1c",
+                      "surface-tint": "#5d5c74",
+                      "on-primary-fixed": "#1a1a2e",
+                      "inverse-on-surface": "#f3f0f0",
+                      "on-surface": "#1b1c1c",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "base": "8px",
+                      "margin-desktop": "40px",
+                      "sm": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "button": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #745a34 !important; /* Secondary / Warm Gold */
+            ring: 0 !important;
+        }
+        .bg-glass {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen">
+<!-- Top Navigation Bar (Shared Component Logic - Suppressed because transactional wizard) -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full z-50 bg-surface shadow-sm">
+<div class="font-headline-md text-headline-md text-primary tracking-tight">GroomAI</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity">close</button>
+</header>
+<main class="max-w-[500px] mx-auto px-margin-mobile py-xl pb-xxl">
+<!-- Header Section -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-xs">Join GroomAI</h1>
+<p class="font-body-md text-on-surface-variant">Start receiving bookings in minutes</p>
+</div>
+<!-- Progress Indicator -->
+<div class="flex flex-col items-center mb-xl gap-sm">
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Step 1 of 3</span>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<div class="w-3 h-3 rounded-full border border-outline-variant"></div>
+<div class="w-3 h-3 rounded-full border border-outline-variant"></div>
+</div>
+</div>
+<form class="space-y-lg" id="registration-form">
+<!-- Photo Upload Area -->
+<div class="flex flex-col items-center justify-center py-sm">
+<div class="relative group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border-2 border-surface-container-highest transition-all group-hover:scale-105">
+<img alt="Profile Preview" class="w-full h-full object-cover hidden" data-alt="A close-up professional headshot of a person with a warm, friendly smile, set against a soft bokeh background of a high-end minimalist salon with white walls and warm gold accents. The lighting is bright and airy, typical of luxury beauty photography, maintaining a professional yet inviting atmosphere in a modern corporate style." id="avatar-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwTxCz0LdJcfzfshuI-tjl5sE098BFImbaghufyovcjHT3YEaDc26Jpi6QDT6Bwx_vz13JntPmShg719qkLcUPBmVjzhU4uW1uN1Kap6gh3qu3HHdR85Dw7iDE-DZbEg7yD6tlXR6jAiLWA0JBwpmzMAfhHS1rLuwv6OL_KxHKL8NK9cFg3we-5Jndr5JQidt2zgtABNkR5g0n4JgTsOe-49IwJ7Aaf9x-LqDmZDzgVybhNaMV2WIA4EJUoDRoYg_EbQtmU2ZeozHg"/>
+<span class="material-symbols-outlined text-outline text-3xl" id="avatar-placeholder">photo_camera</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center rounded-full bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">edit</span>
+</div>
+<input accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" title="Upload profile photo" type="file"/>
+</div>
+<span class="mt-base font-label-md text-label-md text-on-surface-variant">Upload profile photo</span>
+</div>
+<!-- Personal Details -->
+<div class="space-y-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-primary ml-1">Full Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-md text-body-md focus:ring-0 transition-all" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+</div>
+<div class="grid grid-cols-12 gap-md">
+<div class="col-span-4 space-y-xs">
+<label class="font-label-md text-label-md text-primary ml-1">Country</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-md text-body-md text-center" readonly="" type="text" value="+91"/>
+</div>
+</div>
+<div class="col-span-8 space-y-xs">
+<label class="font-label-md text-label-md text-primary ml-1">Phone Number</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-md text-body-md focus:ring-0 transition-all" placeholder="98765 43210" required="" type="tel"/>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-primary ml-1">Email Address</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-md text-body-md focus:ring-0 transition-all" placeholder="rahul.s@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Salon Association -->
+<div class="space-y-md pt-base">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-primary">Salon Association</label>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Freelance</span>
+<button class="w-10 h-6 bg-outline-variant rounded-full p-1 transition-colors relative" id="freelance-toggle" onclick="toggleFreelance()" type="button">
+<div class="w-4 h-4 bg-white rounded-full transition-transform" id="toggle-dot"></div>
+</button>
+</div>
+</div>
+<div class="relative" id="salon-search-container">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-md pl-11 text-body-md focus:ring-0 transition-all" placeholder="Search Salon Name" type="text"/>
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<!-- Location -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-primary ml-1">Location / Service Area</label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-md pl-11 text-body-md focus:ring-0 transition-all" placeholder="Enter city or area" type="text"/>
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">location_on</span>
+</div>
+<button class="flex items-center gap-2 px-lg bg-surface-container-highest text-primary font-button text-button rounded-lg hover:bg-surface-variant transition-colors border border-outline-variant" type="button">
+<span class="material-symbols-outlined text-[20px]">map</span>
+                        Pin
+                    </button>
+</div>
+</div>
+<!-- CTA -->
+<div class="pt-lg">
+<button class="w-full bg-primary text-on-primary font-button text-button h-14 rounded-lg shadow-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+                    Continue
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Footer Help -->
+<p class="text-center mt-xl font-label-md text-label-md text-on-surface-variant">
+            By continuing, you agree to GroomAI's 
+            <a class="text-secondary font-bold underline decoration-secondary/30" href="#">Terms of Service</a>
+</p>
+</main>
+<!-- Success Feedback Overlay (Hidden by default) -->
+<div class="fixed inset-0 z-[100] bg-white/90 backdrop-blur-md flex items-center justify-center p-xl hidden" id="success-overlay">
+<div class="text-center space-y-md animate-in fade-in zoom-in duration-300">
+<div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl">check</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Details Saved</h2>
+<p class="font-body-md text-on-surface-variant">Moving to Step 2: Service Selection</p>
+</div>
+</div>
+<script>
+        let isFreelance = false;
+
+        function toggleFreelance() {
+            isFreelance = !isFreelance;
+            const toggle = document.getElementById('freelance-toggle');
+            const dot = document.getElementById('toggle-dot');
+            const salonContainer = document.getElementById('salon-search-container');
+            
+            if (isFreelance) {
+                toggle.classList.remove('bg-outline-variant');
+                toggle.classList.add('bg-secondary');
+                dot.classList.add('translate-x-4');
+                salonContainer.classList.add('opacity-40', 'pointer-events-none');
+            } else {
+                toggle.classList.add('bg-outline-variant');
+                toggle.classList.remove('bg-secondary');
+                dot.classList.remove('translate-x-4');
+                salonContainer.classList.remove('opacity-40', 'pointer-events-none');
+            }
+        }
+
+        // Form Simulation
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const overlay = document.getElementById('success-overlay');
+            overlay.classList.remove('hidden');
+            
+            // In a real app, this would redirect
+            setTimeout(() => {
+                alert("Redirecting to Step 2...");
+                overlay.classList.add('hidden');
+            }, 1500);
+        });
+
+        // Simple Image Preview Simulation
+        const fileInput = document.querySelector('input[type="file"]');
+        const avatarPreview = document.getElementById('avatar-preview');
+        const avatarPlaceholder = document.getElementById('avatar-placeholder');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarPreview.src = e.target.result;
+                    avatarPreview.classList.remove('hidden');
+                    avatarPlaceholder.classList.add('hidden');
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    </script>
+</body></html>

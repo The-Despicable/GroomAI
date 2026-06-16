@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dcd9d9",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-primary-fixed-variant": "#45455b",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "outline-variant": "#c8c5cd",
+                    "surface-container-low": "#f6f3f2",
+                    "primary": "#00000b",
+                    "outline": "#78767d",
+                    "inverse-primary": "#c6c4df",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#e3c193",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffddb1",
+                    "on-surface-variant": "#47464c",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary-fixed-variant": "#474745",
+                    "on-tertiary-container": "#848482",
+                    "primary-fixed": "#e2e0fc",
+                    "surface-tint": "#5d5c74",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#1a1a2e",
+                    "on-primary-container": "#83829b",
+                    "on-secondary-container": "#785e38",
+                    "secondary-container": "#fedaab",
+                    "on-primary-fixed": "#1a1a2e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#c8c6c4",
+                    "primary-fixed-dim": "#c6c4df",
+                    "tertiary-fixed": "#e4e2df",
+                    "inverse-surface": "#303030",
+                    "secondary": "#745a34",
+                    "surface-container": "#f0eded",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#000100",
+                    "tertiary-container": "#1b1c1b",
+                    "surface-container-highest": "#e4e2e1",
+                    "background": "#fcf9f8",
+                    "surface": "#fcf9f8",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed-variant": "#5a431f",
+                    "surface-variant": "#e4e2e1",
+                    "on-secondary-fixed": "#291800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "xs": "4px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "button": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden pb-32">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full h-[80px] z-50 flex items-center px-margin-mobile bg-surface dark:bg-surface-container-high">
+<div class="flex items-center justify-between w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity">menu</button>
+<h1 class="font-display-lg text-headline-lg-mobile text-primary dark:text-primary-fixed tracking-tight">GroomAI</h1>
+</div>
+<div class="flex items-center gap-lg">
+<nav class="hidden md:flex items-center gap-xl">
+<a class="text-primary dark:text-primary-fixed font-bold" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity" href="#">Bookings</a>
+</nav>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity">notifications</button>
+</div>
+</div>
+</header>
+<main class="mt-[80px]">
+<!-- Hero Section -->
+<section class="relative min-h-[530px] flex flex-col items-center justify-center text-center px-margin-mobile overflow-hidden bg-gradient-to-b from-secondary-container/30 to-surface">
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary-fixed-dim rounded-full blur-[100px] animate-float"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-fixed-dim rounded-full blur-[100px] animate-float" style="animation-delay: -2s;"></div>
+</div>
+<div class="z-10 max-w-3xl">
+<h2 class="font-display-lg text-display-lg text-primary mb-lg tracking-tight">Your Grooming, Perfected.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-xl mx-auto">AI-powered scheduling for the modern gentleman. Discover top-rated salons tailored to your style.</p>
+<!-- Search Bar -->
+<div class="w-full max-w-2xl bg-surface-container-lowest shadow-[0_2px_16px_rgba(0,0,0,0.06)] rounded-full p-2 flex items-center gap-md focus-within:ring-2 ring-primary transition-all duration-300">
+<div class="pl-md flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex-grow bg-transparent border-none focus:ring-0 font-body-md text-on-surface py-2" placeholder="Haircut under ₹600" type="text"/>
+<div class="flex items-center gap-sm pr-md">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">mic</span>
+</button>
+<button class="p-2 bg-primary text-on-primary rounded-full hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Section -->
+<section class="px-margin-mobile py-xxl max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-lg">
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-white shadow-lg rounded-[24px] flex items-center justify-center mb-md group-hover:scale-110 group-active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-[40px] text-primary">content_cut</span>
+</div>
+<span class="font-button text-primary">Hair</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-white shadow-lg rounded-[24px] flex items-center justify-center mb-md group-hover:scale-110 group-active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-[40px] text-secondary">back_hand</span>
+</div>
+<span class="font-button text-primary">Nails</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-white shadow-lg rounded-[24px] flex items-center justify-center mb-md group-hover:scale-110 group-active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-[40px] text-primary">face_6</span>
+</div>
+<span class="font-button text-primary">Beard</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-white shadow-lg rounded-[24px] flex items-center justify-center mb-md group-hover:scale-110 group-active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-[40px] text-secondary">spa</span>
+</div>
+<span class="font-button text-primary">Spa</span>
+</div>
+</div>
+</section>
+<!-- Trending Section -->
+<section class="py-xxl bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-mobile flex justify-between items-end mb-lg">
+<div>
+<span class="font-label-md text-secondary uppercase tracking-widest">Selected for you</span>
+<h3 class="font-headline-md text-primary">Trending Near You</h3>
+</div>
+<button class="text-primary font-button border-b border-primary hover:opacity-70 transition-opacity">View All</button>
+</div>
+<div class="flex gap-lg overflow-x-auto hide-scrollbar px-margin-mobile pb-md snap-x">
+<!-- Salon Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-xl shadow-sm overflow-hidden snap-start hover:shadow-lg transition-shadow">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A high-end modern barbershop interior featuring premium black leather chairs, large minimalist mirrors, and warm overhead globe lighting. The aesthetic is clean and professional with a monochrome palette of blacks and whites, accented by natural wood textures on the floor. Soft natural light streams through a large window, creating a calm and inviting atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7fH0yiUzWiVWD4EUNcjEplKzrlYGId9WqHwmgGQ1rnCmoJuVaOX-8QUK54Lx3Z-IqliMZH8L-rVUCSH8OwXAjhAk4draCs9zdUVWpWhjWASpphPT5roV4scaWFuWppQFTeO78JojKioBzrBwJf-GKBSqMOde_pxAMUdq4Eg8df45Cq2Mv2Tsg9EQzuYaRxLSEkV1ys7HDMHDqn1VnFNrzsZs8k6nOMGCmkrHiofZCNyh97HVCgh0hIg3xz_WtjXnnXZEleLSwXayc"/>
+<div class="absolute top-md left-md bg-secondary text-on-secondary px-sm py-xs rounded-full font-label-md">Best Seller</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-button text-primary text-lg">The Gentry Hub</h4>
+<div class="flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-md">Koramangala, Bangalore</p>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary text-xl">₹550 <span class="text-xs font-body-md text-on-surface-variant">onwards</span></span>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-button active:scale-95 transition-transform">Book</button>
+</div>
+</div>
+</div>
+<!-- Salon Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-xl shadow-sm overflow-hidden snap-start hover:shadow-lg transition-shadow">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A sleek, boutique salon specializing in facial grooming and skincare. The room is decorated in a warm off-white and beige palette with subtle gold accents. Elegant glass bottles and premium grooming tools are organized on marble countertops. The atmosphere is quiet, sophisticated, and smells of sandalwood, perfectly capturing a luxury self-care ritual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsqX-1lM51ZA-VqTaBvzIdkrj6P3PoChC8iKx4MF2BZ97wONyQuuteSfdumaoZ8g4-ARnwjKSqe91Si6EFcEypb63JIwl0cQxMvuyUk-uknjOzLCQ-rKrTqjeToOUkooI0-n6owsra9qCT_E-0Kd68q0RLgwP9PO1_jitUTwSIMAv709AjbhpFEwN5TLkfI5d70g3f8N1gAM1iHL-jVYrXKV972Td5WOeIV7JJuSbbVnxoRLK15E3ljQZIg1U00fI8DGHtrLKBsqwZ"/>
+<div class="absolute top-md left-md bg-primary text-on-primary px-sm py-xs rounded-full font-label-md">AI Pick</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-button text-primary text-lg">Luxe Rituals</h4>
+<div class="flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-md">Indiranagar, Bangalore</p>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary text-xl">₹800 <span class="text-xs font-body-md text-on-surface-variant">onwards</span></span>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-button active:scale-95 transition-transform">Book</button>
+</div>
+</div>
+</div>
+<!-- Salon Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-xl shadow-sm overflow-hidden snap-start hover:shadow-lg transition-shadow">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A tranquil spa sanctuary with soft, ambient lighting and minimalist architecture. High-quality stone textures and bamboo elements create a Zen-like atmosphere. A clean, warm off-white color scheme dominates the space, evoking a sense of deep relaxation and professional wellness. The mood is serene, high-end, and perfectly curated for a premium spa experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzVMPff4vrOWfMJ2NmntUrUacALB5Dn5aH1nNrUYv3YHOmAEjT-gaW6LX5QLzZaE1fJthPmfQwI0Y_ja9Wc_BDr1QQjQ5Ghnj1nDJwRt-hw2B22SZ2-AX0QCcQp9LbhfhbxA3nQ7m1zNKG6kd2M-i9gqe1jgXZB_vJBux9aANdAP7bdb-9yhOJj9Y6x10XZPv8ean-XskS0XsUP2k6GUPvi0xFsspNmjjUvNA3PXsG2AhuSXcK_H8EHewmlbuoF9WyemyHW_z9Tjoa"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h4 class="font-button text-primary text-lg">Urban Oasis</h4>
+<div class="flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.7</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-md">HSR Layout, Bangalore</p>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary text-xl">₹1200 <span class="text-xs font-body-md text-on-surface-variant">onwards</span></span>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-button active:scale-95 transition-transform">Book</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works Section -->
+<section class="py-xxl max-w-7xl mx-auto px-margin-mobile text-center">
+<h3 class="font-headline-md text-primary mb-xl">Your Ritual, Simplified</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mb-md text-primary">
+<span class="material-symbols-outlined text-[32px]">search</span>
+</div>
+<h5 class="font-button mb-xs">Search</h5>
+<p class="text-on-surface-variant text-sm">Tell GroomAI what you need.</p>
+</div>
+<div class="hidden md:flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center mb-md text-secondary">
+<span class="material-symbols-outlined text-[32px]">checklist</span>
+</div>
+<h5 class="font-button mb-xs">Pick</h5>
+<p class="text-on-surface-variant text-sm">Choose your perfect style.</p>
+</div>
+<div class="hidden md:flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mb-md text-primary">
+<span class="material-symbols-outlined text-[32px]">calendar_month</span>
+</div>
+<h5 class="font-button mb-xs">Book</h5>
+<p class="text-on-surface-variant text-sm">Instant, verified slots.</p>
+</div>
+<div class="hidden md:flex items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center mb-md text-secondary">
+<span class="material-symbols-outlined text-[32px]">self_care</span>
+</div>
+<h5 class="font-button mb-xs">Relax</h5>
+<p class="text-on-surface-variant text-sm">Enjoy the grooming ritual.</p>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-xxl px-margin-mobile overflow-hidden bg-white">
+<div class="max-w-7xl mx-auto">
+<h3 class="font-headline-md text-primary mb-xl text-center">What Clients Say</h3>
+<div class="flex gap-lg overflow-x-auto hide-scrollbar pb-md">
+<!-- Review 1 -->
+<div class="min-w-[300px] md:min-w-[400px] p-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 italic">
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-primary mb-xl">"The AI search is genuinely helpful. Found a salon that matched my specific beard style requirements in seconds. Truly premium experience."</p>
+<div class="flex items-center gap-md not-italic">
+<div class="w-10 h-10 rounded-full bg-primary-fixed"></div>
+<div>
+<h6 class="font-button text-sm">Aditya Verma</h6>
+<span class="text-xs text-on-surface-variant">Member since Jan 2024</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="min-w-[300px] md:min-w-[400px] p-xl rounded-2xl bg-surface-container-low border border-outline-variant/30 italic">
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-primary mb-xl">"Booking used to be a chore. With GroomAI, it's a seamless ritual. The salons listed are always high-quality and very professional."</p>
+<div class="flex items-center gap-md not-italic">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed"></div>
+<div>
+<h6 class="font-button text-sm">Rohan Mehta</h6>
+<span class="text-xs text-on-surface-variant">Member since Feb 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom NavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-surface-container-low shadow-[0_-2px_16px_rgba(0,0,0,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed relative after:content-[''] after:w-1 after:h-1 after:bg-primary dark:after:bg-primary-fixed after:rounded-full after:mt-1 hover:text-primary dark:hover:text-primary-fixed transition-all duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-150" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-150" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-all duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<!-- FAB for AI Help -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center group hover:scale-110 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined text-[28px] group-hover:rotate-12 transition-transform">auto_awesome</span>
+</button>
+</div>
+<script>
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.trending-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(card);
+        });
+
+        // Sticky Header active state on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
