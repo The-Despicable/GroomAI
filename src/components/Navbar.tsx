@@ -12,6 +12,7 @@ export default function Navbar() {
         <Link href="/explore" className="hover:text-white transition-colors">Explore</Link>
         <Link href="/bookings" className="hover:text-white transition-colors">Bookings</Link>
         <Link href="/assistant" className="hover:text-white transition-colors">AI</Link>
+        <Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
         <Link href="/profile" className="hover:text-white transition-colors">Profile</Link>
       </div>
       {loading ? null : user ? (

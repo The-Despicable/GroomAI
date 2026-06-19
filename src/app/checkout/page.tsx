@@ -4,8 +4,15 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { useAuth } from '@/context/AuthContext'
 import { signInWithGoogle } from '@/lib/firebase'
 import { createBooking } from '@/lib/api'
+import { Lock, CreditCard, Smartphone, Building2 } from 'lucide-react'
 
 const timeSlots = ['10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM']
+
+const paymentMethods = [
+  { id: 'card', label: 'Card', icon: CreditCard },
+  { id: 'upi', label: 'UPI', icon: Smartphone },
+  { id: 'netbanking', label: 'Net Banking', icon: Building2 },
+]
 
 function CheckoutContent() {
   const params = useSearchParams()
@@ -16,6 +23,7 @@ function CheckoutContent() {
   const price = params.get('price') || '0'
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
+  const [paymentMethod, setPaymentMethod] = useState('upi')
   const [processing, setProcessing] = useState(false)
 
   async function handlePay() {
@@ -23,7 +31,7 @@ function CheckoutContent() {
     if (!date || !time) { alert('Select date and time'); return }
     setProcessing(true)
     try {
-      await createBooking({
+      const booking = await createBooking({
         salon_id: salonId,
         service,
         price: Number(price),
@@ -31,9 +39,22 @@ function CheckoutContent() {
         time,
         user_id: user.uid,
       })
+
+      if (booking) {
+        await fetch('/api/payments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            appointmentId: booking.id,
+            amount: Number(price),
+            userId: user.uid,
+          }),
+        })
+      }
+
       router.push('/bookings')
     } catch {
-      alert('Booking failed. Please try again.')
+      alert('Payment failed. Please try again.')
     }
     setProcessing(false)
   }
@@ -41,11 +62,13 @@ function CheckoutContent() {
   return (
     <>
       <h1 className="text-xl font-bold text-white mb-6">Checkout</h1>
+
       <div className="bg-[#111111] border border-[#1a1a1a] rounded-2xl p-4 mb-6">
         <p className="text-sm text-gray-400">Service</p>
         <p className="text-white font-medium mt-0.5">{service}</p>
         <p className="text-[#C9A84C] font-semibold mt-1">₹{price}</p>
       </div>
+
       <div className="flex flex-col gap-4 mb-6">
         <div>
           <label className="text-sm text-gray-400 mb-1.5 block">Date</label>
@@ -67,10 +90,33 @@ function CheckoutContent() {
           </div>
         </div>
       </div>
+
+      <div className="mb-6">
+        <label className="text-sm text-gray-400 mb-2 block">Payment Method</label>
+        <div className="grid grid-cols-3 gap-2">
+          {paymentMethods.map(m => (
+            <button key={m.id} onClick={() => setPaymentMethod(m.id)}
+              className={`flex items-center justify-center gap-1.5 py-3 rounded-xl text-sm border transition-colors ${
+                paymentMethod === m.id ? 'bg-[#C9A84C] text-black border-[#C9A84C]' : 'border-[#1a1a1a] text-gray-400 hover:border-[#C9A84C]/50'
+              }`}>
+              <m.icon size={16} />{m.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <button onClick={handlePay} disabled={processing}
-        className="w-full bg-[#C9A84C] text-black font-semibold py-3.5 rounded-xl hover:bg-[#b8963e] transition-colors disabled:opacity-50">
-        {processing ? 'Processing...' : user ? `Pay ₹${price}` : 'Sign In to Book'}
+        className="w-full bg-[#C9A84C] text-black font-semibold py-3.5 rounded-xl hover:bg-[#b8963e] transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
+        {processing ? (
+          'Processing...'
+        ) : (
+          <><Lock size={16} />{user ? `Pay ₹${price}` : 'Sign In to Pay'}</>
+        )}
       </button>
+
+      <p className="text-center text-xs text-gray-600 mt-3">
+        Secured by Razorpay. Your payment info is encrypted.
+      </p>
     </>
   )
 }
