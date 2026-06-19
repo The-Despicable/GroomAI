@@ -7,8 +7,10 @@ interface Message { role: 'user' | 'assistant'; content: string }
 
 const starters = ['Find beard salons near me', 'Best haircut styles 2025', 'Book a spa near Banjara Hills']
 
-export default function Assistant() {
-  const [messages, setMessages] = useState<Message[]>([{ role: 'assistant', content: 'Hi! I can help you find salons, styles, and bookings in Hyderabad. What are you looking for?' }])
+export default function AssistantPage() {
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'assistant', content: 'Hi! I can help you find salons, styles, and bookings in Hyderabad. What are you looking for?' },
+  ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
@@ -33,24 +35,45 @@ export default function Assistant() {
 
   return (
     <div className="flex flex-col h-[calc(100vh-7rem)] max-w-2xl mx-auto px-4 py-4">
+      <div className="flex items-center gap-2 mb-4">
+        <Bot size={20} className="text-[#C9A84C]" />
+        <h1 className="text-lg font-bold text-white">GroomAI Assistant</h1>
+      </div>
       <div className="flex-1 overflow-y-auto flex flex-col gap-3 pb-4">
         {messages.map((m, i) => (
           <div key={i} className={`flex gap-2 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            {m.role === 'assistant' && <div className="w-7 h-7 rounded-full bg-[#C9A84C]/10 flex items-center justify-center flex-shrink-0 mt-1"><Bot size={14} className="text-[#C9A84C]" /></div>}
-            <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm ${m.role === 'user' ? 'bg-[#C9A84C] text-black' : 'bg-[#111111] text-white border border-[#1a1a1a]'}`}>
+            {m.role === 'assistant' && (
+              <div className="w-7 h-7 rounded-full bg-[#C9A84C]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <Bot size={14} className="text-[#C9A84C]" />
+              </div>
+            )}
+            <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm ${
+              m.role === 'user'
+                ? 'bg-[#C9A84C] text-black'
+                : 'bg-[#111111] text-white border border-[#1a1a1a]'
+            }`}>
               {m.content}
             </div>
           </div>
         ))}
         {loading && (
           <div className="flex gap-2 justify-start">
-            <div className="w-7 h-7 h-7 rounded-full bg-[#C9A84C]/10 flex items-center justify-center flex-shrink-0 mt-1"><Bot size={14} className="text-[#C9A84C]" /></div>
-            <div className="bg-[#111111] border border-[#1a1a1a] rounded-2xl px-4 py-2.5"><span className="animate-pulse text-gray-400 text-sm">Thinking...</span></div>
+            <div className="w-7 h-7 rounded-full bg-[#C9A84C]/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <Bot size={14} className="text-[#C9A84C]" />
+            </div>
+            <div className="bg-[#111111] border border-[#1a1a1a] rounded-2xl px-4 py-2.5">
+              <span className="animate-pulse text-gray-400 text-sm">Thinking...</span>
+            </div>
           </div>
         )}
         {messages.length === 1 && (
           <div className="flex flex-col gap-2 mt-4">
-            {starters.map(s => <button key={s} onClick={() => send(s)} className="text-left text-sm text-gray-400 border border-[#1a1a1a] rounded-xl px-4 py-2.5 hover:border-[#C9A84C]/50 hover:text-[#C9A84C] transition-colors">{s}</button>)}
+            {starters.map(s => (
+              <button key={s} onClick={() => send(s)}
+                className="text-left text-sm text-gray-400 border border-[#1a1a1a] rounded-xl px-4 py-2.5 hover:border-[#C9A84C]/50 hover:text-[#C9A84C] transition-colors">
+                {s}
+              </button>
+            ))}
           </div>
         )}
         <div ref={bottomRef} />

@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useCallback } from 'react'
+import { Suspense, useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Search } from 'lucide-react'
 import SalonCard from '@/components/SalonCard'
@@ -7,7 +7,7 @@ import { getSalons } from '@/lib/api'
 
 const services = ['All', 'Hair', 'Beard', 'Spa', 'Nails']
 
-export default function Explore() {
+function ExploreContent() {
   const searchParams = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('q') || '')
   const [service, setService] = useState(searchParams.get('service') || 'All')
@@ -16,7 +16,10 @@ export default function Explore() {
 
   const fetch = useCallback(async () => {
     setLoading(true)
-    const data = await getSalons({ service: service === 'All' ? undefined : service.toLowerCase(), location: query || undefined })
+    const data = await getSalons({
+      service: service === 'All' ? undefined : service.toLowerCase(),
+      location: query || undefined,
+    })
     setSalons(data)
     setLoading(false)
   }, [query, service])
@@ -27,7 +30,7 @@ export default function Explore() {
   }, [fetch])
 
   return (
-    <div className="px-4 py-6 max-w-2xl mx-auto">
+    <>
       <div className="flex gap-2 mb-4">
         <div className="flex-1 relative">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
@@ -45,15 +48,25 @@ export default function Explore() {
       </div>
       {loading ? (
         <div className="grid grid-cols-1 gap-4">
-          {[1,2,3].map(i => <div key={i} className="h-64 bg-[#111111] rounded-2xl animate-pulse" />)}
+          {[1, 2, 3].map(i => <div key={i} className="h-48 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" />)}
         </div>
       ) : salons.length === 0 ? (
         <p className="text-gray-500 text-sm text-center py-16">No salons found</p>
       ) : (
         <div className="grid grid-cols-1 gap-4">
-          {salons.map((s: any) => <SalonCard key={s.id} {...s} />)}
+          {salons.map((s: any) => <SalonCard key={s.id} salon={s} />)}
         </div>
       )}
+    </>
+  )
+}
+
+export default function ExplorePage() {
+  return (
+    <div className="px-4 py-6 max-w-2xl mx-auto">
+      <Suspense fallback={<div className="text-center py-8 text-gray-500">Loading...</div>}>
+        <ExploreContent />
+      </Suspense>
     </div>
   )
 }
