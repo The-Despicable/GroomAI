@@ -66,7 +66,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      {!loading && salons.length > 0 && (
+      {!loading && (
         <div className="mb-6">
           <h2 className="text-lg font-semibold text-white mb-3">Map View</h2>
           <SalonMap salons={salons} />
