@@ -7,7 +7,7 @@ async function getOllamaClient() {
     const { default: OpenAI } = await import('openai')
     _ollamaClient = new OpenAI({
       apiKey: process.env.OLLAMA_API_KEY,
-      baseURL: 'https://api.ollama.com/v1',
+      baseURL: 'https://ollama.com/v1',
     })
   }
   return _ollamaClient
@@ -33,7 +33,7 @@ If they ask for a specific salon, tell them to search in the app.
 
     const ollamaClient = await getOllamaClient()
     const completion = await ollamaClient.chat.completions.create({
-      model: 'minmax-m3',
+      model: 'minimax-m3',
       messages: [
         { role: 'system', content: systemPrompt },
         ...(history || []),
