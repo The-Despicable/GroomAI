@@ -6,6 +6,8 @@ export interface Salon {
   location: string
   rating: number
   priceFrom: number
+  lat: number
+  lon: number
   imageUrl?: string
   services: { name: string; price: number; duration: number }[]
 }

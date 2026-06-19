@@ -2,8 +2,11 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search, Scissors, Wind, Sparkles, Hand } from 'lucide-react'
+import dynamic from 'next/dynamic'
 import SalonCard from '@/components/SalonCard'
 import { getSalons } from '@/lib/api'
+
+const SalonMap = dynamic(() => import('@/components/SalonMap'), { ssr: false })
 
 const categories = [
   { label: 'Hair', icon: Scissors },
@@ -62,6 +65,13 @@ export default function HomePage() {
           </button>
         ))}
       </div>
+
+      {!loading && salons.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-white mb-3">Map View</h2>
+          <SalonMap salons={salons} />
+        </div>
+      )}
 
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-white mb-4">Trending Near You</h2>

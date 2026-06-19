@@ -7,6 +7,8 @@ const salons = [
     location: '123 Main St, Banjara Hills, Hyderabad',
     rating: 4.8,
     priceFrom: 399,
+    lat: 17.415,
+    lon: 78.428,
     imageUrl: '',
     services: [
       { name: 'Haircut', price: 399, duration: 30 },
@@ -20,6 +22,8 @@ const salons = [
     location: '456 Oak Ave, Jubilee Hills, Hyderabad',
     rating: 4.5,
     priceFrom: 599,
+    lat: 17.431,
+    lon: 78.412,
     imageUrl: '',
     services: [
       { name: 'Full Body Massage', price: 999, duration: 60 },
@@ -33,6 +37,8 @@ const salons = [
     location: 'Koramangala, Bangalore',
     rating: 4.9,
     priceFrom: 550,
+    lat: 12.935,
+    lon: 77.624,
     imageUrl: '',
     services: [
       { name: 'Premium Haircut', price: 550, duration: 45 },
@@ -46,6 +52,8 @@ const salons = [
     location: 'Indiranagar, Bangalore',
     rating: 4.8,
     priceFrom: 800,
+    lat: 12.978,
+    lon: 77.640,
     imageUrl: '',
     services: [
       { name: 'Spa Pedicure', price: 899, duration: 45 },
@@ -59,6 +67,8 @@ const salons = [
     location: 'HSR Layout, Bangalore',
     rating: 4.7,
     priceFrom: 1200,
+    lat: 12.911,
+    lon: 77.638,
     imageUrl: '',
     services: [
       { name: 'Detox Facial', price: 1299, duration: 50 },

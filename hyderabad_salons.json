@@ -1,0 +1,114 @@
+{
+  "elements": [
+    {
+      "type": "node",
+      "id": 100000,
+      "lat": 17.415,
+      "lon": 78.428,
+      "tags": {
+        "name": "The Groom Room",
+        "shop": "barber",
+        "addr:street": "Road No 12"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100001,
+      "lat": 17.431,
+      "lon": 78.412,
+      "tags": {
+        "name": "Spa & Blade",
+        "shop": "beauty",
+        "addr:street": "Road No 36"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100002,
+      "lat": 17.425,
+      "lon": 78.42,
+      "tags": {
+        "name": "Gentleman's Quarter",
+        "shop": "barber",
+        "addr:street": "Jubilee Hills Rd"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100003,
+      "lat": 17.418,
+      "lon": 78.435,
+      "tags": {
+        "name": "Luxe Unisex Salon",
+        "shop": "beauty",
+        "addr:street": "Banjara Hills Rd"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100004,
+      "lat": 17.41,
+      "lon": 78.425,
+      "tags": {
+        "name": "Urban Cuts",
+        "shop": "barber",
+        "addr:street": "Road No 10"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100005,
+      "lat": 17.422,
+      "lon": 78.43,
+      "tags": {
+        "name": "Bliss Beauty Spa",
+        "amenity": "spa",
+        "addr:street": "Road No 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100006,
+      "lat": 17.428,
+      "lon": 78.417,
+      "tags": {
+        "name": "Royal Barber Co",
+        "shop": "barber",
+        "addr:street": "Film Nagar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100007,
+      "lat": 17.42,
+      "lon": 78.44,
+      "tags": {
+        "name": "Glow & Grace",
+        "shop": "beauty",
+        "addr:street": "Road No 45"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100008,
+      "lat": 17.435,
+      "lon": 78.408,
+      "tags": {
+        "name": "Serenity Spa",
+        "amenity": "spa",
+        "addr:street": "Jubilee Hills"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100009,
+      "lat": 17.412,
+      "lon": 78.432,
+      "tags": {
+        "name": "The Beard Club",
+        "shop": "barber",
+        "addr:street": "Banjara Hills"
+      }
+    }
+  ]
+}
