@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import realSalons from '@/data/real_salons.json'
 
 let _ollamaClient: any = null
 
@@ -13,12 +14,9 @@ async function getOllamaClient() {
   return _ollamaClient
 }
 
-const mockSalons: Record<string, any> = {
-  '1': { id: '1', name: 'The Groom Room', location: 'Banjara Hills', rating: 4.8, priceFrom: 399, services: ['Haircut', 'Beard Trim', 'Hair + Beard Combo'] },
-  '2': { id: '2', name: 'Spa & Blade', location: 'Jubilee Hills', rating: 4.5, priceFrom: 599, services: ['Massage', 'Facial', 'Manicure'] },
-  '3': { id: '3', name: 'Gentleman\'s Quarter', location: 'Banjara Hills', rating: 4.9, priceFrom: 550, services: ['Premium Haircut', 'Beard Sculpt', 'Hair Color'] },
-  '4': { id: '4', name: 'Luxe Rituals', location: 'Jubilee Hills', rating: 4.8, priceFrom: 800, services: ['Spa Pedicure', 'Head Massage', 'Grooming Package'] },
-}
+const mockSalons: Record<string, any> = Object.fromEntries(
+  (realSalons as any[]).map(s => [s.id, { ...s, services: s.services?.map((sv: any) => sv.name) || [] }])
+)
 
 function findSalons(query: string): any[] {
   const q = query.toLowerCase()

@@ -1,0 +1,407 @@
+[
+  {
+    "id": "1",
+    "name": "The Groom Room",
+    "location": "Road No 12, Banjara Hills",
+    "rating": 4.8,
+    "priceFrom": 399,
+    "lat": 17.415,
+    "lon": 78.428,
+    "imageUrl": "https://picsum.photos/seed/salon1/400/300",
+    "services": [
+      {
+        "name": "Haircut",
+        "price": 409,
+        "duration": 30
+      },
+      {
+        "name": "Beard Trim",
+        "price": 441,
+        "duration": 15
+      },
+      {
+        "name": "Hair + Beard",
+        "price": 466,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Nature's Studio Unisex Salon",
+    "location": "Road No 10, Banjara Hills",
+    "rating": 4.6,
+    "priceFrom": 499,
+    "lat": 17.418,
+    "lon": 78.432,
+    "imageUrl": "https://picsum.photos/seed/salon2/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 578,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 598,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 582,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Jawed Habib Salon",
+    "location": "GVK One Mall, Banjara Hills",
+    "rating": 4.3,
+    "priceFrom": 350,
+    "lat": 17.413,
+    "lon": 78.425,
+    "imageUrl": "https://picsum.photos/seed/salon3/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 421,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 499,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 448,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Looks Salon",
+    "location": "Road No 36, Banjara Hills",
+    "rating": 4.5,
+    "priceFrom": 299,
+    "lat": 17.42,
+    "lon": 78.435,
+    "imageUrl": "https://picsum.photos/seed/salon4/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 399,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 499,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 299,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Green Trends Unisex Salon",
+    "location": "Road No 2, Banjara Hills",
+    "rating": 4.4,
+    "priceFrom": 349,
+    "lat": 17.422,
+    "lon": 78.43,
+    "imageUrl": "https://picsum.photos/seed/salon5/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 399,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 499,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 366,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "VLCC",
+    "location": "Road No 10, Banjara Hills",
+    "rating": 4.7,
+    "priceFrom": 799,
+    "lat": 17.416,
+    "lon": 78.426,
+    "imageUrl": "https://picsum.photos/seed/salon6/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 842,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 864,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 837,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Spa & Blade",
+    "location": "Road No 36, Jubilee Hills",
+    "rating": 4.5,
+    "priceFrom": 599,
+    "lat": 17.431,
+    "lon": 78.412,
+    "imageUrl": "https://picsum.photos/seed/salon7/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 655,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 676,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 689,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Gentleman's Quarter",
+    "location": "Road No 45, Jubilee Hills",
+    "rating": 4.9,
+    "priceFrom": 550,
+    "lat": 17.425,
+    "lon": 78.42,
+    "imageUrl": "https://picsum.photos/seed/salon8/400/300",
+    "services": [
+      {
+        "name": "Haircut",
+        "price": 620,
+        "duration": 30
+      },
+      {
+        "name": "Beard Trim",
+        "price": 584,
+        "duration": 15
+      },
+      {
+        "name": "Hair + Beard",
+        "price": 558,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "The Barber Boutique",
+    "location": "Road No 92, Jubilee Hills",
+    "rating": 4.6,
+    "priceFrom": 450,
+    "lat": 17.428,
+    "lon": 78.417,
+    "imageUrl": "https://picsum.photos/seed/salon9/400/300",
+    "services": [
+      {
+        "name": "Haircut",
+        "price": 503,
+        "duration": 30
+      },
+      {
+        "name": "Beard Trim",
+        "price": 411,
+        "duration": 15
+      },
+      {
+        "name": "Hair + Beard",
+        "price": 527,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Raje Hair & Beauty Salon",
+    "location": "Road No 25, Jubilee Hills",
+    "rating": 4.2,
+    "priceFrom": 249,
+    "lat": 17.434,
+    "lon": 78.409,
+    "imageUrl": "https://picsum.photos/seed/salon10/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 399,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 499,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 299,
+        "duration": 25
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Luxe Rituals Spa",
+    "location": "Road No 10, Jubilee Hills",
+    "rating": 4.8,
+    "priceFrom": 800,
+    "lat": 17.422,
+    "lon": 78.415,
+    "imageUrl": "https://picsum.photos/seed/salon11/400/300",
+    "services": [
+      {
+        "name": "Full Body Massage",
+        "price": 999,
+        "duration": 60
+      },
+      {
+        "name": "Facial",
+        "price": 864,
+        "duration": 30
+      },
+      {
+        "name": "Spa Pedicure",
+        "price": 788,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Toni & Guy Hairdressing",
+    "location": "Jubilee Hills Rd",
+    "rating": 4.7,
+    "priceFrom": 699,
+    "lat": 17.427,
+    "lon": 78.419,
+    "imageUrl": "https://picsum.photos/seed/salon12/400/300",
+    "services": [
+      {
+        "name": "Premium Haircut",
+        "price": 670,
+        "duration": 45
+      },
+      {
+        "name": "Hair Styling",
+        "price": 711,
+        "duration": 30
+      },
+      {
+        "name": "Hair Color",
+        "price": 1499,
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Royal Barber Co",
+    "location": "Film Nagar, Jubilee Hills",
+    "rating": 4.4,
+    "priceFrom": 299,
+    "lat": 17.429,
+    "lon": 78.414,
+    "imageUrl": "https://picsum.photos/seed/salon13/400/300",
+    "services": [
+      {
+        "name": "Haircut",
+        "price": 304,
+        "duration": 30
+      },
+      {
+        "name": "Beard Trim",
+        "price": 394,
+        "duration": 15
+      },
+      {
+        "name": "Hair + Beard",
+        "price": 399,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Urban Cuts",
+    "location": "Hitech City Rd, Madhapur",
+    "rating": 4.3,
+    "priceFrom": 299,
+    "lat": 17.448,
+    "lon": 78.378,
+    "imageUrl": "https://picsum.photos/seed/salon14/400/300",
+    "services": [
+      {
+        "name": "Haircut",
+        "price": 329,
+        "duration": 30
+      },
+      {
+        "name": "Beard Trim",
+        "price": 262,
+        "duration": 15
+      },
+      {
+        "name": "Hair + Beard",
+        "price": 399,
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Bliss Beauty Parlour",
+    "location": "Somajiguda, Hyderabad",
+    "rating": 4.1,
+    "priceFrom": 199,
+    "lat": 17.41,
+    "lon": 78.443,
+    "imageUrl": "https://picsum.photos/seed/salon15/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 399,
+        "duration": 45
+      },
+      {
+        "name": "Facial",
+        "price": 499,
+        "duration": 30
+      },
+      {
+        "name": "Manicure",
+        "price": 299,
+        "duration": 25
+      }
+    ]
+  }
+]

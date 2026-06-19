@@ -2,57 +2,46 @@
   "elements": [
     {
       "type": "node",
-      "id": 100000,
+      "id": 100001,
       "lat": 17.415,
       "lon": 78.428,
       "tags": {
         "name": "The Groom Room",
         "shop": "barber",
-        "addr:street": "Road No 12"
-      }
-    },
-    {
-      "type": "node",
-      "id": 100001,
-      "lat": 17.431,
-      "lon": 78.412,
-      "tags": {
-        "name": "Spa & Blade",
-        "shop": "beauty",
-        "addr:street": "Road No 36"
+        "addr:street": "Road No 12, Banjara Hills"
       }
     },
     {
       "type": "node",
       "id": 100002,
-      "lat": 17.425,
-      "lon": 78.42,
+      "lat": 17.418,
+      "lon": 78.432,
       "tags": {
-        "name": "Gentleman's Quarter",
-        "shop": "barber",
-        "addr:street": "Jubilee Hills Rd"
+        "name": "Nature's Studio Unisex Salon",
+        "shop": "beauty",
+        "addr:street": "Road No 10, Banjara Hills"
       }
     },
     {
       "type": "node",
       "id": 100003,
-      "lat": 17.418,
-      "lon": 78.435,
+      "lat": 17.413,
+      "lon": 78.425,
       "tags": {
-        "name": "Luxe Unisex Salon",
+        "name": "Jawed Habib Salon",
         "shop": "beauty",
-        "addr:street": "Banjara Hills Rd"
+        "addr:street": "GVK One Mall, Banjara Hills"
       }
     },
     {
       "type": "node",
       "id": 100004,
-      "lat": 17.41,
-      "lon": 78.425,
+      "lat": 17.42,
+      "lon": 78.435,
       "tags": {
-        "name": "Urban Cuts",
-        "shop": "barber",
-        "addr:street": "Road No 10"
+        "name": "Looks Salon",
+        "shop": "beauty",
+        "addr:street": "Road No 36, Banjara Hills"
       }
     },
     {
@@ -61,53 +50,119 @@
       "lat": 17.422,
       "lon": 78.43,
       "tags": {
-        "name": "Bliss Beauty Spa",
-        "amenity": "spa",
-        "addr:street": "Road No 2"
+        "name": "Green Trends Unisex Salon",
+        "shop": "beauty",
+        "addr:street": "Road No 2, Banjara Hills"
       }
     },
     {
       "type": "node",
       "id": 100006,
-      "lat": 17.428,
-      "lon": 78.417,
+      "lat": 17.416,
+      "lon": 78.426,
       "tags": {
-        "name": "Royal Barber Co",
-        "shop": "barber",
-        "addr:street": "Film Nagar"
+        "name": "VLCC",
+        "shop": "beauty",
+        "addr:street": "Road No 10, Banjara Hills"
       }
     },
     {
       "type": "node",
       "id": 100007,
-      "lat": 17.42,
-      "lon": 78.44,
+      "lat": 17.431,
+      "lon": 78.412,
       "tags": {
-        "name": "Glow & Grace",
+        "name": "Spa & Blade",
         "shop": "beauty",
-        "addr:street": "Road No 45"
+        "addr:street": "Road No 36, Jubilee Hills"
       }
     },
     {
       "type": "node",
       "id": 100008,
-      "lat": 17.435,
-      "lon": 78.408,
+      "lat": 17.425,
+      "lon": 78.42,
       "tags": {
-        "name": "Serenity Spa",
-        "amenity": "spa",
-        "addr:street": "Jubilee Hills"
+        "name": "Gentleman's Quarter",
+        "shop": "barber",
+        "addr:street": "Road No 45, Jubilee Hills"
       }
     },
     {
       "type": "node",
       "id": 100009,
-      "lat": 17.412,
-      "lon": 78.432,
+      "lat": 17.428,
+      "lon": 78.417,
       "tags": {
-        "name": "The Beard Club",
+        "name": "The Barber Boutique",
         "shop": "barber",
-        "addr:street": "Banjara Hills"
+        "addr:street": "Road No 92, Jubilee Hills"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100010,
+      "lat": 17.434,
+      "lon": 78.409,
+      "tags": {
+        "name": "Raje Hair & Beauty Salon",
+        "shop": "beauty",
+        "addr:street": "Road No 25, Jubilee Hills"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100011,
+      "lat": 17.422,
+      "lon": 78.415,
+      "tags": {
+        "name": "Luxe Rituals Spa",
+        "amenity": "spa",
+        "addr:street": "Road No 10, Jubilee Hills"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100012,
+      "lat": 17.427,
+      "lon": 78.419,
+      "tags": {
+        "name": "Toni & Guy Hairdressing",
+        "shop": "hairdresser",
+        "addr:street": "Jubilee Hills Rd"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100013,
+      "lat": 17.429,
+      "lon": 78.414,
+      "tags": {
+        "name": "Royal Barber Co",
+        "shop": "barber",
+        "addr:street": "Film Nagar, Jubilee Hills"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100014,
+      "lat": 17.448,
+      "lon": 78.378,
+      "tags": {
+        "name": "Urban Cuts",
+        "shop": "barber",
+        "addr:street": "Hitech City Rd, Madhapur"
+      }
+    },
+    {
+      "type": "node",
+      "id": 100015,
+      "lat": 17.41,
+      "lon": 78.443,
+      "tags": {
+        "name": "Bliss Beauty Parlour",
+        "shop": "beauty",
+        "addr:street": "Somajiguda, Hyderabad"
       }
     }
   ]
