@@ -1,32 +1,44 @@
 import { NextResponse } from 'next/server'
-import OpenAI from 'openai'
 
-const nimClient = new OpenAI({
-  apiKey: process.env.NIM_API_KEY,
-  baseURL: 'https://integrate.api.nvidia.com/v1',
-})
+let _ollamaClient: any = null
+
+async function getOllamaClient() {
+  if (!_ollamaClient) {
+    const { default: OpenAI } = await import('openai')
+    _ollamaClient = new OpenAI({
+      apiKey: process.env.OLLAMA_API_KEY,
+      baseURL: 'https://api.ollama.com/v1',
+    })
+  }
+  return _ollamaClient
+}
 
 export async function POST(request: Request) {
   try {
     const { message, history } = await request.json()
 
+    if (!process.env.OLLAMA_API_KEY) {
+      return NextResponse.json({
+        reply: `You said: "${message}". I'm your GroomAI assistant! Connect an OLLAMA_API_KEY to enable AI.`,
+      })
+    }
+
     const systemPrompt = `
 You are GroomBot, an AI assistant for GroomAI – a salon booking app.
 Your users are in Hyderabad, India, especially Banjara Hills and Jubilee Hills.
-You help users find salons, recommend services (hair, beard, spa, nails), and answer grooming questions.
-Be friendly, concise, and suggest the app's map/search for finding nearby salons.
+You help users find salons, recommend grooming services (hair, beard, spa, nails), and answer questions.
+Be friendly, concise, and suggest the app's map/search to find nearby salons.
 If they ask for a specific salon, tell them to search in the app.
 `
 
-    const messages = [
-      { role: 'system', content: systemPrompt },
-      ...(history || []),
-      { role: 'user', content: message },
-    ]
-
-    const completion = await nimClient.chat.completions.create({
-      model: 'deepseek-ai/deepseek-r1',
-      messages,
+    const ollamaClient = await getOllamaClient()
+    const completion = await ollamaClient.chat.completions.create({
+      model: 'minmax-m3',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        ...(history || []),
+        { role: 'user', content: message },
+      ],
       temperature: 0.7,
       max_tokens: 500,
     })
@@ -35,7 +47,7 @@ If they ask for a specific salon, tell them to search in the app.
 
     return NextResponse.json({ reply })
   } catch (error: any) {
-    console.error('NVIDIA NIM error:', error)
+    console.error('Ollama Cloud API error:', error)
     return NextResponse.json(
       { error: 'AI service temporarily unavailable.' },
       { status: 500 }
