@@ -34,7 +34,10 @@ export default function ProfilePage() {
       <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-6 mb-6">
         <div className="flex items-center gap-4 mb-6">
           {user.photoURL ? (
-            <img src={user.photoURL} alt="" className="w-16 h-16 rounded-full object-cover" />
+            <div
+              className="w-16 h-16 rounded-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${user.photoURL})` }}
+            />
           ) : (
             <div className="w-16 h-16 bg-[#C9A84C]/20 rounded-full flex items-center justify-center">
               <User size={28} className="text-[#C9A84C]" />

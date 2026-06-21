@@ -32,12 +32,18 @@ function ExploreContent() {
 
   return (
     <>
-      <div className="relative max-w-xl mx-auto mb-6">
-        <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+      <div className="flex items-center gap-3 mb-2">
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+        <span className="text-xs text-gray-500 uppercase tracking-[0.15em] font-medium">Explore Salons</span>
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+      </div>
+
+      <div className="relative max-w-xl mx-auto mb-6 mt-6">
+        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full bg-[#1A1A1A] border border-gray-700 rounded-full py-3 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
+          className="w-full bg-[#111] border border-gray-800 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-[#C9A84C]/50 focus:ring-1 focus:ring-[#C9A84C]/20 transition-all"
           placeholder="Search salons or location..."
         />
       </div>
@@ -47,10 +53,10 @@ function ExploreContent() {
           <button
             key={s}
             onClick={() => setActiveService(s)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+            className={`px-5 py-2 rounded-xl text-sm font-medium transition-all ${
               activeService === s
-                ? 'bg-[#C9A84C] text-black'
-                : 'bg-[#1A1A1A] text-gray-400 border border-gray-700 hover:border-[#C9A84C]'
+                ? 'bg-[#C9A84C] text-black shadow-lg shadow-[#C9A84C]/20'
+                : 'bg-[#111] text-gray-400 border border-gray-800 hover:border-gray-600'
             }`}
           >
             {s}
@@ -61,15 +67,18 @@ function ExploreContent() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-[#1A1A1A] rounded-2xl h-72 animate-pulse border border-gray-800" />
+            <div key={i} className="bg-[#111] rounded-2xl h-72 animate-pulse border border-gray-800/50" />
           ))}
         </div>
       ) : salons.length === 0 ? (
         <div className="text-center py-20">
+          <div className="w-16 h-16 bg-gray-800/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <Search size={28} className="text-gray-600" />
+          </div>
           <p className="text-gray-500 text-lg">No salons found matching your criteria.</p>
           <button
             onClick={() => { setQuery(''); setActiveService('All') }}
-            className="mt-4 text-[#C9A84C] underline"
+            className="mt-4 text-[#C9A84C] hover:underline transition"
           >
             Clear filters
           </button>

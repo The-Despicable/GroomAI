@@ -8,18 +8,16 @@ import BookingCard from '@/components/BookingCard'
 export default function BookingsPage() {
   const { user, loading: authLoading, signIn } = useAuth()
   const [bookings, setBookings] = useState<Booking[]>([])
-  const [loading, setLoading] = useState(true)
+  const [fetching, setFetching] = useState(false)
 
   useEffect(() => {
-    if (!user) {
-      setLoading(false)
-      return
-    }
+    if (!user || authLoading) return
+    setFetching(true)
     getBookings(user.uid).then((data) => {
       setBookings(data)
-      setLoading(false)
+      setFetching(false)
     })
-  }, [user])
+  }, [user, authLoading])
 
   if (authLoading) {
     return <div className="max-w-3xl mx-auto px-4 py-20 text-center text-gray-500">Loading...</div>
@@ -43,7 +41,7 @@ export default function BookingsPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold text-white mb-6">My Bookings</h2>
-      {loading ? (
+      {fetching ? (
         <div className="space-y-4">
           {[1, 2].map((i) => (
             <div key={i} className="bg-[#1A1A1A] rounded-2xl h-24 animate-pulse border border-gray-800" />

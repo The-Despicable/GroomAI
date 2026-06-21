@@ -5,20 +5,18 @@ import { auth, signInWithGoogle, signOut as firebaseSignOut } from '../lib/fireb
 import { onAuthStateChanged, User } from 'firebase/auth'
 
 export function useAuth() {
+  const noAuth = !auth
   const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(noAuth ? false : true)
 
   useEffect(() => {
-    if (!auth) {
-      setLoading(false)
-      return
-    }
-    const unsub = onAuthStateChanged(auth, (u) => {
+    if (noAuth) return
+    const unsub = onAuthStateChanged(auth!, (u) => {
       setUser(u)
       setLoading(false)
     })
     return unsub
-  }, [])
+  }, [noAuth])
 
   const signIn = async () => {
     try {

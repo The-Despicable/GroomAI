@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Search, Sparkles, Mic, Scissors, Hand, Smile, Flower2, Star, Calendar } from 'lucide-react'
+import { Search, Sparkles, Scissors, Hand, Smile, Flower2, Star, Calendar } from 'lucide-react'
 import { getSalons, type Salon } from '@/lib/api'
 import SalonCard from '@/components/SalonCard'
 
@@ -40,71 +40,86 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative min-h-[530px] flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-gradient-to-b from-[#1A1A1A]/30 to-[#0A0A0A]">
-        <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C9A84C]/20 rounded-full blur-[100px] animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#C9A84C]/10 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-2s' }} />
+      <section className="relative min-h-[560px] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#C9A84C]/15 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#C9A84C]/8 rounded-full blur-[100px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/60 to-[#0A0A0A]" />
         </div>
         <div className="z-10 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#C9A84C] mb-4 tracking-tight">
-            Your Grooming, Perfected.
+          <span className="inline-block text-xs text-[#C9A84C] uppercase tracking-[0.2em] mb-6 font-medium">
+            AI-Powered Salon Booking
+          </span>
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight leading-[1.1]">
+            Your Grooming,
+            <br />
+            <span className="text-[#C9A84C]">Perfected.</span>
           </h2>
-          <p className="text-lg text-gray-400 mb-6 max-w-xl mx-auto">
-            AI-powered scheduling for the modern gentleman. Discover top-rated salons tailored to your style.
+          <p className="text-base text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed">
+            Discover top-rated salons tailored to your style. AI-powered scheduling for the modern individual.
           </p>
-          <form onSubmit={handleSearch} className="w-full max-w-2xl mx-auto bg-[#1A1A1A] border border-gray-700 rounded-full p-2 flex items-center gap-2 focus-within:ring-2 ring-[#C9A84C] transition">
-            <div className="pl-3 text-gray-500">
+          <form onSubmit={handleSearch} className="w-full max-w-xl mx-auto bg-[#111] border border-gray-800 rounded-2xl p-1.5 flex items-center gap-2 focus-within:border-[#C9A84C]/50 focus-within:ring-1 focus-within:ring-[#C9A84C]/20 transition-all shadow-lg">
+            <div className="pl-4 text-gray-500">
               <Search size={20} />
             </div>
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 bg-transparent border-none focus:outline-none text-white py-2"
-              placeholder="Haircut under ₹600"
+              className="flex-1 bg-transparent border-none focus:outline-none text-white py-3 text-sm placeholder:text-gray-600"
+              placeholder="Search salons, styles, or locations..."
               type="text"
             />
-            <div className="flex items-center gap-2 pr-2">
-              <button type="button" className="p-2 hover:bg-gray-800 rounded-full transition">
-                <Mic size={18} className="text-gray-400" />
-              </button>
-              <button type="submit" className="p-2 bg-[#C9A84C] text-black rounded-full hover:scale-105 transition">
-                <Sparkles size={18} />
-              </button>
-            </div>
+            <button type="submit" className="p-2.5 bg-[#C9A84C] text-black rounded-xl hover:bg-[#b8963e] hover:scale-105 transition-all active:scale-95">
+              <Sparkles size={18} />
+            </button>
           </form>
+          <p className="text-xs text-gray-600 mt-4">Popular: Haircut, Beard Trim, Spa, Facial</p>
         </div>
       </section>
 
-      <section className="px-4 py-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="px-6 py-16 max-w-7xl mx-auto">
+        <div className="flex items-center gap-3 mb-10">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+          <span className="text-xs text-gray-500 uppercase tracking-[0.15em] font-medium">Browse by Category</span>
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {categories.map(({ label, icon: Icon }) => (
             <button
               key={label}
               onClick={() => router.push(`/explore?service=${label.toLowerCase()}`)}
-              className="flex flex-col items-center group cursor-pointer"
+              className="group relative flex flex-col items-center py-8 px-4 bg-[#111] border border-gray-800/50 rounded-2xl hover:border-[#C9A84C]/30 hover:bg-[#1A1A1A] transition-all cursor-pointer active:scale-[0.98]"
             >
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-[#1A1A1A] border border-gray-800 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 group-active:scale-95 transition">
-                <Icon size={36} className="text-[#C9A84C]" />
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-[#C9A84C]/5 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-[#C9A84C]/10 group-hover:scale-110 transition-all">
+                <Icon size={32} className="text-[#C9A84C]" />
               </div>
-              <span className="text-[#C9A84C] font-medium">{label}</span>
+              <span className="text-[#C9A84C] font-medium text-sm">{label}</span>
             </button>
           ))}
         </div>
       </section>
 
-      <section className="py-12 bg-[#111] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-end mb-6">
+      <section className="py-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-end mb-8">
           <div>
-            <span className="text-xs text-[#C9A84C] uppercase tracking-widest">Selected for you</span>
-            <h3 className="text-2xl font-bold text-white">Trending Near You</h3>
+            <span className="text-xs text-[#C9A84C] uppercase tracking-[0.15em] font-medium">Curated for you</span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mt-1">Trending Near You</h3>
           </div>
-          <button onClick={() => router.push('/explore')} className="text-[#C9A84C] text-sm border-b border-[#C9A84C] hover:opacity-70">View All</button>
+          <button onClick={() => router.push('/explore')} className="text-sm text-gray-400 hover:text-[#C9A84C] transition-colors">
+            View All &rarr;
+          </button>
         </div>
-        <div className="flex gap-4 overflow-x-auto hide-scrollbar px-4 pb-4 snap-x">
+        <div className="flex gap-4 overflow-x-auto hide-scrollbar px-6 pb-4 snap-x">
           {loading ? (
-            <div className="text-gray-500">Loading...</div>
+            <div className="flex gap-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="min-w-[280px] md:min-w-[320px] bg-[#111] rounded-2xl h-72 animate-pulse border border-gray-800/50" />
+              ))}
+            </div>
           ) : salons.length === 0 ? (
-            <div className="text-gray-500">No salons found. Check back later.</div>
+            <div className="min-w-[280px] text-gray-500 py-12 text-center">
+              <p>No salons found. Check back later.</p>
+            </div>
           ) : (
             salons.slice(0, 3).map((s) => (
               <SalonCard key={s.id} id={s.id} name={s.name} location={s.location} rating={s.rating} priceFrom={s.priceFrom} imageUrl={s.image_url} />
@@ -113,18 +128,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 max-w-7xl mx-auto px-4 text-center">
-        <h3 className="text-2xl font-bold text-white mb-8">Your Ritual, Simplified</h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {steps.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-[#C9A84C]/10 rounded-full flex items-center justify-center mb-3">
-                <Icon size={28} className="text-[#C9A84C]" />
+      <section className="py-16 max-w-5xl mx-auto px-6">
+        <div className="flex items-center gap-3 mb-10">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+          <span className="text-xs text-gray-500 uppercase tracking-[0.15em] font-medium">How It Works</span>
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {steps.map(({ icon: Icon, title, desc }, i) => (
+            <div key={title} className="relative flex flex-col items-center text-center p-6 bg-[#111] border border-gray-800/50 rounded-2xl hover:border-gray-700/50 transition-colors">
+              <span className="absolute top-3 left-3 text-3xl font-bold text-gray-800 select-none">0{i + 1}</span>
+              <div className="w-14 h-14 bg-[#C9A84C]/10 rounded-2xl flex items-center justify-center mb-4">
+                <Icon size={26} className="text-[#C9A84C]" />
               </div>
-              <h5 className="text-white font-medium mb-1">{title}</h5>
-              <p className="text-gray-500 text-sm">{desc}</p>
+              <h5 className="text-white font-semibold mb-1.5">{title}</h5>
+              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-gray-800/50">
+        <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div>
+            <h4 className="text-white font-bold text-lg">Ready to look your best?</h4>
+            <p className="text-gray-500 text-sm mt-1">Book your next grooming session in seconds.</p>
+          </div>
+          <button
+            onClick={() => router.push('/explore')}
+            className="bg-[#C9A84C] text-black px-8 py-3 rounded-xl font-semibold hover:bg-[#b8963e] transition-colors"
+          >
+            Explore Salons
+          </button>
         </div>
       </section>
     </>

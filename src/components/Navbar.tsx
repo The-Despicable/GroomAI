@@ -17,6 +17,8 @@ export default function Navbar() {
           <Link href="/explore" className="text-gray-400 hover:text-white transition">Explore</Link>
           <Link href="/bookings" className="text-gray-400 hover:text-white transition">Bookings</Link>
           <Link href="/assistant" className="text-gray-400 hover:text-white transition">AI</Link>
+          <Link href="/dashboard" className="text-gray-400 hover:text-white transition">Dashboard</Link>
+          <Link href="/profile" className="text-gray-400 hover:text-white transition">Profile</Link>
         </nav>
         {user ? (
           <div className="flex items-center gap-3">
