@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createServerClient, createAdminClient } from '@/lib/supabase-server'
 
-let mockBookings: any[] = []
+let mockBookings: any[] = (globalThis as any).__mockBookings ??= []
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
