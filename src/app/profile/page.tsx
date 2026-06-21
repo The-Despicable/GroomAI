@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '@/context/AuthContext'
 import { signInWithGoogle, signOut } from '@/lib/auth'
-import { User, CalendarDays, Clock, RotateCcw, LogOut, Star, Heart, Settings, Gift } from 'lucide-react'
+import { User, CalendarDays, Clock, RotateCcw, LogOut, Star, Heart, Settings, Gift, Check, X } from 'lucide-react'
 import Link from 'next/link'
 
 type ProfileTab = 'history' | 'favorites' | 'settings'
@@ -17,6 +17,55 @@ export default function ProfilePage() {
   const [tab, setTab] = useState<ProfileTab>('history')
   const [history, setHistory] = useState<Appointment[]>([])
   const [rebooking, setRebooking] = useState(false)
+
+  const [editField, setEditField] = useState<string | null>(null)
+  const [editValue, setEditValue] = useState('')
+  const [phone, setPhone] = useState('')
+  const [savingField, setSavingField] = useState(false)
+  const [notifications, setNotifications] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
+
+  useEffect(() => {
+    const savedPhone = localStorage.getItem('groomai_phone') || ''
+    const savedNotif = localStorage.getItem('groomai_notifications') === 'true'
+    const savedDark = localStorage.getItem('groomai_darkmode') !== 'false'
+    setPhone(savedPhone)
+    setNotifications(savedNotif)
+    setDarkMode(savedDark)
+    document.documentElement.classList.toggle('dark', savedDark)
+  }, [])
+
+  function toggleNotifications() {
+    const next = !notifications
+    setNotifications(next)
+    localStorage.setItem('groomai_notifications', String(next))
+  }
+
+  function toggleDarkMode() {
+    const next = !darkMode
+    setDarkMode(next)
+    localStorage.setItem('groomai_darkmode', String(next))
+    document.documentElement.classList.toggle('dark', next)
+  }
+
+  function startEdit(field: string, currentValue: string) {
+    setEditField(field)
+    setEditValue(currentValue)
+  }
+
+  async function saveEdit(field: string) {
+    setSavingField(true)
+    try {
+      if (field === 'Phone') {
+        localStorage.setItem('groomai_phone', editValue)
+        setPhone(editValue)
+      }
+    } catch {
+      alert('Could not save. Please try again.')
+    }
+    setSavingField(false)
+    setEditField(null)
+  }
 
   useEffect(() => {
     if (user) {
@@ -54,12 +103,19 @@ export default function ProfilePage() {
     )
   }
 
+  const settingsFields = [
+    { label: 'Name', value: user.displayName || 'Not set' },
+    { label: 'Email', value: user.email || 'Not set' },
+    { label: 'Phone', value: phone || 'Not set' },
+  ]
+
   return (
     <div className="px-4 py-6 max-w-2xl mx-auto">
       <div className="bg-gradient-to-b from-[#111111] to-[#0A0A0A] border border-[#1a1a1a] rounded-2xl p-6 mb-6">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-[#C9A84C]/10 flex items-center justify-center ring-2 ring-[#C9A84C]/30">
             {user.photoURL ? (
+              // eslint-disable-next-line @next/next/no-img-element
               <img src={user.photoURL} alt="" className="w-16 h-16 rounded-full object-cover" />
             ) : (
               <User size={28} className="text-[#C9A84C]" />
@@ -152,36 +208,71 @@ export default function ProfilePage() {
 
       {tab === 'settings' && (
         <div className="bg-[#111111] border border-[#1a1a1a] rounded-2xl overflow-hidden">
-          {[
-            { label: 'Name', value: user.displayName || 'Not set' },
-            { label: 'Email', value: user.email || 'Not set' },
-            { label: 'Phone', value: 'Not set' },
-          ].map((s, i) => (
-            <div key={i} className="flex items-center justify-between px-5 py-3.5 border-b border-[#1a1a1a] last:border-0">
-              <div>
-                <p className="text-sm text-gray-400">{s.label}</p>
-                <p className="text-sm text-white font-medium">{s.value}</p>
-              </div>
-              <button className="text-xs text-[#C9A84C] hover:underline">Edit</button>
+          {settingsFields.map((s) => (
+            <div key={s.label} className="px-5 py-3.5 border-b border-[#1a1a1a]">
+              {editField === s.label ? (
+                <div className="flex items-center gap-2">
+                  <div className="flex-1">
+                    <p className="text-xs text-gray-500 mb-1">{s.label}</p>
+                    <input
+                      autoFocus
+                      value={editValue}
+                      onChange={e => setEditValue(e.target.value)}
+                      type={s.label === 'Phone' ? 'tel' : s.label === 'Email' ? 'email' : 'text'}
+                      className="w-full bg-[#0A0A0A] border border-[#C9A84C]/50 rounded-lg px-3 py-1.5 text-sm text-white outline-none"
+                    />
+                  </div>
+                  <button onClick={() => saveEdit(s.label)} disabled={savingField}
+                    className="text-green-400 hover:text-green-300 transition-colors disabled:opacity-40 mt-4">
+                    <Check size={16} />
+                  </button>
+                  <button onClick={() => setEditField(null)} className="text-gray-500 hover:text-white transition-colors mt-4">
+                    <X size={16} />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-400">{s.label}</p>
+                    <p className="text-sm text-white font-medium">{s.label === 'Phone' ? (phone || 'Not set') : s.value}</p>
+                  </div>
+                  <button
+                    onClick={() => startEdit(s.label, s.label === 'Phone' ? phone : s.value)}
+                    className="text-xs text-[#C9A84C] hover:underline"
+                  >
+                    Edit
+                  </button>
+                </div>
+              )}
             </div>
           ))}
+
           <div className="px-5 py-3.5 border-t border-[#1a1a1a] flex items-center justify-between">
             <div>
               <p className="text-sm text-white font-medium">Push Notifications</p>
               <p className="text-xs text-gray-500">Get booking reminders and offers</p>
             </div>
-            <div className="w-10 h-5 bg-[#C9A84C] rounded-full relative cursor-pointer">
-              <div className="w-4 h-4 bg-white rounded-full absolute right-0.5 top-0.5" />
-            </div>
+            <button
+              onClick={toggleNotifications}
+              className={`w-10 h-5 rounded-full relative transition-colors duration-200 ${notifications ? 'bg-[#C9A84C]' : 'bg-[#333]'}`}
+              aria-label={notifications ? 'Disable notifications' : 'Enable notifications'}
+            >
+              <div className={`w-4 h-4 bg-white rounded-full absolute top-0.5 transition-all duration-200 ${notifications ? 'right-0.5' : 'left-0.5'}`} />
+            </button>
           </div>
+
           <div className="px-5 py-3.5 border-t border-[#1a1a1a] flex items-center justify-between">
             <div>
               <p className="text-sm text-white font-medium">Dark Mode</p>
-              <p className="text-xs text-gray-500">Always on (default)</p>
+              <p className="text-xs text-gray-500">Toggle app theme</p>
             </div>
-            <div className="w-10 h-5 bg-[#C9A84C] rounded-full relative cursor-pointer">
-              <div className="w-4 h-4 bg-white rounded-full absolute right-0.5 top-0.5" />
-            </div>
+            <button
+              onClick={toggleDarkMode}
+              className={`w-10 h-5 rounded-full relative transition-colors duration-200 ${darkMode ? 'bg-[#C9A84C]' : 'bg-[#333]'}`}
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              <div className={`w-4 h-4 bg-white rounded-full absolute top-0.5 transition-all duration-200 ${darkMode ? 'right-0.5' : 'left-0.5'}`} />
+            </button>
           </div>
         </div>
       )}

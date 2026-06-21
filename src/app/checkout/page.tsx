@@ -227,6 +227,7 @@ function CheckoutContent() {
   const price = params.get('price') || '0'
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
+  const [phone, setPhone] = useState('')
   const [stylist, setStylist] = useState('')
   const [stylists, setStylists] = useState<any[]>([])
   const [paymentMethod, setPaymentMethod] = useState('upi')
@@ -243,11 +244,14 @@ function CheckoutContent() {
         .then(data => setStylists(data))
         .catch(() => {})
     }
+    const savedPhone = localStorage.getItem('groomai_phone') || ''
+    if (savedPhone) setPhone(savedPhone)
   }, [salonId])
 
   async function handlePay() {
     if (!user) { await signInWithGoogle(); return }
     if (!date || !time) { alert('Select date and time'); return }
+    if (!phone || !/^[6-9]\d{9}$/.test(phone)) { alert('Enter a valid 10-digit mobile number'); return }
     setShowPayment(true)
   }
 
@@ -262,6 +266,9 @@ function CheckoutContent() {
         price: total,
         date,
         time,
+        phone,
+        status: 'upcoming',
+        ...(stylist ? { stylist_id: stylist } : {}),
         user_id: user.uid,
       })
       if (booking) {
@@ -273,7 +280,7 @@ function CheckoutContent() {
       }
       router.push('/bookings')
     } catch {
-      alert('Payment failed. Please try again.')
+      alert('Booking failed. Please try again.')
     }
     setProcessing(false)
   }
@@ -296,6 +303,18 @@ function CheckoutContent() {
             </div>
             <p className="text-[#C9A84C] font-semibold">₹{servicePrice}</p>
           </div>
+        </div>
+
+        <div>
+          <label className="text-sm text-gray-400 mb-2 block">Mobile Number</label>
+          <input
+            type="tel"
+            value={phone}
+            onChange={e => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
+            placeholder="10-digit mobile number"
+            maxLength={10}
+            className="w-full bg-[#111111] border border-[#1a1a1a] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none focus:border-[#C9A84C]/50"
+          />
         </div>
 
         <div>

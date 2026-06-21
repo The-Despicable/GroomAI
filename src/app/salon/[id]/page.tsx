@@ -99,7 +99,7 @@ export default function SalonDetail() {
           </span>
         </div>
         <div className="flex flex-col gap-3">
-          {Array.from(new Map((salon.services || []).map((svc: any) => [`${svc.name}-${svc.price}`, svc])).values()).map((svc: any) => (
+          {(salon.services || []).map((svc: any) => (
             <div key={`${svc.name}-${svc.price}`} className="bg-[#111111] rounded-xl px-4 py-3.5 border border-[#1a1a1a] hover:border-[#C9A84C]/20 transition-colors">
               <div className="flex items-start justify-between">
                 <div className="flex-1">

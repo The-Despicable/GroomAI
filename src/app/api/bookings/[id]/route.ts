@@ -1,65 +1,34 @@
-import { createClient } from '@supabase/supabase-js'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { createAdminClient } from '@/lib/supabase-server'
 
-function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
-}
-
-export async function PUT(
-  request: Request,
+export async function PATCH(
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  try {
-    const { id } = await params
-    const body = await request.json()
-    const { status } = body
+  const { id } = await params
+  const body = await req.json()
 
-    if (!status) {
-      return NextResponse.json(
-        { error: 'Missing status field' },
-        { status: 400 }
-      )
-    }
+  const updates: Record<string, string> = {}
+  if (body.status) updates.status = body.status
+  if (body.date) updates.date = body.date
+  if (body.time) updates.time = body.time
 
-    const { data, error } = await getSupabase()
-      .from('bookings')
-      .update({ status })
-      .eq('id', id)
-      .select()
-      .single()
-
-    if (error) throw error
-    return NextResponse.json(data)
-  } catch (error: any) {
-    console.error('Error updating booking:', error)
-    return NextResponse.json(
-      { error: error.message || 'Failed to update booking' },
-      { status: 500 }
-    )
+  if (Object.keys(updates).length === 0) {
+    return NextResponse.json({ error: 'No valid fields to update' }, { status: 400 })
   }
-}
 
-export async function DELETE(
-  _request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params
-    const { error } = await getSupabase()
-      .from('bookings')
-      .delete()
-      .eq('id', id)
-
-    if (error) throw error
-    return NextResponse.json({ success: true })
-  } catch (error: any) {
-    console.error('Error deleting booking:', error)
-    return NextResponse.json(
-      { error: error.message || 'Failed to delete booking' },
-      { status: 500 }
-    )
+  const { data: ctx } = await createAdminClient(req)
+  if (!ctx) {
+    return NextResponse.json({ error: 'Database not available' }, { status: 503 })
   }
+
+  const { data, error } = await ctx.supabase
+    .from('bookings')
+    .update(updates)
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+  return NextResponse.json(data)
 }

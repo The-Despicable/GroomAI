@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Sitemap: https://frontend-one-amber-82.vercel.app/sitemap.xml
