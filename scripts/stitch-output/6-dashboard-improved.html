@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GroomAI | Checkout - The Royal Trim</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#adabaa",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#474746",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-bright": "#393939",
+                      "on-surface": "#e5e2e1",
+                      "surface-variant": "#353534",
+                      "outline-variant": "#4d4637",
+                      "on-tertiary-container": "#403f3f",
+                      "primary-fixed-dim": "#e6c364",
+                      "on-surface-variant": "#d0c5b2",
+                      "on-secondary-container": "#b7b5b4",
+                      "tertiary-fixed-dim": "#c9c6c5",
+                      "surface-dim": "#131313",
+                      "primary-fixed": "#ffe08f",
+                      "secondary-container": "#474746",
+                      "on-primary-container": "#503d00",
+                      "tertiary": "#c9c6c6",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface-container": "#201f1f",
+                      "secondary": "#c8c6c5",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "surface-container-highest": "#353534",
+                      "inverse-on-surface": "#313030",
+                      "on-tertiary-fixed-variant": "#474646",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-error": "#690005",
+                      "on-primary": "#3d2e00",
+                      "background": "#131313",
+                      "inverse-primary": "#755b00",
+                      "surface-tint": "#e6c364",
+                      "outline": "#99907e",
+                      "primary": "#e6c364",
+                      "on-tertiary": "#313030",
+                      "secondary-fixed": "#e5e2e1",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "primary-container": "#c9a84c",
+                      "on-secondary": "#313030",
+                      "on-background": "#e5e2e1",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#e5e2e1",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#2a2a2a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-padding-mobile": "16px",
+                      "container-padding-desktop": "32px",
+                      "base": "8px",
+                      "sidebar-width": "280px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Montserrat"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Montserrat"],
+                      "title-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-lg": ["Montserrat"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "title-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .gold-linear {
+            background: linear-gradient(135deg, #C9A84C 0%, #A68A3B 100%);
+        }
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(201, 168, 76, 0.2);
+        }
+        .gold-glow-strong:hover {
+            box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+        }
+        .header-gradient-border {
+            border-bottom: 1px solid;
+            border-image-source: linear-gradient(90deg, #C9A84C 0%, rgba(201, 168, 76, 0) 100%);
+            border-image-slice: 1;
+        }
+        .stylist-card-active {
+            border-color: #C9A84C !important;
+            background: #1A1A1A !important;
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky flex justify-between items-center h-20 px-container-desktop w-full max-w-full mx-auto bg-surface/95 backdrop-blur-md z-50 border-b border-outline-variant/30">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-display-lg text-primary tracking-tighter">GroomAI</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Explore</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-200" href="#">Appointments</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Favorites</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">History</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto px-container-desktop py-12 grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Checkout Details -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Booking Header -->
+<section class="header-gradient-border pb-6">
+<div class="flex items-center gap-4 mb-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">The Royal Trim</h1>
+<span class="bg-primary/10 border border-primary text-primary font-label-caps text-[10px] px-2 py-0.5 rounded-full">PREMIER PARTNER</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-on-surface-variant font-title-md text-title-md">Elite Grooming Pack</p>
+<div class="flex items-center gap-4 mt-1 text-on-surface-variant/70">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">schedule</span> 60 mins</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">verified</span> Professional Service</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-primary font-headline-lg text-headline-lg">$85.00</p>
+</div>
+</div>
+</section>
+<!-- Stylist Selection -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-6">Select Your Master Stylist</h2>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<!-- Vikram -->
+<div class="stylist-card group cursor-pointer bg-[#121212] border border-[#262626] p-4 rounded-lg transition-all hover:bg-[#1A1A1A] hover:border-primary/50 stylist-card-active" onclick="selectStylist(this)">
+<div class="relative mb-4">
+<div class="w-full aspect-square rounded-lg overflow-hidden border border-[#262626]">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A sophisticated professional portrait of a male stylist named Vikram in a luxury salon setting. Deep charcoal background, soft golden key lighting hitting the side of his face. He wears a sharp black barber apron. The mood is elite and professional, matching an Aurelian Noir aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVA4QAqUf3kB1ZFd1Qmmwt5B2iGwFF_WJ2-bWpWJzNZgwwAH9mFYXtg6nrDSXrAxu674DMmhGElvJ-GNoaYUrVd9oot1m2BQKD0dwyumo3YPVKrqP1pQuLUGd7X-4ALNJkQKWCGCiEIBNXKdMhEBZpKaAU2CbfQNYmmbH2E_bIOW3sPop6lUAfR-oh1J_VGz-v3ZIw2KTGiVz9bycvjmvWHUcqXJJ8uQ2OK3pcKoSYqEsKWiAbfC-XZrQpTIaQUxj3wKE2_FfXEFPP"/>
+</div>
+<span class="absolute top-2 right-2 bg-primary text-on-primary font-label-caps text-[8px] px-1.5 py-0.5 rounded">Available</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">Vikram</p>
+<div class="flex items-center gap-1 text-primary mt-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<!-- Ananya -->
+<div class="stylist-card group cursor-pointer bg-[#121212] border border-[#262626] p-4 rounded-lg transition-all hover:bg-[#1A1A1A] hover:border-primary/50" onclick="selectStylist(this)">
+<div class="relative mb-4">
+<div class="w-full aspect-square rounded-lg overflow-hidden border border-[#262626]">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="High-fidelity studio portrait of a female master stylist named Ananya. She has a confident expression, wearing professional black attire. The background is a minimalist dark gray with subtle golden bokeh highlights. Professional photography style with high contrast and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBICEHyJvZZq7h_cDM7RdQFtZYcg81Jzoa1Y_vvoYbuT5Y7vbat5r3VUo3XPNbYIpCARAjjW3cOf-fJltgkI7EDzbH83LnMiDU8Onj5euwnDfk9xUgSoA6ll_1HKDKMtyrrmKcfBOvoaPECKIc1BGW3nHJ9c5CfFFTud3HAy5_WtFVFMfm3pwoE_C0FJnl2W4L0mhHYHgTv7ChNf_64Eodk9jzBbSMyU62nWzskmlJmC5Lc_y68E1fp370dkFsnJ660g6tPz42sBAca"/>
+</div>
+<span class="absolute top-2 right-2 bg-primary text-on-primary font-label-caps text-[8px] px-1.5 py-0.5 rounded">Available</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">Ananya</p>
+<div class="flex items-center gap-1 text-primary mt-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+<!-- Arjun -->
+<div class="stylist-card group cursor-pointer bg-[#121212] border border-[#262626] p-4 rounded-lg transition-all hover:bg-[#1A1A1A] hover:border-primary/50" onclick="selectStylist(this)">
+<div class="relative mb-4">
+<div class="w-full aspect-square rounded-lg overflow-hidden border border-[#262626]">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Portrait of a male stylist named Arjun with a modern, stylish beard and haircut. He is standing in a luxury grooming lounge with warm golden rim lighting. He wears a tailored charcoal shirt. The aesthetic is dark luxury and high fashion, very crisp and clear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_wUgIiQYYIxtj0GAqGy_6rto83nLxyywsx9-BN6bvVdRde9anQMQlw15N7WLbw7ZlMEEUAJeLbMXIBqteUg9bsFOtg881gI9qwQrb_pphQtZAflY26NDH6_gOFazEjdnn7EKieLf66mJvseTnk8ZxrrqAEKKuQgMcMlSRPEkB4rnnMskOWqG27ruza4BIv9MMS9tUqKvyQ3iqM_E26cT2ZE97koPVmA0Wq1qfs42DYc1O7dCmausgyuBPYyp5iEtEkj2kY5RVuHE8"/>
+</div>
+<span class="absolute top-2 right-2 bg-primary text-on-primary font-label-caps text-[8px] px-1.5 py-0.5 rounded">Available</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">Arjun</p>
+<div class="flex items-center gap-1 text-primary mt-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<!-- Sarah -->
+<div class="stylist-card group cursor-pointer bg-[#121212] border border-[#262626] p-4 rounded-lg transition-all hover:bg-[#1A1A1A] hover:border-primary/50" onclick="selectStylist(this)">
+<div class="relative mb-4">
+<div class="w-full aspect-square rounded-lg overflow-hidden border border-[#262626]">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Close up professional headshot of Sarah, a senior hair stylist. Soft lighting creates a sophisticated look with gentle golden tones reflecting on her jewelry. Dark, moody background with elegant texture. High-end fashion editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpfDiV5h42CbAMkLaR6O15f3s3HO6jZ3XX3-Rg12E_Arp8rgHgJt4s8sRqYq9pWuDr0a-Ab9r7oxev9TOLzM9VVYFlWW47DrDAmuFXxd1M4BvkrnG8nGQ_lhwkpZIO3ctEokTssRfMv1BEIrOeq1ZgmMi3zmNd1SmqZJPMBE-0U2mMpuqh2LcA9FCxaQ0uoqp6NNIMQoUDsGaXfGfLfk1tY0pKVJoho8HK6hZIkq6pEDHfbdaOdrfi90iUlXonUL1ZMO3-S0bqblF1"/>
+</div>
+<span class="absolute top-2 right-2 bg-primary text-on-primary font-label-caps text-[8px] px-1.5 py-0.5 rounded">Available</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">Sarah</p>
+<div class="flex items-center gap-1 text-primary mt-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Date & Time Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Interactive Date Picker -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-6">Select Date</h2>
+<div class="bg-[#121212] border border-[#262626] rounded-lg p-6">
+<div class="flex justify-between items-center mb-6">
+<span class="font-title-md text-title-md text-on-surface">October 2024</span>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-primary hover:bg-surface p-1 rounded transition-colors">chevron_left</button>
+<button class="material-symbols-outlined text-primary hover:bg-surface p-1 rounded transition-colors">chevron_right</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center text-xs font-bold text-on-surface-variant/50 mb-4">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center">
+<!-- Placeholder dates -->
+<div class="py-2 text-on-surface-variant/20">29</div>
+<div class="py-2 text-on-surface-variant/20">30</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">1</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">2</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">3</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">4</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">5</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">6</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">7</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">8</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">9</div>
+<div class="py-2 border border-primary text-primary font-bold rounded gold-glow">10</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">11</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">12</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">13</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">14</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">15</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">16</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">17</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">18</div>
+<div class="py-2 cursor-pointer hover:bg-primary/10 hover:text-primary rounded transition-all">19</div>
+</div>
+</div>
+</section>
+<!-- Time Slot Grid -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-6">Available Slots</h2>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">09:00</button>
+<button class="py-3 border border-primary bg-[#1A1A1A] text-sm text-primary font-bold gold-glow" onclick="selectTime(this)">10:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">11:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">12:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">13:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">14:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">15:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">16:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">17:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">18:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">19:00</button>
+<button class="py-3 border border-[#262626] bg-[#121212] text-sm text-on-surface-variant hover:border-primary transition-all" onclick="selectTime(this)">20:00</button>
+</div>
+</section>
+</div>
+</div>
+<!-- Right Column: Sidebar Checkout -->
+<aside class="lg:col-span-4 relative">
+<div class="sticky top-28 space-y-6">
+<!-- Order Summary Card -->
+<div class="bg-[#121212] border border-[#262626] rounded-lg p-8 gold-glow">
+<h3 class="font-label-caps text-label-caps text-primary mb-6">Booking Summary</h3>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Elite Grooming Pack</span>
+<span class="font-bold">$85.00</span>
+</div>
+<div class="flex justify-between items-center text-sm text-on-surface-variant/70">
+<span>Tax (18% GST)</span>
+<span>$15.30</span>
+</div>
+<hr class="border-[#262626]"/>
+<div class="flex justify-between items-center pt-2">
+<span class="text-on-surface font-bold">Total Amount</span>
+<span class="text-primary font-headline-lg text-2xl font-bold tracking-tight">$100.30</span>
+</div>
+</div>
+<!-- Payment Method -->
+<div class="space-y-4 mb-8">
+<label class="flex items-center gap-3 p-4 border border-primary bg-[#1A1A1A] rounded-lg cursor-pointer transition-all">
+<input checked="" class="w-4 h-4 text-primary bg-surface border-[#4d4637] focus:ring-primary focus:ring-offset-surface" name="payment" type="radio"/>
+<span class="text-sm font-semibold">Razorpay (Cards/Netbanking)</span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-[#262626] hover:border-primary/50 rounded-lg cursor-pointer transition-all">
+<input class="w-4 h-4 text-primary bg-surface border-[#4d4637] focus:ring-primary focus:ring-offset-surface" name="payment" type="radio"/>
+<span class="text-sm text-on-surface-variant font-medium">Credit / Debit Card</span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-[#262626] hover:border-primary/50 rounded-lg cursor-pointer transition-all">
+<input class="w-4 h-4 text-primary bg-surface border-[#4d4637] focus:ring-primary focus:ring-offset-surface" name="payment" type="radio"/>
+<span class="text-sm text-on-surface-variant font-medium">UPI (GPay, PhonePe)</span>
+</label>
+</div>
+<!-- Action Button -->
+<button class="w-full py-5 gold-linear text-on-primary font-label-caps text-sm tracking-widest rounded-lg gold-glow-strong active:scale-[0.98] transition-all duration-300">
+                        Confirm Booking
+                    </button>
+<!-- Trust Badge -->
+<div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-caps text-[10px]">SECURE 256-BIT ENCRYPTED PAYMENT</span>
+</div>
+</div>
+<!-- Footer style secondary card for additional reassurance -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-lg p-6 text-center">
+<p class="text-body-sm text-on-surface-variant/60 leading-relaxed italic">
+                        "Your time is precious. We guarantee a seamless experience from booking to grooming."
+                    </p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-12 border-t border-outline-variant/20 bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center px-container-desktop mt-20">
+<div class="mb-8 md:mb-0">
+<span class="font-display-lg text-display-lg text-primary tracking-tighter block mb-2">GroomAI</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 GroomAI Luxury Grooming. All rights reserved.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex gap-6">
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">face_nod</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">share</span>
+</div>
+</div>
+</footer>
+<script>
+        function selectStylist(element) {
+            const cards = document.querySelectorAll('.stylist-card');
+            cards.forEach(card => {
+                card.classList.remove('stylist-card-active');
+            });
+            element.classList.add('stylist-card-active');
+        }
+
+        function selectTime(element) {
+            const buttons = element.parentElement.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-primary', 'bg-[#1A1A1A]', 'text-primary', 'font-bold', 'gold-glow');
+                btn.classList.add('border-[#262626]', 'bg-[#121212]', 'text-on-surface-variant');
+            });
+            element.classList.remove('border-[#262626]', 'bg-[#121212]', 'text-on-surface-variant');
+            element.classList.add('border-primary', 'bg-[#1A1A1A]', 'text-primary', 'font-bold', 'gold-glow');
+        }
+    </script>
+</body></html>

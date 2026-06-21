@@ -1,407 +1,1763 @@
 [
   {
-    "id": "1",
+    "id": "ee79c812-8f40-41c5-8cc6-e163db820e05",
     "name": "The Groom Room",
     "location": "Road No 12, Banjara Hills",
     "rating": 4.8,
     "priceFrom": 399,
     "lat": 17.415,
     "lon": 78.428,
-    "imageUrl": "https://picsum.photos/seed/salon1/400/300",
+    "imageUrl": "https://picsum.photos/seed/the-groom-room/400/300",
     "services": [
       {
         "name": "Haircut",
         "price": 409,
-        "duration": 30
+        "duration": 30,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Beard Trim",
         "price": 441,
-        "duration": 15
+        "duration": 15,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       },
       {
         "name": "Hair + Beard",
         "price": 466,
-        "duration": 45
+        "duration": 45,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       }
-    ]
+    ],
+    "slug": "the-groom-room",
+    "category": "unisex",
+    "description": "Premium grooming destination offering expert haircuts, beard styling, and spa treatments in a modern, relaxed atmosphere.",
+    "about": "For over a decade, The Groom Room has been a cornerstone of grooming excellence in Road No 12, Banjara Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500001",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
   },
   {
-    "id": "2",
+    "id": "4a14499c-a783-4c99-8986-eb741bc95e98",
     "name": "Nature's Studio Unisex Salon",
     "location": "Road No 10, Banjara Hills",
     "rating": 4.6,
     "priceFrom": 499,
     "lat": 17.418,
     "lon": 78.432,
-    "imageUrl": "https://picsum.photos/seed/salon2/400/300",
+    "imageUrl": "https://picsum.photos/seed/nature-s-studio-unisex-salon/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 578,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 598,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 582,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "nature-s-studio-unisex-salon",
+    "category": "unisex",
+    "description": "Where style meets precision. Our master barbers deliver tailored haircuts and grooming experiences for the modern individual.",
+    "about": "For over a decade, Nature's Studio Unisex Salon has been a cornerstone of grooming excellence in Road No 10, Banjara Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500002",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
   },
   {
-    "id": "3",
+    "id": "fed1f9b8-ab6d-4176-8a50-8c837f49204e",
     "name": "Jawed Habib Salon",
     "location": "GVK One Mall, Banjara Hills",
     "rating": 4.3,
     "priceFrom": 350,
     "lat": 17.413,
     "lon": 78.425,
-    "imageUrl": "https://picsum.photos/seed/salon3/400/300",
+    "imageUrl": "https://picsum.photos/seed/jawed-habib-salon/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 421,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 499,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 448,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "jawed-habib-salon",
+    "category": "unisex",
+    "description": "Hyderabad's trusted salon for men and women. From classic cuts to advanced styling, we bring your vision to life.",
+    "about": "For over a decade, Jawed Habib Salon has been a cornerstone of grooming excellence in GVK One Mall, Banjara Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500003",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
   },
   {
-    "id": "4",
+    "id": "57e0c0c3-d3f5-418b-873e-e1af2b9ae65f",
     "name": "Looks Salon",
     "location": "Road No 36, Banjara Hills",
     "rating": 4.5,
     "priceFrom": 299,
     "lat": 17.42,
     "lon": 78.435,
-    "imageUrl": "https://picsum.photos/seed/salon4/400/300",
+    "imageUrl": "https://picsum.photos/seed/looks-salon/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 399,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 499,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 299,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "looks-salon",
+    "category": "unisex",
+    "description": "A luxury grooming retreat specializing in hair, beard, and skincare. Every visit is crafted for your unique style.",
+    "about": "For over a decade, Looks Salon has been a cornerstone of grooming excellence in Road No 36, Banjara Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500004",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
   },
   {
-    "id": "5",
+    "id": "885c02e7-7d87-4e9e-8819-e039e96501b4",
     "name": "Green Trends Unisex Salon",
     "location": "Road No 2, Banjara Hills",
     "rating": 4.4,
     "priceFrom": 349,
     "lat": 17.422,
     "lon": 78.43,
-    "imageUrl": "https://picsum.photos/seed/salon5/400/300",
+    "imageUrl": "https://picsum.photos/seed/green-trends-unisex-salon/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 399,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 499,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 366,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "green-trends-unisex-salon",
+    "category": "unisex",
+    "description": "Expert stylists, premium products, and a welcoming vibe. Your go-to salon for everyday grooming and special occasions.",
+    "about": "For over a decade, Green Trends Unisex Salon has been a cornerstone of grooming excellence in Road No 2, Banjara Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500005",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
   },
   {
-    "id": "6",
+    "id": "759ae60d-b995-46ab-8bb1-e55080d612e8",
     "name": "VLCC",
     "location": "Road No 10, Banjara Hills",
     "rating": 4.7,
     "priceFrom": 799,
     "lat": 17.416,
     "lon": 78.426,
-    "imageUrl": "https://picsum.photos/seed/salon6/400/300",
+    "imageUrl": "https://picsum.photos/seed/vlcc/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 842,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 864,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 837,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "vlcc",
+    "category": "unisex",
+    "description": "Redefining men's grooming with precision cuts, hot towel shaves, and premium beard care in the heart of Banjara Hills.",
+    "about": "For over a decade, VLCC has been a cornerstone of grooming excellence in Road No 10, Banjara Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500006",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
   },
   {
-    "id": "7",
+    "id": "3b90dc1f-0838-413d-8e83-cfc227913840",
     "name": "Spa & Blade",
     "location": "Road No 36, Jubilee Hills",
     "rating": 4.5,
     "priceFrom": 599,
     "lat": 17.431,
     "lon": 78.412,
-    "imageUrl": "https://picsum.photos/seed/salon7/400/300",
+    "imageUrl": "https://picsum.photos/seed/spa-blade/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 655,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 676,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 689,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "spa-blade",
+    "category": "unisex",
+    "description": "Where tradition meets trend. We offer timeless barbering skills combined with contemporary styling techniques.",
+    "about": "For over a decade, Spa & Blade has been a cornerstone of grooming excellence in Road No 36, Jubilee Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500007",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "8",
+    "id": "ce795452-b08f-45fa-8951-20d2d0457baa",
     "name": "Gentleman's Quarter",
     "location": "Road No 45, Jubilee Hills",
     "rating": 4.9,
     "priceFrom": 550,
     "lat": 17.425,
     "lon": 78.42,
-    "imageUrl": "https://picsum.photos/seed/salon8/400/300",
+    "imageUrl": "https://picsum.photos/seed/gentleman-s-quarter/400/300",
     "services": [
       {
         "name": "Haircut",
         "price": 620,
-        "duration": 30
+        "duration": 30,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Beard Trim",
         "price": 584,
-        "duration": 15
+        "duration": 15,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       },
       {
         "name": "Hair + Beard",
         "price": 558,
-        "duration": 45
+        "duration": 45,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       }
-    ]
+    ],
+    "slug": "gentleman-s-quarter",
+    "category": "men",
+    "description": "Unwind and refresh at our full-service salon. Haircuts, facials, massages — we take care of it all.",
+    "about": "For over a decade, Gentleman's Quarter has been a cornerstone of grooming excellence in Road No 45, Jubilee Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500008",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "9",
+    "id": "df84cffd-2794-47c6-8796-86d2f3543333",
     "name": "The Barber Boutique",
     "location": "Road No 92, Jubilee Hills",
     "rating": 4.6,
     "priceFrom": 450,
     "lat": 17.428,
     "lon": 78.417,
-    "imageUrl": "https://picsum.photos/seed/salon9/400/300",
+    "imageUrl": "https://picsum.photos/seed/the-barber-boutique/400/300",
     "services": [
       {
         "name": "Haircut",
         "price": 503,
-        "duration": 30
+        "duration": 30,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Beard Trim",
         "price": 411,
-        "duration": 15
+        "duration": 15,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       },
       {
         "name": "Hair + Beard",
         "price": 527,
-        "duration": 45
+        "duration": 45,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       }
-    ]
+    ],
+    "slug": "the-barber-boutique",
+    "category": "men",
+    "description": "Style-forward salon specializing in modern cuts, color, and beard grooming. Walk in, walk out transformed.",
+    "about": "For over a decade, The Barber Boutique has been a cornerstone of grooming excellence in Road No 92, Jubilee Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500009",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "10",
+    "id": "ee4766e8-7c48-4067-8485-1b83cf17be39",
     "name": "Raje Hair & Beauty Salon",
     "location": "Road No 25, Jubilee Hills",
     "rating": 4.2,
     "priceFrom": 249,
     "lat": 17.434,
     "lon": 78.409,
-    "imageUrl": "https://picsum.photos/seed/salon10/400/300",
+    "imageUrl": "https://picsum.photos/seed/raje-hair-beauty-salon/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 399,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 499,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 299,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "raje-hair-beauty-salon",
+    "category": "unisex",
+    "description": "Your neighborhood grooming hub. Quality cuts, friendly service, and prices that keep you coming back.",
+    "about": "For over a decade, Raje Hair & Beauty Salon has been a cornerstone of grooming excellence in Road No 25, Jubilee Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500010",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "11",
+    "id": "81b581e3-2f0e-4255-8c76-b9fed85c6472",
     "name": "Luxe Rituals Spa",
     "location": "Road No 10, Jubilee Hills",
     "rating": 4.8,
     "priceFrom": 800,
     "lat": 17.422,
     "lon": 78.415,
-    "imageUrl": "https://picsum.photos/seed/salon11/400/300",
+    "imageUrl": "https://picsum.photos/seed/luxe-rituals-spa/400/300",
     "services": [
       {
         "name": "Full Body Massage",
         "price": 999,
-        "duration": 60
+        "duration": 60,
+        "description": "Therapeutic massage to relieve tension, improve circulation, and restore energy."
       },
       {
         "name": "Facial",
         "price": 864,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Spa Pedicure",
         "price": 788,
-        "duration": 45
+        "duration": 45,
+        "description": "A relaxing spa treatment designed to melt away stress and revitalize your body and mind."
       }
-    ]
+    ],
+    "slug": "luxe-rituals-spa",
+    "category": "unisex",
+    "description": "Luxury grooming without the attitude. Experience world-class haircuts and spa services in a sophisticated setting.",
+    "about": "For over a decade, Luxe Rituals Spa has been a cornerstone of grooming excellence in Road No 10, Jubilee Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500011",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "12",
+    "id": "5e5c6daa-4127-4702-8ebc-1ff5df934cf9",
     "name": "Toni & Guy Hairdressing",
     "location": "Jubilee Hills Rd",
     "rating": 4.7,
     "priceFrom": 699,
     "lat": 17.427,
     "lon": 78.419,
-    "imageUrl": "https://picsum.photos/seed/salon12/400/300",
+    "imageUrl": "https://picsum.photos/seed/toni-guy-hairdressing/400/300",
     "services": [
       {
         "name": "Premium Haircut",
         "price": 670,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Hair Styling",
         "price": 711,
-        "duration": 30
+        "duration": 30,
+        "description": "Expert styling for any occasion — from everyday looks to special event transformations."
       },
       {
         "name": "Hair Color",
         "price": 1499,
-        "duration": 60
+        "duration": 60,
+        "description": "Professional hair coloring using premium ammonia-free products for vibrant, long-lasting results."
       }
-    ]
+    ],
+    "slug": "toni-guy-hairdressing",
+    "category": "unisex",
+    "description": "From sharp fades to relaxing facials, we deliver a complete grooming experience tailored just for you.",
+    "about": "For over a decade, Toni & Guy Hairdressing has been a cornerstone of grooming excellence in Jubilee Hills Rd. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500012",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "13",
+    "id": "3ce11251-e3cf-47a7-8129-d44555f85336",
     "name": "Royal Barber Co",
     "location": "Film Nagar, Jubilee Hills",
     "rating": 4.4,
     "priceFrom": 299,
     "lat": 17.429,
     "lon": 78.414,
-    "imageUrl": "https://picsum.photos/seed/salon13/400/300",
+    "imageUrl": "https://picsum.photos/seed/royal-barber-co/400/300",
     "services": [
       {
         "name": "Haircut",
         "price": 304,
-        "duration": 30
+        "duration": 30,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Beard Trim",
         "price": 394,
-        "duration": 15
+        "duration": 15,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       },
       {
         "name": "Hair + Beard",
         "price": 399,
-        "duration": 45
+        "duration": 45,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       }
-    ]
+    ],
+    "slug": "royal-barber-co",
+    "category": "men",
+    "description": "We believe a great haircut changes everything. Expert stylists, premium care, every time.",
+    "about": "For over a decade, Royal Barber Co has been a cornerstone of grooming excellence in Film Nagar, Jubilee Hills. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500013",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
   },
   {
-    "id": "14",
+    "id": "d4fdcea0-6efa-4f16-8c79-f621526b3c6d",
     "name": "Urban Cuts",
     "location": "Hitech City Rd, Madhapur",
     "rating": 4.3,
     "priceFrom": 299,
     "lat": 17.448,
     "lon": 78.378,
-    "imageUrl": "https://picsum.photos/seed/salon14/400/300",
+    "imageUrl": "https://picsum.photos/seed/urban-cuts/400/300",
     "services": [
       {
         "name": "Haircut",
         "price": 329,
-        "duration": 30
+        "duration": 30,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Beard Trim",
         "price": 262,
-        "duration": 15
+        "duration": 15,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       },
       {
         "name": "Hair + Beard",
         "price": 399,
-        "duration": 45
+        "duration": 45,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
       }
-    ]
+    ],
+    "slug": "urban-cuts",
+    "category": "unisex",
+    "description": "Banjara Hills' hidden gem for grooming. Intimate, professional, and dedicated to your personal style.",
+    "about": "For over a decade, Urban Cuts has been a cornerstone of grooming excellence in Hitech City Rd, Madhapur. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500014",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Madhapur"
   },
   {
-    "id": "15",
+    "id": "6db79973-d308-4394-8518-e1f076cd0f16",
     "name": "Bliss Beauty Parlour",
     "location": "Somajiguda, Hyderabad",
     "rating": 4.1,
     "priceFrom": 199,
     "lat": 17.41,
     "lon": 78.443,
-    "imageUrl": "https://picsum.photos/seed/salon15/400/300",
+    "imageUrl": "https://picsum.photos/seed/bliss-beauty-parlour/400/300",
     "services": [
       {
         "name": "Haircut & Style",
         "price": 399,
-        "duration": 45
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
       },
       {
         "name": "Facial",
         "price": 499,
-        "duration": 30
+        "duration": 30,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
       },
       {
         "name": "Manicure",
         "price": 299,
-        "duration": 25
+        "duration": 25,
+        "description": "Professional service delivered by our expert stylists using premium products."
       }
-    ]
+    ],
+    "slug": "bliss-beauty-parlour",
+    "category": "women",
+    "description": "Full-service unisex salon offering haircuts, color, skincare, and nail services with a focus on quality.",
+    "about": "For over a decade, Bliss Beauty Parlour has been a cornerstone of grooming excellence in Somajiguda, Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "phone": "+919876500015",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Somajiguda"
+  },
+  {
+    "id": "d77536c2-a788-4e0e-8ad6-662c069b8cd9",
+    "name": "B Blunt",
+    "location": "Road No 1, Banjara Hills",
+    "rating": 4.4,
+    "priceFrom": 708,
+    "lat": 17.4246645,
+    "lon": 78.4225843,
+    "phone": "+919876500016",
+    "category": "unisex",
+    "slug": "b-blunt",
+    "imageUrl": "https://picsum.photos/seed/b-blunt/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 708,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 358,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 958,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 458,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Modern salon with a classic touch. Specializing in precision haircuts, beard sculpting, and grooming packages.",
+    "about": "For over a decade, B Blunt has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
+  },
+  {
+    "id": "4478b179-ad0d-4a6b-8307-53fffb60f41c",
+    "name": "Pramukha Parlour",
+    "location": "Jubilee Hills Check Post, Jubilee Hills",
+    "rating": 4.6,
+    "priceFrom": 405,
+    "lat": 17.4088715,
+    "lon": 78.4897084,
+    "phone": "+919876500017",
+    "category": "women",
+    "slug": "pramukha-parlour",
+    "imageUrl": "https://picsum.photos/seed/pramukha-parlour/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 405,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 225,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 505,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 405,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Where every client is treated like royalty. Premium grooming services in an upscale environment.",
+    "about": "For over a decade, Pramukha Parlour has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
+  },
+  {
+    "id": "ce1cc403-3627-4d50-87c2-83539bb465ea",
+    "name": "Habibs Salon",
+    "location": "HITEC City Main Rd, Madhapur",
+    "rating": 3.9,
+    "priceFrom": 423,
+    "lat": 17.4403392,
+    "lon": 78.4833816,
+    "phone": "+919876500018",
+    "category": "unisex",
+    "slug": "habibs-salon",
+    "imageUrl": "https://picsum.photos/seed/habibs-salon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 423,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 203,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 573,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 473,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Your style, our passion. Expert consultations and flawless execution for hair, beard, and skin.",
+    "about": "For over a decade, Habibs Salon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Madhapur"
+  },
+  {
+    "id": "42a14759-2b07-4aa3-8014-41d7f06eeb2f",
+    "name": "green trends",
+    "location": "Gachibowli Rd, Gachibowli",
+    "rating": 4.3,
+    "priceFrom": 412,
+    "lat": 17.4422546,
+    "lon": 78.4482856,
+    "phone": "+919876500019",
+    "category": "unisex",
+    "slug": "green-trends",
+    "imageUrl": "https://picsum.photos/seed/green-trends/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 412,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 222,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 512,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 412,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "A fresh take on grooming. Clean lines, sharp cuts, and a vibe that keeps you coming back.",
+    "about": "For over a decade, green trends has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Gachibowli"
+  },
+  {
+    "id": "5ff880cd-a012-4ed2-8652-a81dee5cf920",
+    "name": "Naturals Unisex Salon",
+    "location": "Kondapur Main Rd, Kondapur",
+    "rating": 4.3,
+    "priceFrom": 433,
+    "lat": 17.4403267,
+    "lon": 78.4806828,
+    "phone": "+919876500020",
+    "category": "unisex",
+    "slug": "naturals-unisex-salon",
+    "imageUrl": "https://picsum.photos/seed/naturals-unisex-salon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 433,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 213,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 533,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 433,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Experience the art of grooming. Our skilled barbers and stylists deliver exceptional results every visit.",
+    "about": "For over a decade, Naturals Unisex Salon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Kondapur"
+  },
+  {
+    "id": "b60a52ee-1290-4b2d-8f29-28c290a0cfdf",
+    "name": "Rex",
+    "location": "Kukatpally Housing Board, Kukatpally",
+    "rating": 4.8,
+    "priceFrom": 437,
+    "lat": 17.4017706,
+    "lon": 78.4881726,
+    "phone": "+919876500021",
+    "category": "men",
+    "slug": "rex",
+    "imageUrl": "https://picsum.photos/seed/rex/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 437,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 227,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 587,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Hair Color",
+        "price": 887,
+        "duration": 60,
+        "description": "Professional hair coloring using premium ammonia-free products for vibrant, long-lasting results."
+      }
+    ],
+    "description": "Elevate your grooming routine. Premium services, expert stylists, and a personalized approach to your look.",
+    "about": "For over a decade, Rex has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Kukatpally"
+  },
+  {
+    "id": "2af5a88c-a18a-4fe9-822f-b58ebc8e300f",
+    "name": "Golden Scissor",
+    "location": "Ameerpet Metro Station, Ameerpet",
+    "rating": 3.6,
+    "priceFrom": 400,
+    "lat": 17.3974838,
+    "lon": 78.4628284,
+    "phone": "+919876500022",
+    "category": "unisex",
+    "slug": "golden-scissor",
+    "imageUrl": "https://picsum.photos/seed/golden-scissor/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 400,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 200,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 500,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 400,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Where confidence begins. Precision haircuts, beard grooming, and skincare tailored to your lifestyle.",
+    "about": "For over a decade, Golden Scissor has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Ameerpet"
+  },
+  {
+    "id": "3df07a83-a3b0-401c-8a48-f0f92e97fd77",
+    "name": "Balaji Hair Dresser",
+    "location": "Begumpet Airport Rd, Begumpet",
+    "rating": 3.9,
+    "priceFrom": 208,
+    "lat": 17.3961424,
+    "lon": 78.4656362,
+    "phone": "+919876500023",
+    "category": "unisex",
+    "slug": "balaji-hair-dresser",
+    "imageUrl": "https://picsum.photos/seed/balaji-hair-dresser/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 208,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 118,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 358,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 458,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Bringing salon-quality grooming to your neighborhood. Expert services, friendly faces, great results.",
+    "about": "For over a decade, Balaji Hair Dresser has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Begumpet"
+  },
+  {
+    "id": "ca1ceb28-8d1f-4290-8b9b-85298b8d33b8",
+    "name": "Oberoi",
+    "location": "Himayath Nagar Main Rd, Himayath Nagar",
+    "rating": 3.7,
+    "priceFrom": 411,
+    "lat": 17.3948616,
+    "lon": 78.4800941,
+    "phone": "+919876500024",
+    "category": "unisex",
+    "slug": "oberoi",
+    "imageUrl": "https://picsum.photos/seed/oberoi/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 411,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 201,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 511,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 411,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "The ultimate grooming experience. From haircuts to hot towel shaves, we do it all with style.",
+    "about": "For over a decade, Oberoi has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Himayath Nagar"
+  },
+  {
+    "id": "35c01aef-0261-4c58-8861-3c41ca073fd7",
+    "name": "Bhavani",
+    "location": "SD Road, Secunderabad",
+    "rating": 4.8,
+    "priceFrom": 237,
+    "lat": 17.362306,
+    "lon": 78.432788,
+    "phone": "+919876500025",
+    "category": "unisex",
+    "slug": "bhavani",
+    "imageUrl": "https://picsum.photos/seed/bhavani/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 237,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 127,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 337,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 437,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Style meets substance. Our team delivers flawless cuts and grooming in a relaxing, modern space.",
+    "about": "For over a decade, Bhavani has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Secunderabad"
+  },
+  {
+    "id": "1b221155-7836-44ed-8fbf-8fca67a7b5e0",
+    "name": "Trendz Hair Saloon",
+    "location": "Miyapur Main Rd, Miyapur",
+    "rating": 4.7,
+    "priceFrom": 436,
+    "lat": 17.4354231,
+    "lon": 78.4992228,
+    "phone": "+919876500026",
+    "category": "men",
+    "slug": "trendz-hair-saloon",
+    "imageUrl": "https://picsum.photos/seed/trendz-hair-saloon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 436,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 226,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 586,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Hair Color",
+        "price": 986,
+        "duration": 60,
+        "description": "Professional hair coloring using premium ammonia-free products for vibrant, long-lasting results."
+      }
+    ],
+    "description": "Crafting looks that turn heads. Expert styling, premium products, and personalized service since day one.",
+    "about": "For over a decade, Trendz Hair Saloon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Miyapur"
+  },
+  {
+    "id": "8807a33f-fdcf-4eba-80b8-93a496a14437",
+    "name": "Mane's the Salon",
+    "location": "Nallagandla Main Rd, Nallagandla",
+    "rating": 3.7,
+    "priceFrom": 446,
+    "lat": 17.4450271,
+    "lon": 78.385693,
+    "phone": "+919876500027",
+    "category": "women",
+    "slug": "mane-s-the-salon",
+    "imageUrl": "https://picsum.photos/seed/mane-s-the-salon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 446,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 216,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 596,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 496,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Your one-stop grooming destination. Hair, beard, skin, and nails — all under one roof.",
+    "about": "For over a decade, Mane's the Salon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Nallagandla"
+  },
+  {
+    "id": "6dadf9c9-d08f-4093-8ec1-ae6501ba216e",
+    "name": "Aroma Beauty World",
+    "location": "KPHB Colony Main Rd, KPHB",
+    "rating": 3.7,
+    "priceFrom": 436,
+    "lat": 17.4437449,
+    "lon": 78.3916878,
+    "phone": "+919876500028",
+    "category": "women",
+    "slug": "aroma-beauty-world",
+    "imageUrl": "https://picsum.photos/seed/aroma-beauty-world/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 436,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 216,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 586,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 486,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Where every detail matters. Precision cuts, meticulous beard work, and a commitment to your satisfaction.",
+    "about": "For over a decade, Aroma Beauty World has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "KPHB"
+  },
+  {
+    "id": "ccaa251e-d7a8-4897-8a43-66a49479dd35",
+    "name": "Dolphin Salon",
+    "location": "Film Nagar Rd, Jubilee Hills",
+    "rating": 4.8,
+    "priceFrom": 422,
+    "lat": 17.4484399,
+    "lon": 78.3927478,
+    "phone": "+919876500029",
+    "category": "unisex",
+    "slug": "dolphin-salon",
+    "imageUrl": "https://picsum.photos/seed/dolphin-salon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 422,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 212,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 572,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 472,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Experience next-level grooming. Our stylists stay ahead of trends to bring you the best looks.",
+    "about": "For over a decade, Dolphin Salon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Jubilee Hills"
+  },
+  {
+    "id": "3ab27e8e-a1e6-4369-86cd-84ba8efd81df",
+    "name": "Sanjana Hair Style",
+    "location": "SR Nagar Main Rd, SR Nagar",
+    "rating": 4.8,
+    "priceFrom": 447,
+    "lat": 17.442606,
+    "lon": 78.3893043,
+    "phone": "+919876500030",
+    "category": "unisex",
+    "slug": "sanjana-hair-style",
+    "imageUrl": "https://picsum.photos/seed/sanjana-hair-style/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 447,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 227,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 597,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 497,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "The art of looking good. Premium grooming services delivered with skill, care, and attention to detail.",
+    "about": "For over a decade, Sanjana Hair Style has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "SR Nagar"
+  },
+  {
+    "id": "ff0e2c80-fec1-4c5a-8db1-55bb6ff1acac",
+    "name": "Sapta Spa",
+    "location": "Madhapur Rd, Madhapur",
+    "rating": 4.8,
+    "priceFrom": 712,
+    "lat": 17.4415021,
+    "lon": 78.387912,
+    "phone": "+919876500031",
+    "category": "unisex",
+    "slug": "sapta-spa",
+    "imageUrl": "https://picsum.photos/seed/sapta-spa/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 712,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 362,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 912,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 412,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Classic barbering reimagined. Hot towels, straight razors, and modern cuts in a vintage-inspired setting.",
+    "about": "For over a decade, Sapta Spa has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Madhapur"
+  },
+  {
+    "id": "40d00557-edf2-4e01-83bb-8657ae8737ed",
+    "name": "Inspire Menz Hair Saloon",
+    "location": "Patny Center, Secunderabad",
+    "rating": 3.9,
+    "priceFrom": 413,
+    "lat": 17.3927675,
+    "lon": 78.4379376,
+    "phone": "+919876500032",
+    "category": "men",
+    "slug": "inspire-menz-hair-saloon",
+    "imageUrl": "https://picsum.photos/seed/inspire-menz-hair-saloon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 413,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 203,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 563,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Hair Color",
+        "price": 963,
+        "duration": 60,
+        "description": "Professional hair coloring using premium ammonia-free products for vibrant, long-lasting results."
+      }
+    ],
+    "description": "Your style journey starts here. Expert consultations, flawless execution, and a look that's uniquely you.",
+    "about": "For over a decade, Inspire Menz Hair Saloon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Secunderabad"
+  },
+  {
+    "id": "692d40f6-c15d-498e-8caa-66250a05ddc0",
+    "name": "Jawed Habib Hair Beauty MakeUp",
+    "location": "Dilsukhnagar Main Rd, Dilsukhnagar",
+    "rating": 3.7,
+    "priceFrom": 421,
+    "lat": 17.3943855,
+    "lon": 78.4379755,
+    "phone": "+919876500033",
+    "category": "unisex",
+    "slug": "jawed-habib-hair-beauty-makeup",
+    "imageUrl": "https://picsum.photos/seed/jawed-habib-hair-beauty-makeup/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 421,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 201,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 571,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 471,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Grooming excellence since day one. Quality cuts, beard sculpting, and skincare for the discerning client.",
+    "about": "For over a decade, Jawed Habib Hair Beauty MakeUp has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Dilsukhnagar"
+  },
+  {
+    "id": "8f1f585c-9e9c-4c46-8fce-ef140f6863fc",
+    "name": "Monalisa beauty parlour",
+    "location": "Toli Chowki Main Rd, Banjara Hills",
+    "rating": 3.6,
+    "priceFrom": 400,
+    "lat": 17.3938564,
+    "lon": 78.437757,
+    "phone": "+919876500034",
+    "category": "women",
+    "slug": "monalisa-beauty-parlour",
+    "imageUrl": "https://picsum.photos/seed/monalisa-beauty-parlour/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 400,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 200,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 500,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 400,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Where style and relaxation meet. Enjoy a premium grooming experience in a serene, welcoming environment.",
+    "about": "For over a decade, Monalisa beauty parlour has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
+  },
+  {
+    "id": "4f45e439-23e7-4e7b-8106-89bed49bf50d",
+    "name": "Sai Sahasra Beauty Parlour",
+    "location": "Punjagutta Main Rd, Punjagutta",
+    "rating": 4.6,
+    "priceFrom": 405,
+    "lat": 17.4090164,
+    "lon": 78.4925411,
+    "phone": "+919876500035",
+    "category": "women",
+    "slug": "sai-sahasra-beauty-parlour",
+    "imageUrl": "https://picsum.photos/seed/sai-sahasra-beauty-parlour/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 405,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 225,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 505,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 405,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Professional grooming for the modern lifestyle. Quick, quality, and always on point.",
+    "about": "For over a decade, Sai Sahasra Beauty Parlour has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Punjagutta"
+  },
+  {
+    "id": "f6caa901-15d4-4192-8329-f7c7b2fba762",
+    "name": "Looks",
+    "location": "Hi-Tech City Metro, Madhapur",
+    "rating": 3.9,
+    "priceFrom": 403,
+    "lat": 17.3897465,
+    "lon": 78.3824311,
+    "phone": "+919876500036",
+    "category": "unisex",
+    "slug": "looks",
+    "imageUrl": "https://picsum.photos/seed/looks/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 403,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 203,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 503,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 403,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "Transform your look with Hyderabad's finest stylists. Precision, passion, and premium products.",
+    "about": "For over a decade, Looks has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Madhapur"
+  },
+  {
+    "id": "40cdf09d-3b8c-4d87-8d35-baaf62ed2e5c",
+    "name": "Deepak saloon",
+    "location": "Kothaguda Main Rd, Kondapur",
+    "rating": 4.1,
+    "priceFrom": 240,
+    "lat": 17.4126469,
+    "lon": 78.4091932,
+    "phone": "+919876500037",
+    "category": "men",
+    "slug": "deepak-saloon",
+    "imageUrl": "https://picsum.photos/seed/deepak-saloon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 240,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 120,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 390,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Hair Color",
+        "price": 890,
+        "duration": 60,
+        "description": "Professional hair coloring using premium ammonia-free products for vibrant, long-lasting results."
+      }
+    ],
+    "description": "More than a haircut — an experience. Our barbers take the time to understand your style.",
+    "about": "For over a decade, Deepak saloon has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Kondapur"
+  },
+  {
+    "id": "b8633741-6983-4f39-8d53-7dc2ff6e18fe",
+    "name": "AAKAARAA SALON",
+    "location": "Road No. 2, 8-2-112/120",
+    "rating": 4.7,
+    "priceFrom": 401,
+    "lat": 17.4253946,
+    "lon": 78.4218703,
+    "phone": "+919876500038",
+    "category": "unisex",
+    "slug": "aakaaraa-salon",
+    "imageUrl": "https://picsum.photos/seed/aakaaraa-salon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 401,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 211,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 551,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 451,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "address": "Road No. 2 8-2-112/120",
+    "description": "Style that speaks volumes. Expert cuts, beard grooming, and a vibe that's unmistakably premium.",
+    "about": "For over a decade, AAKAARAA SALON has been a cornerstone of grooming excellence in Road No. 2, 8-2-112/120. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Banjara Hills"
+  },
+  {
+    "id": "1b2e98db-7386-4717-8c17-4d524e0bd9a1",
+    "name": "Mane'a",
+    "location": "Sanjeeva Reddy Nagar Colony Main Road",
+    "rating": 4.2,
+    "priceFrom": 406,
+    "lat": 17.4414383,
+    "lon": 78.4470678,
+    "phone": "+919876500039",
+    "category": "unisex",
+    "slug": "mane-a",
+    "imageUrl": "https://picsum.photos/seed/mane-a/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 406,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 206,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 556,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 456,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "address": "Sanjeeva Reddy Nagar Colony Main Road",
+    "description": "Your destination for distinguished grooming. Classic techniques meet modern aesthetics.",
+    "about": "For over a decade, Mane'a has been a cornerstone of grooming excellence in Sanjeeva Reddy Nagar Colony Main Road. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Sanjeeva Reddy Nagar"
+  },
+  {
+    "id": "44ee13cb-5234-4cd1-88cc-c6abdfe6bbc4",
+    "name": "Immense",
+    "location": "DharamKaran Road",
+    "rating": 4.4,
+    "priceFrom": 428,
+    "lat": 17.442365,
+    "lon": 78.4501653,
+    "phone": "+919876500040",
+    "category": "unisex",
+    "slug": "immense",
+    "imageUrl": "https://picsum.photos/seed/immense/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 428,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 208,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 578,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 478,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "address": "DharamKaran Road",
+    "description": "Where every visit leaves you looking and feeling your best. Premium grooming, personalized care.",
+    "about": "For over a decade, Immense has been a cornerstone of grooming excellence in DharamKaran Road. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Himayath Nagar"
+  },
+  {
+    "id": "02c661a0-6ed0-4cf7-8b10-fe18d197f22e",
+    "name": "Lakmé Salon",
+    "location": "Asifnagar Road, 10-3-5/1",
+    "rating": 4.5,
+    "priceFrom": 713,
+    "lat": 17.3943657,
+    "lon": 78.4416636,
+    "phone": "+919876500041",
+    "category": "unisex",
+    "slug": "lakm-salon",
+    "imageUrl": "https://picsum.photos/seed/lakm-salon/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 713,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 353,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 963,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Manicure",
+        "price": 463,
+        "duration": 30,
+        "description": "Professional service delivered by our expert stylists using premium products."
+      }
+    ],
+    "description": "The pinnacle of men's grooming. From executive cuts to complete makeovers, we deliver excellence.",
+    "about": "For over a decade, Lakmé Salon has been a cornerstone of grooming excellence in Asifnagar Road, 10-3-5/1. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Asifnagar"
+  },
+  {
+    "id": "06b45e3e-b3e9-402b-892c-b45ba156a2df",
+    "name": "Saloon’s Edge Family Salon And Spa",
+    "location": "Nizampet Main Rd, Kukatpally",
+    "rating": 3.8,
+    "priceFrom": 737,
+    "lat": 17.4046006,
+    "lon": 78.4020008,
+    "phone": "+919876500042",
+    "category": "men",
+    "slug": "saloon-s-edge-family-salon-and-spa",
+    "imageUrl": "https://picsum.photos/seed/saloon-s-edge-family-salon-and-spa/400/300",
+    "services": [
+      {
+        "name": "Haircut & Style",
+        "price": 737,
+        "duration": 45,
+        "description": "A precision cut tailored to your face shape and style preferences, finished with a hot towel treatment."
+      },
+      {
+        "name": "Beard Trim & Shape",
+        "price": 367,
+        "duration": 20,
+        "description": "Expert beard sculpting and shaping with straight razor detailing for a clean, sharp look."
+      },
+      {
+        "name": "Facial Clean Up",
+        "price": 937,
+        "duration": 40,
+        "description": "Deep cleansing facial with premium products to rejuvenate your skin and leave you refreshed."
+      },
+      {
+        "name": "Hair Color",
+        "price": 837,
+        "duration": 60,
+        "description": "Professional hair coloring using premium ammonia-free products for vibrant, long-lasting results."
+      }
+    ],
+    "description": "Uncompromising quality in every service. Your look is our reputation.",
+    "about": "For over a decade, Saloon’s Edge Family Salon And Spa has been a cornerstone of grooming excellence in Hyderabad. Our team of skilled professionals is dedicated to providing an exceptional experience in a warm, welcoming environment.",
+    "openTime": "09:00:00",
+    "closeTime": "21:00:00",
+    "area": "Kukatpally"
   }
 ]

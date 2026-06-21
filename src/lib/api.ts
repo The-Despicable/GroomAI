@@ -31,12 +31,21 @@ export interface Booking {
 export interface ChatMessage {
   role: 'user' | 'assistant'
   content: string
+  intent?: string
+  data?: any
 }
 
-export async function getSalons(filters?: { service?: string; location?: string }): Promise<Salon[]> {
+export interface ChatResponse {
+  reply: string
+  intent?: string
+  data?: any
+}
+
+export async function getSalons(filters?: { service?: string; location?: string; category?: string }): Promise<Salon[]> {
   const params = new URLSearchParams()
   if (filters?.service) params.set('service', filters.service)
   if (filters?.location) params.set('location', filters.location)
+  if (filters?.category) params.set('category', filters.category)
   const qs = params.toString()
   const res = await fetch(`${BASE}/api/salons${qs ? `?${qs}` : ''}`)
   if (!res.ok) return []
@@ -65,7 +74,7 @@ export async function getBookings(userId: string): Promise<Booking[]> {
   return res.json()
 }
 
-export async function chatWithAI(message: string, history: ChatMessage[]): Promise<{ reply: string }> {
+export async function chatWithAI(message: string, history: ChatMessage[]): Promise<ChatResponse> {
   const res = await fetch(`${BASE}/api/ai/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

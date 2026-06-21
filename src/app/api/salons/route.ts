@@ -1,10 +1,38 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
+import { createServerClient } from '@/lib/supabase-server'
 import realSalons from '@/data/real_salons.json'
 
 const mockSalons: any[] = realSalons
 
-function filterMockSalons(service?: string | null, query?: string | null) {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const service = searchParams.get('service')
+  const query = searchParams.get('query') || searchParams.get('location')
+  const category = searchParams.get('category')
+
+  const { data: ctx } = await createServerClient(request)
+  if (ctx) {
+    let salonQuery = ctx.supabase.from('salons').select('*')
+    if (query) {
+      const q = query.toLowerCase()
+      salonQuery = salonQuery.or(`name.ilike.%${q}%,location.ilike.%${q}%`)
+    }
+    const { data: salons, error } = await salonQuery
+    if (!error && salons) {
+      const { data: allServices } = await ctx.supabase.from('services').select('*')
+      if (service && allServices) {
+        const filteredIds = allServices
+          .filter((sv: any) => sv.name.toLowerCase().includes(service.toLowerCase()))
+          .map((sv: any) => sv.salon_id)
+        return NextResponse.json(transformSupabaseSalons(
+          salons.filter((s: any) => filteredIds.includes(s.id)),
+          allServices || []
+        ))
+      }
+      return NextResponse.json(transformSupabaseSalons(salons || [], allServices || []))
+    }
+  }
+
   let filtered = [...mockSalons]
   if (service) {
     filtered = filtered.filter(s =>
@@ -17,39 +45,28 @@ function filterMockSalons(service?: string | null, query?: string | null) {
       s.name.toLowerCase().includes(q) || s.location.toLowerCase().includes(q)
     )
   }
-  return filtered
+  if (category) {
+    filtered = filtered.filter(s => s.category?.toLowerCase() === category.toLowerCase())
+  }
+  return NextResponse.json(filtered)
 }
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const service = searchParams.get('service')
-  const query = searchParams.get('query') || searchParams.get('location')
-
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-    return NextResponse.json(filterMockSalons(service, query))
+function transformSupabaseSalons(salons: any[], services: any[]): any[] {
+  const servicesBySalon: Record<string, any[]> = {}
+  for (const svc of services) {
+    if (!servicesBySalon[svc.salon_id]) servicesBySalon[svc.salon_id] = []
+    servicesBySalon[svc.salon_id].push(svc)
   }
-
-  try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    )
-
-    let supabaseQuery = supabase.from('salons').select('*')
-
-    if (service) {
-      supabaseQuery = supabaseQuery.contains('services', [service])
+  return salons.map(s => {
+    const salonServices = servicesBySalon[s.id] || []
+    return {
+      id: s.id, name: s.name, location: s.location, rating: s.rating,
+      priceFrom: salonServices.length > 0 ? Math.min(...salonServices.map((sv: any) => sv.price / 100)) : 0,
+      lat: s.lat, lon: s.lng,
+      imageUrl: s.images?.[0] || null,
+      services: salonServices.map((sv: any) => ({ name: sv.name, price: sv.price / 100, duration: sv.duration_minutes })),
+      slug: s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+      area: s.area,
     }
-
-    if (query) {
-      supabaseQuery = supabaseQuery.or(`name.ilike.%${query}%,address.ilike.%${query}%`)
-    }
-
-    const { data, error } = await supabaseQuery
-    if (error) throw error
-    return NextResponse.json(data)
-  } catch (error: any) {
-    console.error('Supabase error, falling back to mock:', error)
-    return NextResponse.json(filterMockSalons(service, query))
-  }
+  })
 }

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GroomAI Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#99907e",
+                    "background": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "on-secondary-fixed-variant": "#474746",
+                    "surface-dim": "#131313",
+                    "primary-fixed-dim": "#e6c364",
+                    "inverse-on-surface": "#313030",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary": "#313030",
+                    "on-primary-fixed": "#241a00",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface-tint": "#e6c364",
+                    "on-error": "#690005",
+                    "primary-container": "#c9a84c",
+                    "secondary-container": "#474746",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-variant": "#353534",
+                    "tertiary-container": "#adabaa",
+                    "on-primary-container": "#503d00",
+                    "surface-bright": "#393939",
+                    "on-secondary-container": "#b7b5b4",
+                    "tertiary-fixed-dim": "#c9c6c5",
+                    "secondary": "#c8c6c5",
+                    "error-container": "#93000a",
+                    "on-surface-variant": "#d0c5b2",
+                    "on-tertiary-container": "#403f3f",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-container-highest": "#353534",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3d2e00",
+                    "primary-fixed": "#ffe08f",
+                    "on-secondary": "#313030",
+                    "surface-container": "#201f1f",
+                    "inverse-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "tertiary": "#c9c6c6",
+                    "inverse-primary": "#755b00",
+                    "outline-variant": "#4d4637",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#e6c364",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "surface": "#131313",
+                    "on-secondary-fixed": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-padding-desktop": "32px",
+                    "container-padding-mobile": "16px",
+                    "base": "8px",
+                    "sidebar-width": "280px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "title-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #C9A84C 0%, #8B6E2A 100%);
+        }
+        .gold-border-glow:hover {
+            border-color: rgba(201, 168, 76, 0.4);
+            box-shadow: 0 0 15px rgba(201, 168, 76, 0.1);
+        }
+        .sidebar-active-indicator {
+            width: 2px;
+            height: 100%;
+            background-color: #e6c364;
+            position: absolute;
+            left: 0;
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-sidebar fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-base z-50">
+<div class="px-gutter mb-12">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">GroomAI</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Elite Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Dashboard Active -->
+<a class="relative flex items-center px-gutter py-3 text-primary border-l-2 border-primary bg-surface-container-high transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-secondary hover:text-primary-fixed-dim hover:bg-surface-variant transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-4">storefront</span>
+<span class="font-label-caps text-label-caps">Salons</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-secondary hover:text-primary-fixed-dim hover:bg-surface-variant transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-4">group</span>
+<span class="font-label-caps text-label-caps">Users</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-secondary hover:text-primary-fixed-dim hover:bg-surface-variant transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-4">event_available</span>
+<span class="font-label-caps text-label-caps">Bookings</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-secondary hover:text-primary-fixed-dim hover:bg-surface-variant transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-4">rate_review</span>
+<span class="font-label-caps text-label-caps">Reviews</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-secondary hover:text-primary-fixed-dim hover:bg-surface-variant transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<div class="px-gutter mt-auto pt-8">
+<button class="w-full py-4 gold-gradient text-on-primary-container font-label-caps text-label-caps rounded-sm shadow-lg hover:brightness-110 transition-all">
+                New Appointment
+            </button>
+<div class="mt-8 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional studio portrait of a high-end salon administrator, shot with cinematic low-key lighting against a dark charcoal background. The subject is wearing a tailored black blazer and has a sophisticated expression. The lighting highlights their features with a warm gold rim light, perfectly matching the GroomAI elite brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSGx0fL6qKxSAU4DZDFecqP16rCorN20lNMwjDTqmgLcGnfLjlldIgDQX8E_MbMLgkMeifcKGAz7II4XThgMU_oLvk0C5syV_txC4MXS1BjI7iQc6S0XVZ_j5bIEz6Obm_7zBMsq-H-phlBT_CekWD7QSPXSI-usXgqhoqxMO5pNuMgfMhLLnsPheUSr6pbra17h1v9tzj_mPp7et9wlhNpRSstuGLsvWF49Xtkv5ACS0qtIfrzAui8M4SOrLR_IaS8PrNGpPJuOWk"/>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">LOGGED IN AS</p>
+<p class="font-bold text-sm">GroomAI Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 h-20 bg-surface border-b border-outline-variant z-40 flex justify-between items-center px-gutter ml-sidebar w-[calc(100%-theme(spacing.sidebar-width))]">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-[#050505] border border-[#262626] rounded-sm py-2 pl-12 pr-4 font-body-sm text-body-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all placeholder:text-on-secondary-fixed-variant" placeholder="Search salons, users, or transactions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3">
+<span class="font-title-md text-title-md text-primary font-bold">GroomAI</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-sidebar pt-20 p-gutter min-h-screen">
+<!-- Header Section -->
+<header class="mb-10 flex justify-between items-end pb-4 border-b border-gradient-to-r from-primary to-transparent border-opacity-20">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dashboard Overview</h2>
+<p class="text-on-surface-variant font-body-sm">Welcome back, Admin. Here's what's happening today.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-outline-variant rounded-sm font-label-caps text-label-caps hover:bg-surface-container-high transition-colors">Export Report</button>
+</div>
+</header>
+<!-- Stats Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-12">
+<!-- Total Salons -->
+<div class="bg-[#121212] border border-[#262626] p-6 gold-border-glow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-high rounded-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<span class="text-xs font-label-caps text-green-500 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span> +4%
+                    </span>
+</div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">Total Salons</h3>
+<p class="font-display-lg text-[36px] font-bold text-on-surface">24</p>
+</div>
+<!-- Active Users -->
+<div class="bg-[#121212] border border-[#262626] p-6 gold-border-glow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-high rounded-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+</div>
+<span class="text-xs font-label-caps text-green-500 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span> +12%
+                    </span>
+</div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">Active Users</h3>
+<p class="font-display-lg text-[36px] font-bold text-on-surface">1,247</p>
+</div>
+<!-- Bookings Today -->
+<div class="bg-[#121212] border border-[#262626] p-6 gold-border-glow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-high rounded-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
+</div>
+<span class="text-xs font-label-caps text-primary flex items-center">
+                        Stable
+                    </span>
+</div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">Bookings Today</h3>
+<p class="font-display-lg text-[36px] font-bold text-on-surface">38</p>
+</div>
+<!-- Revenue -->
+<div class="bg-[#121212] border border-[#262626] p-6 gold-border-glow transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-high rounded-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<span class="text-xs font-label-caps text-green-500 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span> +8.2%
+                    </span>
+</div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">Revenue</h3>
+<div class="flex items-baseline">
+<span class="text-primary mr-1 text-xl">₹</span>
+<p class="font-display-lg text-[36px] font-bold text-on-surface">48,250</p>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Table Section -->
+<section class="lg:col-span-2 bg-[#121212] border border-[#262626] rounded-sm overflow-hidden flex flex-col">
+<div class="px-6 py-5 border-b border-[#262626] flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-on-surface">Recent Bookings</h3>
+<a class="font-label-caps text-label-caps text-primary hover:underline transition-all" href="#">View All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-[#262626]">
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Customer</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Salon</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Service</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-center">Status</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#262626]">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold text-xs">AS</div>
+<div>
+<p class="font-body-lg font-semibold text-on-surface">Arjun Sharma</p>
+<p class="text-[12px] text-on-surface-variant">Member since 2023</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">The Royal Trim</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Elite Grooming Pack</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Oct 24, 2:30 PM</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 bg-green-500/10 border border-green-500 text-green-500 text-[10px] font-label-caps uppercase rounded-sm">Confirmed</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold text-xs">PK</div>
+<div>
+<p class="font-body-lg font-semibold text-on-surface">Priya Kapoor</p>
+<p class="text-[12px] text-on-surface-variant">New Customer</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Luxe Hair Spa</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Keratin Therapy</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Oct 24, 4:15 PM</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 bg-primary/10 border border-primary text-primary text-[10px] font-label-caps uppercase rounded-sm">Pending</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold text-xs">RV</div>
+<div>
+<p class="font-body-lg font-semibold text-on-surface">Rohan Verma</p>
+<p class="text-[12px] text-on-surface-variant">VIP Member</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Urban Gent</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Beard Sculpting</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Oct 24, 11:00 AM</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 bg-error/10 border border-error text-error text-[10px] font-label-caps uppercase rounded-sm">Cancelled</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary font-bold text-xs">SM</div>
+<div>
+<p class="font-body-lg font-semibold text-on-surface">Sneha Mehta</p>
+<p class="text-[12px] text-on-surface-variant">Member since 2022</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Bella Flora Salon</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Manicure Deluxe</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-sm">Oct 25, 9:30 AM</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 bg-green-500/10 border border-green-500 text-green-500 text-[10px] font-label-caps uppercase rounded-sm">Confirmed</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Sidebar Content: Recent Reviews / Activity -->
+<section class="flex flex-col gap-gutter">
+<!-- Mini Chart / Performance -->
+<div class="bg-[#121212] border border-[#262626] p-6">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Performance Trend</h3>
+<div class="h-32 flex items-end justify-between gap-2 px-2">
+<div class="w-full bg-surface-container-high h-1/2 rounded-t-sm relative group">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-t-sm"></div>
+</div>
+<div class="w-full bg-surface-container-high h-2/3 rounded-t-sm relative group">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-t-sm"></div>
+</div>
+<div class="w-full bg-surface-container-high h-3/4 rounded-t-sm relative group">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-t-sm"></div>
+</div>
+<div class="w-full bg-surface-container-high h-1/2 rounded-t-sm relative group">
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-t-sm"></div>
+</div>
+<div class="w-full bg-primary h-full rounded-t-sm shadow-[0_-4px_10px_rgba(201,168,76,0.3)]"></div>
+</div>
+<div class="flex justify-between mt-4 font-label-caps text-[10px] text-on-surface-variant">
+<span>MON</span>
+<span>TUE</span>
+<span>WED</span>
+<span>THU</span>
+<span class="text-primary font-bold">FRI</span>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="bg-[#121212] border border-[#262626] p-6 flex-1">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Live Feed</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-1 h-12 bg-primary rounded-full"></div>
+<div>
+<p class="text-on-surface text-sm font-semibold">New Salon Registration</p>
+<p class="text-on-surface-variant text-xs mb-1">'Gilded Mane' requested approval.</p>
+<span class="text-[10px] text-on-secondary-fixed-variant font-label-caps">2 MINS AGO</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-1 h-12 bg-outline-variant rounded-full"></div>
+<div>
+<p class="text-on-surface text-sm font-semibold">Payout Completed</p>
+<p class="text-on-surface-variant text-xs mb-1">₹12,400 sent to Royal Trim.</p>
+<span class="text-[10px] text-on-secondary-fixed-variant font-label-caps">45 MINS AGO</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-1 h-12 bg-primary rounded-full"></div>
+<div>
+<p class="text-on-surface text-sm font-semibold">System Update</p>
+<p class="text-on-surface-variant text-xs mb-1">Version 2.4.1 deployed successfully.</p>
+<span class="text-[10px] text-on-secondary-fixed-variant font-label-caps">2 HOURS AGO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for stats cards
+        document.querySelectorAll('.gold-border-glow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

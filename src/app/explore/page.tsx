@@ -6,11 +6,13 @@ import SalonCard from '@/components/SalonCard'
 import { getSalons } from '@/lib/api'
 
 const services = ['All', 'Hair', 'Beard', 'Spa', 'Nails']
+const categories = ['All', 'Men', 'Women', 'Unisex']
 
 function ExploreContent() {
   const searchParams = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('q') || '')
   const [service, setService] = useState(searchParams.get('service') || 'All')
+  const [category, setCategory] = useState('All')
   const [salons, setSalons] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -19,10 +21,11 @@ function ExploreContent() {
     const data = await getSalons({
       service: service === 'All' ? undefined : service.toLowerCase(),
       location: query || undefined,
+      category: category === 'All' ? undefined : category.toLowerCase(),
     })
     setSalons(data)
     setLoading(false)
-  }, [query, service])
+  }, [query, service, category])
 
   useEffect(() => {
     const t = setTimeout(fetch, 400)
@@ -38,11 +41,19 @@ function ExploreContent() {
             className="w-full bg-[#111111] border border-[#1a1a1a] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#C9A84C]/50" />
         </div>
       </div>
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-1">
+      <div className="flex gap-2 mb-3 overflow-x-auto pb-1">
         {services.map(s => (
           <button key={s} onClick={() => setService(s)}
             className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm border transition-colors ${service === s ? 'bg-[#C9A84C] text-black border-[#C9A84C]' : 'border-[#1a1a1a] text-gray-400 hover:border-[#C9A84C]/50'}`}>
             {s}
+          </button>
+        ))}
+      </div>
+      <div className="flex gap-2 mb-6 overflow-x-auto pb-1">
+        {categories.map(c => (
+          <button key={c} onClick={() => setCategory(c)}
+            className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm border transition-colors ${category === c ? 'bg-white/10 text-white border-white/20' : 'border-[#1a1a1a] text-gray-500 hover:border-white/20'}`}>
+            {c}
           </button>
         ))}
       </div>
@@ -54,7 +65,7 @@ function ExploreContent() {
         <p className="text-gray-500 text-sm text-center py-16">No salons found</p>
       ) : (
         <div className="grid grid-cols-1 gap-4">
-          {salons.map((s: any) => <SalonCard key={s.id} salon={s} />)}
+          {salons.map((s: any) => <SalonCard key={s.id} id={s.id} name={s.name} location={s.location} rating={s.rating} priceFrom={s.priceFrom} imageUrl={s.imageUrl} />)}
         </div>
       )}
     </>

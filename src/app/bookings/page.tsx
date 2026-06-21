@@ -1,31 +1,41 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useAuth } from '@/context/AuthContext'
-import { signInWithGoogle } from '@/lib/firebase'
+import { signInWithGoogle } from '@/lib/auth'
 import { getBookings } from '@/lib/api'
-import { CalendarDays } from 'lucide-react'
+import { CalendarDays, Search, RotateCcw, XCircle, Star } from 'lucide-react'
+import Link from 'next/link'
 
-const statusColor: Record<string, string> = {
-  upcoming: 'text-green-400',
-  completed: 'text-gray-500',
-  cancelled: 'text-red-400',
+type StatusFilter = 'all' | 'upcoming' | 'completed' | 'cancelled'
+
+const statusBadge: Record<string, string> = {
+  upcoming: 'bg-green-500/10 text-green-400 border-green-500/30',
+  completed: 'bg-gray-500/10 text-gray-400 border-gray-500/30',
+  cancelled: 'bg-red-500/10 text-red-400 border-red-500/30',
 }
 
 export default function BookingsPage() {
   const { user, loading: authLoading } = useAuth()
   const [bookings, setBookings] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
 
   useEffect(() => {
-    if (!user) {
-      setLoading(false)
-      return
-    }
+    if (!user) { setLoading(false); return }
     getBookings(user.uid).then(data => {
       setBookings(data)
       setLoading(false)
     })
   }, [user])
+
+  const filtered = bookings.filter(b => {
+    const matchesSearch = search === '' ||
+      (b.salon_name || b.salonName || '').toLowerCase().includes(search.toLowerCase()) ||
+      (b.service || '').toLowerCase().includes(search.toLowerCase())
+    const matchesStatus = statusFilter === 'all' || b.status === statusFilter
+    return matchesSearch && matchesStatus
+  })
 
   if (authLoading || loading) {
     return <div className="px-4 py-6 max-w-2xl mx-auto"><div className="h-32 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" /></div>
@@ -43,23 +53,85 @@ export default function BookingsPage() {
 
   return (
     <div className="px-4 py-6 max-w-2xl mx-auto">
-      <h1 className="text-xl font-bold text-white mb-6">My Bookings</h1>
-      {bookings.length === 0 ? (
-        <p className="text-gray-500 text-sm text-center py-16">No bookings yet.</p>
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="text-xl font-bold text-white">My Bookings</h1>
+        <span className="text-xs text-gray-500 bg-[#111111] border border-[#1a1a1a] px-3 py-1 rounded-full">
+          {bookings.length} total
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2 mb-4">
+        <div className="relative flex-1">
+          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+          <input value={search} onChange={e => setSearch(e.target.value)}
+            placeholder="Search bookings..."
+            className="w-full bg-[#111111] border border-[#1a1a1a] rounded-xl pl-9 pr-3 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#C9A84C]/50" />
+        </div>
+      </div>
+
+      <div className="flex gap-2 mb-5 overflow-x-auto pb-1">
+        {(['all', 'upcoming', 'completed', 'cancelled'] as StatusFilter[]).map(f => (
+          <button key={f} onClick={() => setStatusFilter(f)}
+            className={`text-xs px-3 py-1.5 rounded-full border whitespace-nowrap transition-colors capitalize ${
+              statusFilter === f ? 'bg-[#C9A84C] text-black border-[#C9A84C]' : 'border-[#1a1a1a] text-gray-400 hover:border-[#C9A84C]/50'
+            }`}>
+            {f === 'all' ? 'All' : f}
+          </button>
+        ))}
+      </div>
+
+      {filtered.length === 0 ? (
+        <div className="text-center py-16">
+          <CalendarDays size={36} className="mx-auto text-gray-600 mb-3" />
+          <p className="text-gray-500 text-sm mb-3">
+            {search || statusFilter !== 'all' ? 'No matching bookings found.' : 'No bookings yet.'}
+          </p>
+          {!search && statusFilter === 'all' && (
+            <Link href="/explore" className="text-[#C9A84C] text-sm hover:underline">
+              Find a salon
+            </Link>
+          )}
+        </div>
       ) : (
         <div className="flex flex-col gap-3">
-          {bookings.map((b: any) => (
-            <div key={b.id} className="bg-[#111111] border border-[#1a1a1a] rounded-2xl p-4">
+          {filtered.map((b: any) => (
+            <div key={b.id} className="bg-[#111111] border border-[#1a1a1a] rounded-2xl p-4 hover:border-[#C9A84C]/20 transition-all">
               <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-semibold text-white">{b.salon_name || b.salonName || 'Salon'}</p>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <p className="font-semibold text-white">{b.salon_name || b.salonName || 'Salon'}</p>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full border capitalize ${statusBadge[b.status] || statusBadge.upcoming}`}>
+                      {b.status}
+                    </span>
+                  </div>
                   <p className="text-sm text-gray-400 mt-0.5">{b.service}</p>
-                  <p className="text-sm text-gray-500 mt-1">{b.date} · {b.time}</p>
+                  <p className="text-xs text-gray-500 mt-1">{b.date} · {b.time}</p>
                 </div>
-                <span className={`text-xs font-medium capitalize ${statusColor[b.status] || 'text-gray-400'}`}>{b.status}</span>
+                <div className="text-right">
+                  <span className="text-[#C9A84C] font-semibold">₹{b.price}</span>
+                </div>
               </div>
-              <div className="mt-2 text-right">
-                <span className="text-[#C9A84C] font-semibold">₹{b.price}</span>
+              <div className="flex gap-2 mt-3 pt-3 border-t border-[#1a1a1a]">
+                {b.status === 'upcoming' && (
+                  <>
+                    <button className="flex-1 flex items-center justify-center gap-1 text-xs bg-[#C9A84C]/10 text-[#C9A84C] py-1.5 rounded-lg hover:bg-[#C9A84C]/20 transition-colors">
+                      <RotateCcw size={12} />Reschedule
+                    </button>
+                    <button className="flex-1 flex items-center justify-center gap-1 text-xs bg-red-500/10 text-red-400 py-1.5 rounded-lg hover:bg-red-500/20 transition-colors">
+                      <XCircle size={12} />Cancel
+                    </button>
+                  </>
+                )}
+                {b.status === 'completed' && (
+                  <button className="flex-1 flex items-center justify-center gap-1 text-xs bg-[#C9A84C]/10 text-[#C9A84C] py-1.5 rounded-lg hover:bg-[#C9A84C]/20 transition-colors">
+                    <RotateCcw size={12} />Rebook
+                  </button>
+                )}
+                {b.status === 'completed' && (
+                  <button className="flex-1 flex items-center justify-center gap-1 text-xs bg-blue-500/10 text-blue-400 py-1.5 rounded-lg hover:bg-blue-500/20 transition-colors">
+                    <Star size={12} />Review
+                  </button>
+                )}
               </div>
             </div>
           ))}

@@ -1,5 +1,5 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
+import { createServerClient } from '@/lib/supabase-server'
 import realSalons from '@/data/real_salons.json'
 
 const mockSalons: Record<string, any> = Object.fromEntries(
@@ -12,28 +12,33 @@ export async function GET(
 ) {
   const { id } = await params
 
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-    const salon = mockSalons[id]
-    if (!salon) return NextResponse.json({ error: 'Not found' }, { status: 404 })
-    return NextResponse.json(salon)
+  const { data: ctx } = await createServerClient(_request)
+  if (ctx) {
+    const { data: salon, error } = await ctx.supabase.from('salons').select('*').eq('id', id).single()
+    if (!error && salon) {
+      const { data: services } = await ctx.supabase.from('services').select('*').eq('salon_id', id)
+      return NextResponse.json(transformSupabaseSalon(salon, services || []))
+    }
   }
 
-  try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    )
-    const { data, error } = await supabase
-      .from('salons')
-      .select('*')
-      .eq('id', id)
-      .single()
+  const salon = mockSalons[id]
+  if (!salon) return NextResponse.json({ error: 'Not found' }, { status: 404 })
+  return NextResponse.json(salon)
+}
 
-    if (error) throw error
-    return NextResponse.json(data)
-  } catch (error: any) {
-    const salon = mockSalons[id]
-    if (!salon) return NextResponse.json({ error: 'Not found' }, { status: 404 })
-    return NextResponse.json(salon)
+function transformSupabaseSalon(salon: any, services: any[]): any {
+  return {
+    id: salon.id, name: salon.name, location: salon.location,
+    rating: salon.rating,
+    priceFrom: services.length > 0 ? Math.min(...services.map((sv: any) => sv.price / 100)) : 0,
+    lat: salon.lat, lon: salon.lng,
+    imageUrl: salon.images?.[0] || null,
+    services: services.map((sv: any) => ({ name: sv.name, price: sv.price / 100, duration: sv.duration_minutes })),
+    slug: salon.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+    area: salon.area,
+    description: salon.description,
+    phone: salon.phone,
+    openTime: salon.open_time,
+    closeTime: salon.close_time,
   }
 }

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About GroomAI | The Gold Standard of Grooming</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Montserrat:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#c9a84c",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary": "#c9c6c6",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed-variant": "#474746",
+                    "inverse-surface": "#e5e2e1",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#241a00",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed": "#e5e2e1",
+                    "background": "#131313",
+                    "on-primary": "#3d2e00",
+                    "tertiary-fixed-dim": "#c9c6c5",
+                    "surface-container-highest": "#353534",
+                    "surface-tint": "#e6c364",
+                    "inverse-primary": "#755b00",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "outline-variant": "#4d4637",
+                    "outline": "#99907e",
+                    "on-surface-variant": "#d0c5b2",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "secondary": "#c8c6c5",
+                    "on-tertiary-container": "#403f3f",
+                    "on-tertiary": "#313030",
+                    "primary-fixed-dim": "#e6c364",
+                    "on-secondary": "#313030",
+                    "secondary-container": "#474746",
+                    "primary-fixed": "#ffe08f",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-container": "#201f1f",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-lowest": "#0e0e0e",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-background": "#e5e2e1",
+                    "on-primary-container": "#503d00",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#131313",
+                    "primary": "#e6c364",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#adabaa",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "surface-variant": "#353534",
+                    "surface": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-padding-desktop": "32px",
+                    "gutter": "24px",
+                    "sidebar-width": "280px",
+                    "container-padding-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "display-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .gold-linear {
+            background: linear-gradient(135deg, #FFE08F 0%, #C9A84C 50%, #8A6D1F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-bg {
+            background: linear-gradient(135deg, #FFE08F 0%, #C9A84C 100%);
+        }
+        .luxury-card {
+            background: #121212;
+            border: 1px solid #262626;
+            transition: border-color 0.3s ease;
+        }
+        .luxury-card:hover {
+            border-color: #C9A84C;
+        }
+        .status-chip {
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid #C9A84C;
+        }
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg antialiased">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 border-b border-surface-container-highest bg-background">
+<div class="flex justify-between items-center h-20 px-container-padding-desktop max-w-full mx-auto">
+<div class="font-display-lg text-display-lg text-primary uppercase tracking-tighter">GroomAI</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-title-md text-title-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-title-md text-title-md" href="#">Barbers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-title-md text-title-md" href="#">Memberships</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-title-md text-title-md" href="#">Locations</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+</div>
+<button class="gold-bg text-on-primary-fixed px-6 py-2 font-bold hover:scale-95 duration-200 ease-in-out">Book Now</button>
+</div>
+</div>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative py-32 flex items-center justify-center overflow-hidden">
+
+<div class="relative z-10 text-center max-w-4xl px-container-padding-desktop">
+<h1 class="font-display-lg text-display-lg mb-4 gold-linear uppercase tracking-tighter md:text-7xl">About GroomAI</h1>
+<p class="font-headline-lg text-headline-lg text-tertiary">Hyderabad's premier AI-powered salon booking platform</p>
+<div class="mt-8 flex justify-center space-x-4">
+<div class="h-[1px] w-12 bg-primary self-center"></div>
+<span class="font-label-caps text-label-caps tracking-widest text-primary uppercase">Elite Precision</span>
+<div class="h-[1px] w-12 bg-primary self-center"></div>
+</div>
+</div>
+</section>
+<!-- Mission Section -->
+<section class="py-24 px-container-padding-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-6">
+<span class="font-label-caps text-label-caps text-primary border-l-2 border-primary pl-4">OUR MISSION</span>
+<h2 class="font-headline-lg text-headline-lg leading-tight">Elevating Grooming Standards in Hyderabad's Most Prestigious Hubs.</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                        GroomAI was born from a simple realization: high-end grooming deserves high-end technology. We specialize in connecting the discerning gentlemen of <span class="text-primary font-bold">Banjara Hills</span> and <span class="text-primary font-bold">Jubilee Hills</span> with a curated network of elite barbers and stylists. 
+                    </p>
+<p class="text-on-surface-variant leading-relaxed">
+                        Our platform doesn't just book appointments; it orchestrates a seamless experience of luxury. Using advanced matching algorithms, we ensure your personal style finds its perfect professional counterpart, saving you time while elevating your presence.
+                    </p>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 gold-bg opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
+<div class="relative h-96 w-full luxury-card overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A high-contrast cinematic shot of a luxury barbershop interior in Hyderabad. The lighting is moody and warm, highlighting plush leather chairs, mahogany wood paneling, and polished gold accents. A professional barber in a crisp white shirt is meticulously working on a client. The overall aesthetic is dark luxury and elite precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANbFz_RCZHDhrYR_WMRV9qBBnU97Wvfc4FSjWup2AUC2ELC8hzLoEgNaKSxtnnZcJoGbf4xiKagU7QXyDrQQvJJGZk1OiB9bSGT7oULThmC0wqMLlo5zWVSTJQbaconmHt4rfmzkpf0e-uBa6GEaSbJvINLFiOqguZB9R4lPeeKUaTfbUPgK8ldbluvEvoPj59ZbDWqXE8HK48yN3xGANzwGXwmUBVClirZQTrPXwp9iSpGTAxxFp8J_hFNWaaRcLgjz8ANY56QSe5"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-container-padding-desktop max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg gold-linear">The GroomAI Advantage</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Feature 1 -->
+<div class="luxury-card p-8 flex flex-col items-start hover:translate-y-[-8px] transition-transform">
+<div class="mb-6 h-12 w-12 flex items-center justify-center luxury-card border-primary/40">
+<span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+</div>
+<h3 class="font-title-md text-title-md mb-3 text-on-surface">AI-Powered Matching</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Our 24/7 AI assistant analyzes your style preferences to find your perfect salon match instantly.</p>
+</div>
+<!-- Feature 2 -->
+<div class="luxury-card p-8 flex flex-col items-start hover:translate-y-[-8px] transition-transform">
+<div class="mb-6 h-12 w-12 flex items-center justify-center luxury-card border-primary/40">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+</div>
+<h3 class="font-title-md text-title-md mb-3 text-on-surface">Curated Selection</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We handpick only the most premium salons in the city, ensuring uncompromising quality for our members.</p>
+</div>
+<!-- Feature 3 -->
+<div class="luxury-card p-8 flex flex-col items-start hover:translate-y-[-8px] transition-transform">
+<div class="mb-6 h-12 w-12 flex items-center justify-center luxury-card border-primary/40">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+</div>
+<h3 class="font-title-md text-title-md mb-3 text-on-surface">Easy Booking</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A seamless digital interface allows you to secure your preferred slot in under 30 seconds.</p>
+</div>
+<!-- Feature 4 -->
+<div class="luxury-card p-8 flex flex-col items-start hover:translate-y-[-8px] transition-transform">
+<div class="mb-6 h-12 w-12 flex items-center justify-center luxury-card border-primary/40">
+<span class="material-symbols-outlined text-primary text-3xl">star_rate</span>
+</div>
+<h3 class="font-title-md text-title-md mb-3 text-on-surface">Verified Reviews</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transparent feedback from our exclusive community ensures you know exactly what to expect.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-24 px-container-padding-desktop max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-2 uppercase">The Masters</span>
+<h2 class="font-headline-lg text-headline-lg">Elite Stylists &amp; Partners</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Team Card 1 -->
+<div class="flex flex-col">
+<div class="aspect-[3/4] luxury-card overflow-hidden mb-6 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional portrait of a master barber in a luxury setting. He is wearing a dark, well-tailored apron and holding professional shears. The background is a blurred high-end salon with warm amber lighting. The style is sophisticated and authoritative, using deep charcoal tones and subtle gold highlights to match the dark luxury theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8Vmx6WrKo9Sqlp4geuml7b3X2u8qZFotnQn9fH_zC46rnVfUFqSuBSKi6tp_06It9TxvuMp9IR3gFDKHh4vk9jwwnPvx4IXy4Pa-Xne42ScuUY32Ml8t1NiKQoy0BMaoe0qh4NpVRxmYnX1mg7TdC-lPlghgvxkf8tnlru3ckqiNvo1bdCeAIG3ox5c22rsXO4IoC6BLRjBF2WcsHebu9RPQbG8-Ywpo75RbcvfJosARDny1JLDv6cFO_A6DFSS-XPus4cDTtn1io"/>
+<div class="absolute bottom-4 left-4">
+<span class="status-chip px-3 py-1 text-primary font-label-caps text-[10px]">MASTER BARBER</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Vikram Rao</h3>
+<p class="text-on-surface-variant font-body-sm">Lead Stylist, Jubilee Hills</p>
+</div>
+<!-- Team Card 2 -->
+<div class="flex flex-col">
+<div class="aspect-[3/4] luxury-card overflow-hidden mb-6 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up studio portrait of a female master stylist. She has a sharp, fashionable look and is wearing elegant dark professional attire. The lighting is dramatic and low-key, creating a high-fashion aesthetic. The environment is a modern, minimalist studio space. The color palette is strictly deep blacks and gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDTv6nY4HTJm-C8QRrLnIpfv6GJcVXXa06pwFzHr44WL3XWK9yvqj_7NN7Qs3SCkz9hH2TQn-itEjXCQH4vawwovNyK38MouEVBFRk2Jotd_Z_STunCyIeNcS7x4AB5nk8ONxQCvHZ5lGwQkk-0eoyB_vry9Qj55fVomrcF4n_PEHHbEg7TfvQYCsbK9wx-oxXukmeIpHmmykdrbSeoSZMul08QIr3EiN8aJCkVGdt1ytbt-2saLJie8xx65_VM7KcVWD98vQO3P3J"/>
+<div class="absolute bottom-4 left-4">
+<span class="status-chip px-3 py-1 text-primary font-label-caps text-[10px]">HAIR ARCHITECT</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Ananya Reddy</h3>
+<p class="text-on-surface-variant font-body-sm">Creative Director, Banjara Hills</p>
+</div>
+<!-- Team Card 3 -->
+<div class="flex flex-col">
+<div class="aspect-[3/4] luxury-card overflow-hidden mb-6 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Portrait of a senior male grooming expert with grey-flecked beard, wearing a tuxedo shirt and black bowtie in a dark, atmospheric lounge setting. He exudes an aura of tradition and luxury. The lighting captures the textures of the rich leather and metallic surfaces in the background. The aesthetic is sophisticated, dark, and prestigious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYnkMGgxQuO7XsERcPT3kgZ3TKyjCvHKhutVIHzexBh4n28WKTbR94GGX2T1_LH6ucEFMcF3QzY_5VBgpGLAz2v45fh2vuHTkVULMk5vsR3n-6weNp7aeBI8eSV2-KhxENCVz7NuGOmLTIUkU53fF7-6XvgzIetKznbY2qiVu8wwHPf7B0HM059NXVDV_IZ84QEYx9cD4xFDQoeEzvYcTpVicjXBxXoic4FIkTYGK-X2HCO-XcXqs-x293mpJwCE2T8Q6a6MeNKQLz"/>
+<div class="absolute bottom-4 left-4">
+<span class="status-chip px-3 py-1 text-primary font-label-caps text-[10px]">GROOMING EXPERT</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Siddharth Kapoor</h3>
+<p class="text-on-surface-variant font-body-sm">Senior Consultant</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 bg-surface-container-low border-t border-surface-container-highest">
+<div class="px-container-padding-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-8 gold-linear uppercase">Get in Touch</h2>
+<div class="space-y-8">
+<div class="flex items-start space-x-6">
+<div class="h-10 w-10 flex items-center justify-center luxury-card border-primary/20">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-1">EMAIL</h4>
+<p class="font-title-md text-title-md">concierge@groomai.com</p>
+</div>
+</div>
+<div class="flex items-start space-x-6">
+<div class="h-10 w-10 flex items-center justify-center luxury-card border-primary/20">
+<span class="material-symbols-outlined text-primary">call</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-1">PHONE</h4>
+<p class="font-title-md text-title-md">+91 40 4567 8900</p>
+</div>
+</div>
+<div class="flex items-start space-x-6">
+<div class="h-10 w-10 flex items-center justify-center luxury-card border-primary/20">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-1">LOCATION</h4>
+<p class="font-title-md text-title-md">Road No. 12, Banjara Hills, Hyderabad, TS 500034</p>
+</div>
+</div>
+</div>
+</div>
+<div class="luxury-card p-1">
+<div class="h-full w-full grayscale opacity-80" data-location="Banjara Hills, Hyderabad" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8UZxNok5jNz9FUHvOH1IxXx0aaYAZxwgryT3fMM9_dCy5My9sgQltNCpj6QezPCfs3UyymAIanbnRpMH-RcNCOJllLoLMKwQiUeciwP2nrwTHUqR7B59eZF1k36Bn6ilrSySD-Vrmc_Vr3WRMqOHBU--BBoAZtYCqtrnNnqWi4mA02BPaddGj2ZK08WJbwpFK5FQC05NHZXPIZroZ9F_bDSxKXAnOVrNe9erTWAq0B7WTC73QPjKN5_DnYtBgtziY7NL_hcpG3Qg9'); background-size: cover; background-position: center; min-height: 300px;">
+<!-- Map placeholder -->
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 border-t border-surface-container-highest bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-container-padding-desktop w-full mt-auto max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<div class="font-display-lg text-display-lg text-primary uppercase tracking-tighter text-2xl mb-2">GroomAI</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity">© 2024 GroomAI. The Gold Standard of Grooming.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Press Kit</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for luxury cards
+        document.querySelectorAll('.luxury-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

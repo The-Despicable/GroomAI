@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Bookings | GroomAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed-dim": "#e6c364",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#313030",
+                "surface-container": "#201f1f",
+                "inverse-primary": "#755b00",
+                "tertiary-container": "#adabaa",
+                "outline": "#99907e",
+                "on-background": "#e5e2e1",
+                "secondary-fixed-dim": "#c8c6c5",
+                "outline-variant": "#4d4637",
+                "on-primary-container": "#503d00",
+                "surface-container-highest": "#353534",
+                "surface-dim": "#131313",
+                "on-primary": "#3d2e00",
+                "surface-container-low": "#1c1b1b",
+                "error-container": "#93000a",
+                "on-surface-variant": "#d0c5b2",
+                "primary-fixed": "#ffe08f",
+                "tertiary": "#c9c6c6",
+                "secondary-container": "#474746",
+                "on-secondary-container": "#b7b5b4",
+                "background": "#131313",
+                "on-secondary-fixed-variant": "#474746",
+                "surface-variant": "#353534",
+                "on-primary-fixed-variant": "#584400",
+                "surface-container-high": "#2a2a2a",
+                "primary": "#e6c364",
+                "on-tertiary-fixed-variant": "#474646",
+                "on-tertiary": "#313030",
+                "primary-container": "#c9a84c",
+                "on-error": "#690005",
+                "inverse-surface": "#e5e2e1",
+                "on-secondary": "#313030",
+                "secondary": "#c8c6c5",
+                "surface-container-lowest": "#0e0e0e",
+                "surface-tint": "#e6c364",
+                "secondary-fixed": "#e5e2e1",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-tertiary-fixed": "#1c1b1b",
+                "on-surface": "#e5e2e1",
+                "surface-bright": "#393939",
+                "tertiary-fixed": "#e5e2e1",
+                "on-tertiary-container": "#403f3f",
+                "error": "#ffb4ab",
+                "tertiary-fixed-dim": "#c9c6c5",
+                "surface": "#131313",
+                "on-primary-fixed": "#241a00"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "gutter": "24px",
+                "container-padding-mobile": "16px",
+                "container-padding-desktop": "32px",
+                "base": "8px",
+                "sidebar-width": "280px"
+            },
+            "fontFamily": {
+                "body-sm": ["Inter"],
+                "headline-lg": ["Montserrat"],
+                "label-caps": ["Inter"],
+                "display-lg": ["Montserrat"],
+                "headline-lg-mobile": ["Montserrat"],
+                "body-lg": ["Inter"],
+                "title-md": ["Inter"]
+            },
+            "fontSize": {
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "title-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #c9a84c 0%, #ffe08f 50%, #e6c364 100%);
+        }
+        .gold-border {
+            border: 1px solid rgba(201, 168, 76, 0.3);
+        }
+        .gold-border-focus:focus-within {
+            border-color: #c9a84c;
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+        }
+        .gold-glow {
+            box-shadow: 0 4px 20px -5px rgba(201, 168, 76, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-active-bar {
+            width: 2px;
+            height: 24px;
+            background: #c9a84c;
+            position: absolute;
+            left: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c9a84c;
+        }
+    </style>
+</head>
+<body class="font-body-lg">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-20 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-display-lg font-bold text-primary">GroomAI</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="relative text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A high-end professional male model with a perfectly groomed beard and stylish undercut haircut, looking confidently at the camera. The portrait is captured in a luxury studio setting with low-key dramatic lighting, emphasizing the textures of the hair and the deep charcoal aesthetic of the GroomAI brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDILAhR2JuaXf9cGKYRNFwutffbVoU-2beOQTMllfFzWwDaK1V_c_59eB3Omh_PARmzEpYiQNhoWtc1XOTHxWU_4KcLu5iRIlryL3jBqZg3K7wl2bBCAQIafMdVkFgOSxZsjwIRIa-C634qeyumUNE3OpIK3N-oytxKKhHXhUUXa4UyF_8FhFhslUrMKkL2LImi3Mv4VKsTg_BI0kGxR5z9JZJcSsc0d46EkZvbYYSAAzu96EZgvUWnoonwHbkp1G_-OJglHax-1D3O"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-sidebar-width bg-surface-container border-r border-outline-variant flex-col py-base z-40 mt-20">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-8 h-8 gold-gradient rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-surface" data-icon="content_cut">content_cut</span>
+</div>
+<div>
+<h2 class="font-label-caps text-label-caps text-primary">GroomAI</h2>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Elite Grooming</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="group flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="group relative flex items-center gap-3 px-4 py-3 rounded text-primary border-l-2 border-primary bg-surface-container-highest transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-label-caps text-label-caps">Bookings</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps">Stylists</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dry_cleaning">dry_cleaning</span>
+<span class="font-label-caps text-label-caps">Services</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto px-6 py-8 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface-variant hover:text-error transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-sidebar-width pt-28 pb-24 px-container-padding-mobile md:px-container-padding-desktop min-h-screen bg-surface-container-low">
+<!-- Header & Filters Section -->
+<header class="mb-12">
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg text-on-surface mb-8 border-b-2 border-primary/20 pb-4 inline-block">My Bookings</h1>
+<div class="flex flex-col xl:flex-row gap-6 items-start xl:items-center justify-between">
+<!-- Search and Date -->
+<div class="flex flex-col md:flex-row gap-4 w-full xl:w-auto">
+<div class="relative w-full md:w-80 gold-border gold-border-focus bg-surface-container-lowest rounded overflow-hidden">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none py-3 pl-10 pr-4 focus:ring-0 text-body-sm" placeholder="Search salons or services..." type="text"/>
+</div>
+<div class="flex items-center gap-2 gold-border bg-surface-container-lowest rounded px-4 py-2">
+<span class="material-symbols-outlined text-primary text-body-lg" data-icon="calendar_today">calendar_today</span>
+<span class="text-body-sm text-on-surface-variant">Oct 01 - Oct 31, 2023</span>
+</div>
+</div>
+<!-- Status Filters -->
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-1.5 rounded-full border border-primary bg-primary text-on-primary font-label-caps text-label-caps transition-all">All</button>
+<button class="px-5 py-1.5 rounded-full border border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary font-label-caps text-label-caps transition-all">Confirmed</button>
+<button class="px-5 py-1.5 rounded-full border border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary font-label-caps text-label-caps transition-all">Pending</button>
+<button class="px-5 py-1.5 rounded-full border border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary font-label-caps text-label-caps transition-all">Cancelled</button>
+</div>
+</div>
+</header>
+<!-- Bookings Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
+<!-- Booking Card 1: Confirmed -->
+<div class="group bg-surface-container rounded-xl gold-border gold-glow hover:border-primary/50 transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="The interior of a premium luxury barbershop in London. The space features dark mahogany wood cabinets, emerald green leather barber chairs, and large ornate mirrors with warm backlighting. The atmosphere is sophisticated and quiet, with golden accents on the grooming tools and subtle smoke from a scented candle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnOGcXuSVSYsLBCOIBEfdrExfm5PoLJp33FCeus8EwDbfkm4nsOVfXd7uNYOecX4uXzjVMQvGjnr7U3_hwZzjkky2MwfldHZoMsSTgF9k8HntOAoQWRo8sUPuFqZjrDmRjWLFf8E98NtJHWcsxZvCiMrAroBQZo2mXZQX3DYYSMTqmr2xgXf49kVrzaops2RNVXP3WPA6YyEGfBhUpPIxMXfT6JTu8s4PGvC8D5Qp53yJgO8mjPjjBpwDWKiEMNIrCXz6AVhGCpNGc"/>
+<div class="absolute top-4 right-4 bg-surface-container/90 backdrop-blur-md px-3 py-1 rounded border border-primary/40 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-[10px] text-primary">CONFIRMED</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Gentleman's Haven</h3>
+<p class="text-body-sm text-on-surface-variant">Signature Beard Sculpt &amp; Steam</p>
+</div>
+<span class="font-headline-lg-mobile text-primary">$85.00</span>
+</div>
+<div class="flex items-center gap-6 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="event">event</span>
+<span class="text-body-sm">Oct 24, 2023</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm">2:30 PM</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-outline-variant/30">
+<button class="text-on-surface-variant hover:text-error transition-colors text-body-sm font-semibold">Cancel</button>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-primary/50 text-primary rounded font-label-caps text-[10px] hover:bg-primary/10 transition-colors uppercase">Reschedule</button>
+<button class="px-4 py-2 gold-gradient text-on-primary-fixed font-label-caps text-[10px] rounded hover:opacity-90 transition-opacity uppercase">Review</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking Card 2: Pending -->
+<div class="group bg-surface-container rounded-xl gold-border hover:border-primary/50 transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative h-48">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A modern, high-tech hair salon specialized in futuristic styles. The background features neon gold lighting strips reflecting off polished black marble floors and sleek minimalist furniture. A stylist is seen in the distance, focused on their work, creating an atmosphere of professional dedication and cutting-edge fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWZrbfxENVlbprt_-l2wqXV7JdimBhePf4Jp3LDD9AedmN5fLkDgEf8uEzSaE0XKCH4Q-OfnXq-gnfDosGZ99JlABeVl_znDVF_HPD7oB3NSpDe_mqoJzydPV-E4_bl72PxArBC1GssudAAwkMdYjFs-zSnxfbkyoU4oqZ5CJ4NmY-RMwUd48Q1B-nkinFo8yUFYqblj3pMdqA6lFgre9QlMznaZbRquryWk_-Qwx1PA3t7rxbm1RDE3ns7VRrjDCGhjLY6TKuIP_L"/>
+<div class="absolute top-4 right-4 bg-surface-container/90 backdrop-blur-md px-3 py-1 rounded border border-outline/40 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">PENDING</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">The Iron Shears</h3>
+<p class="text-body-sm text-on-surface-variant">Royal Hot Towel Shave</p>
+</div>
+<span class="font-headline-lg-mobile text-primary">$45.00</span>
+</div>
+<div class="flex items-center gap-6 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="event">event</span>
+<span class="text-body-sm">Oct 28, 2023</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm">11:00 AM</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-outline-variant/30">
+<button class="text-on-surface-variant hover:text-error transition-colors text-body-sm font-semibold">Cancel</button>
+<button class="px-6 py-2 border border-primary text-primary rounded font-label-caps text-label-caps hover:bg-primary/10 transition-colors uppercase">Reschedule</button>
+</div>
+</div>
+</div>
+<!-- Booking Card 3: Cancelled -->
+<div class="group bg-surface-container-low opacity-70 grayscale rounded-xl border border-outline-variant transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Close-up of high-quality professional grooming shears and a comb resting on a dark velvet surface. The metallic surfaces of the scissors catch the soft ambient light, creating sharp reflections. The image is moody and quiet, evoking a sense of lost time or a missed appointment in a high-end salon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAafIej-_2gNNWNqW0q4y0GmU08z2jaxSAP0inSnmbp_6glMRT5CPQd2HLNHY_AVLrerYQhe6asnocDSLB6AusO-1FuD7McLdPezU-Gsjxr5m56CpAlf_jOIZ0NHpAKmuKk9goe_j3XvvUWinX_wih9ESWUp7iuZIMG9MDPXetFnHOFEZre-Vpbif8DIN2VgfAdVuVf7H9JyYs3T2TI-3cYvwwsQn8eiZBmthvUZCZB9BrIyuFnk6_ZGGL-N_YtgvvxIIWGUoTKDq46"/>
+<div class="absolute top-4 right-4 bg-error-container/90 backdrop-blur-md px-3 py-1 rounded border border-error/40 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-caps text-[10px] text-on-error-container">CANCELLED</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Urban Edge Barbers</h3>
+<p class="text-body-sm text-on-surface-variant">Skin Fade &amp; Line Up</p>
+</div>
+<span class="font-headline-lg-mobile text-on-surface-variant">$60.00</span>
+</div>
+<div class="flex items-center gap-6 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="event">event</span>
+<span class="text-body-sm">Oct 15, 2023</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="schedule">schedule</span>
+<span class="text-body-sm">4:00 PM</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-end pt-6 border-t border-outline-variant/30">
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant rounded font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all uppercase">Rebook Now</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default, shown for demo purpose or if list is empty) -->
+<section class="hidden flex flex-col items-center justify-center py-32 text-center" id="empty-state">
+<div class="w-24 h-24 rounded-full bg-surface-container flex items-center justify-center mb-6 gold-border">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="calendar_today">calendar_today</span>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface mb-2">No bookings yet</h2>
+<p class="text-body-sm text-on-surface-variant max-w-sm mb-10">It looks like you haven't scheduled any grooming sessions yet. Start your journey to perfection today.</p>
+<button class="px-10 py-4 gold-gradient text-on-primary-fixed font-bold tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/10">BOOK NOW</button>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container-low border-t border-outline-variant rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event" style="font-variation-settings: 'FILL' 1;">event</span>
+<span class="font-label-caps text-[10px] mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-[10px] mt-1">Stylists</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple logic for status filter chips
+        const filterButtons = document.querySelectorAll('header button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+                    b.classList.add('border-outline-variant', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+                btn.classList.remove('border-outline-variant', 'text-on-surface-variant');
+            });
+        });
+
+        // Toggle empty state for demonstration if needed
+        function toggleEmptyState(isEmpty) {
+            const grid = document.querySelector('.grid');
+            const empty = document.getElementById('empty-state');
+            if(isEmpty) {
+                grid.classList.add('hidden');
+                empty.classList.remove('hidden');
+            } else {
+                grid.classList.remove('hidden');
+                empty.classList.add('hidden');
+            }
+        }
+    </script>
+</body></html>

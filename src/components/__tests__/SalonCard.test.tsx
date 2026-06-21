@@ -7,25 +7,25 @@ const mockSalon = {
   location: '123 Test St',
   rating: 4.5,
   priceFrom: 399,
-  services: [{ name: 'Haircut', price: 399, duration: 30 }],
+  imageUrl: '',
 }
 
 test('renders salon name', () => {
-  render(<SalonCard salon={mockSalon} />)
+  render(<SalonCard id={mockSalon.id} name={mockSalon.name} location={mockSalon.location} rating={mockSalon.rating} priceFrom={mockSalon.priceFrom} />)
   expect(screen.getByText('Test Salon')).toBeInTheDocument()
 })
 
 test('renders location', () => {
-  render(<SalonCard salon={mockSalon} />)
+  render(<SalonCard id={mockSalon.id} name={mockSalon.name} location={mockSalon.location} rating={mockSalon.rating} priceFrom={mockSalon.priceFrom} />)
   expect(screen.getByText('123 Test St')).toBeInTheDocument()
 })
 
 test('renders rating', () => {
-  render(<SalonCard salon={mockSalon} />)
+  render(<SalonCard id={mockSalon.id} name={mockSalon.name} location={mockSalon.location} rating={mockSalon.rating} priceFrom={mockSalon.priceFrom} />)
   expect(screen.getByText('4.5')).toBeInTheDocument()
 })
 
 test('renders price', () => {
-  render(<SalonCard salon={mockSalon} />)
-  expect(screen.getByText(/from ₹399/)).toBeInTheDocument()
+  render(<SalonCard id={mockSalon.id} name={mockSalon.name} location={mockSalon.location} rating={mockSalon.rating} priceFrom={mockSalon.priceFrom} />)
+  expect(screen.getByText(/₹399/)).toBeInTheDocument()
 })
