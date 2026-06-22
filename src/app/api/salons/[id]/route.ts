@@ -31,7 +31,7 @@ function transformSupabaseSalon(salon: any, services: any[]): any {
     id: salon.id, name: salon.name, location: salon.location,
     rating: salon.rating,
     priceFrom: services.length > 0 ? Math.min(...services.map((sv: any) => sv.price / 100)) : 0,
-    lat: salon.lat, lon: salon.lng,
+    lat: salon.lat, lon: salon.lon,
     imageUrl: salon.images?.[0] || null,
     services: services.map((sv: any) => ({ name: sv.name, price: sv.price / 100, duration: sv.duration_minutes })),
     slug: salon.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
