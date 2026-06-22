@@ -1,9 +1,10 @@
 'use client'
 import { Suspense, useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { Search } from 'lucide-react'
+import { Navigation, Search } from 'lucide-react'
 import SalonCard from '@/components/SalonCard'
 import { getSalons } from '@/lib/api'
+import { haversineDistance } from '@/lib/distance'
 
 const services = ['All', 'Hair', 'Beard', 'Spa', 'Nails']
 const categories = ['All', 'Men', 'Women', 'Unisex']
@@ -15,6 +16,17 @@ function ExploreContent() {
   const [category, setCategory] = useState('All')
   const [salons, setSalons] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null)
+
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        pos => setUserPos({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+        () => {},
+        { enableHighAccuracy: true, timeout: 10000 }
+      )
+    }
+  }, [])
 
   const fetch = useCallback(async () => {
     setLoading(true)
@@ -26,6 +38,10 @@ function ExploreContent() {
     setSalons(data)
     setLoading(false)
   }, [query, service, category])
+
+  const sortedSalons = userPos
+    ? [...salons].sort((a, b) => haversineDistance(userPos.lat, userPos.lng, a.lat, a.lon) - haversineDistance(userPos.lat, userPos.lng, b.lat, b.lon))
+    : salons
 
   useEffect(() => {
     const t = setTimeout(fetch, 400)
@@ -61,11 +77,18 @@ function ExploreContent() {
         <div className="grid grid-cols-1 gap-4">
           {[1, 2, 3].map(i => <div key={i} className="h-48 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" />)}
         </div>
-      ) : salons.length === 0 ? (
+      ) : sortedSalons.length === 0 ? (
         <p className="text-gray-500 text-sm text-center py-16">No salons found</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4">
-          {salons.map((s: any) => <SalonCard key={s.id} id={s.id} name={s.name} location={s.location} rating={s.rating} priceFrom={s.priceFrom} imageUrl={s.imageUrl} />)}
+        <div>
+          {userPos && (
+            <p className="text-xs text-gray-500 mb-3 flex items-center gap-1">
+              <Navigation size={12} /> Sorted by nearest
+            </p>
+          )}
+          <div className="grid grid-cols-1 gap-4">
+            {sortedSalons.map((s: any) => <SalonCard key={s.id} id={s.id} name={s.name} location={s.location} rating={s.rating} priceFrom={s.priceFrom} imageUrl={s.imageUrl} />)}
+          </div>
         </div>
       )}
     </>
