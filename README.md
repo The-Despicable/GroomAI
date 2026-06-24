@@ -11,7 +11,7 @@ AI-powered grooming marketplace for discovering and booking salon services.
 - **Payments:** Razorpay
 
 ## Deployed URLs
-- **Frontend:** https://groomai-next.vercel.app
+- **Frontend:** https://frontend-one-amber-82.vercel.app
 - **Backend API:** https://backend-ten-ashen-42.vercel.app
 - **API Docs:** https://backend-ten-ashen-42.vercel.app/docs
 
