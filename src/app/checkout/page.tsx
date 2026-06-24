@@ -1,7 +1,7 @@
 'use client'
 import { Suspense, useState, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { useAuth } from '@/context/AuthContext'
+import { useUser } from '@clerk/nextjs'
 import { signInWithGoogle } from '@/lib/auth'
 import { createBooking } from '@/lib/api'
 import { Lock, CreditCard, Smartphone, Building2, User, X, Copy, Check, Loader } from 'lucide-react'
@@ -220,7 +220,7 @@ function PaymentModal({ amount, onClose, onSuccess }: { amount: number; onClose:
 function CheckoutContent() {
   const params = useSearchParams()
   const router = useRouter()
-  const { user } = useAuth()
+  const { isSignedIn, user } = useUser()
   const salonId = params.get('salonId') || ''
   const salonName = params.get('salonName') || 'Salon'
   const service = params.get('service') || ''
@@ -269,13 +269,13 @@ function CheckoutContent() {
         phone,
         status: 'upcoming',
         ...(stylist ? { stylist_id: stylist } : {}),
-        user_id: user.uid,
+        user_id: user.id,
       })
       if (booking) {
         await fetch('/api/payments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ appointmentId: booking.id, amount: total, userId: user.uid }),
+          body: JSON.stringify({ appointmentId: booking.id, amount: total, userId: user.id }),
         })
       }
       router.push('/bookings')

@@ -5,8 +5,6 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import BottomNav from '@/components/BottomNav'
 import Footer from '@/components/Footer'
-import { AuthProvider } from '@/context/AuthContext'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -40,12 +38,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${inter.className} bg-[#0A0A0A] text-white`}>
         <ClerkProvider>
-          <AuthProvider>
-            <Navbar />
-            <main className="min-h-screen pt-20 lg:pt-16 pb-16">{children}</main>
-            <BottomNav />
-            <Footer />
-          </AuthProvider>
+          <Navbar />
+          <main className="min-h-screen pt-20 lg:pt-16 pb-16">{children}</main>
+          <BottomNav />
+          <Footer />
         </ClerkProvider>
       </body>
     </html>

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { useAuth } from '@/context/AuthContext'
+import { useUser } from '@clerk/nextjs'
 import { signInWithGoogle } from '@/lib/auth'
 import { Users, CalendarDays, TrendingUp, ArrowLeft, Clock, CheckCircle, XCircle, DollarSign, Search, Star } from 'lucide-react'
 import Link from 'next/link'
@@ -42,11 +42,11 @@ const statusIcon: Record<string, any> = {
 }
 
 export default function DashboardPage() {
-  const { user, loading } = useAuth()
+  const { isSignedIn, user, isLoaded } = useUser()
   const [tab, setTab] = useState<Tab>('appointments')
   const [search, setSearch] = useState('')
 
-  if (loading) {
+  if (!isLoaded) {
     return <div className="px-4 py-6 max-w-4xl mx-auto"><div className="h-32 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" /></div>
   }
 

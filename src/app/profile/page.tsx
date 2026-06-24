@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useAuth } from '@/context/AuthContext'
+import { useUser } from '@clerk/nextjs'
 import { signInWithGoogle, signOut } from '@/lib/auth'
 import { User, CalendarDays, Clock, RotateCcw, LogOut, Star, Heart, Settings, Gift, Check, X } from 'lucide-react'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ interface Appointment {
 }
 
 export default function ProfilePage() {
-  const { user, loading } = useAuth()
+  const { isSignedIn, user, isLoaded } = useUser()
   const [tab, setTab] = useState<ProfileTab>('history')
   const [history, setHistory] = useState<Appointment[]>([])
   const [rebooking, setRebooking] = useState(false)
@@ -69,7 +69,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`/api/rebook?userId=${user.uid}`).then(r => r.json()).then(setHistory).catch(() => {})
+      fetch(`/api/rebook?userId=${user.id}`).then(r => r.json()).then(setHistory).catch(() => {})
     }
   }, [user])
 
@@ -79,7 +79,7 @@ export default function ProfilePage() {
       const res = await fetch('/api/rebook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId: user?.uid, appointmentId }),
+        body: JSON.stringify({ userId: user?.id, appointmentId }),
       })
       if (res.ok) {
         const data = await res.json()
@@ -89,7 +89,7 @@ export default function ProfilePage() {
     setRebooking(false)
   }
 
-  if (loading) {
+  if (!isLoaded) {
     return <div className="px-4 py-6 max-w-2xl mx-auto"><div className="h-48 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" /></div>
   }
 
@@ -104,8 +104,8 @@ export default function ProfilePage() {
   }
 
   const settingsFields = [
-    { label: 'Name', value: user.displayName || 'Not set' },
-    { label: 'Email', value: user.email || 'Not set' },
+    { label: 'Name', value: user.fullName || user.username || 'Not set' },
+    { label: 'Email', value: user.primaryEmailAddress?.emailAddress || user.emailAddresses?.[0]?.emailAddress || 'Not set' },
     { label: 'Phone', value: phone || 'Not set' },
   ]
 
@@ -114,16 +114,16 @@ export default function ProfilePage() {
       <div className="bg-gradient-to-b from-[#111111] to-[#0A0A0A] border border-[#1a1a1a] rounded-2xl p-6 mb-6">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-[#C9A84C]/10 flex items-center justify-center ring-2 ring-[#C9A84C]/30">
-            {user.photoURL ? (
+            {user.imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={user.photoURL} alt="" className="w-16 h-16 rounded-full object-cover" />
+              <img src={user.imageUrl} alt="" className="w-16 h-16 rounded-full object-cover" />
             ) : (
               <User size={28} className="text-[#C9A84C]" />
             )}
           </div>
           <div className="flex-1">
-            <h1 className="text-xl font-bold text-white">{user.displayName || 'User'}</h1>
-            <p className="text-sm text-gray-400">{user.email}</p>
+            <h1 className="text-xl font-bold text-white">{user.fullName || user.username || 'User'}</h1>
+            <p className="text-sm text-gray-400">{user.primaryEmailAddress?.emailAddress || user.emailAddresses?.[0]?.emailAddress || ''}</p>
             <p className="text-xs text-gray-600 mt-0.5">Member since June 2026</p>
           </div>
         </div>

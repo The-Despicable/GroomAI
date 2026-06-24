@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { useAuth } from '@/context/AuthContext'
+import { useUser } from '@clerk/nextjs'
 import { signInWithGoogle } from '@/lib/auth'
 import {
   LayoutDashboard, Store, Users, CalendarCheck, Star, Settings,
@@ -62,10 +62,10 @@ const allUsers = [
 ]
 
 export default function AdminPage() {
-  const { user, loading } = useAuth()
+  const { isSignedIn, user, isLoaded } = useUser()
   const [tab, setTab] = useState<AdminTab>('dashboard')
 
-  if (loading) {
+  if (!isLoaded) {
     return <div className="px-4 py-6 max-w-7xl mx-auto"><div className="h-64 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" /></div>
   }
 
@@ -82,7 +82,7 @@ export default function AdminPage() {
   }
 
   const allowedAdmins = ['admin@groomai.com', 'yaser.hussain69@gmail.com']
-  const isAdmin = allowedAdmins.includes(user.email || '')
+  const isAdmin = allowedAdmins.includes(user.primaryEmailAddress?.emailAddress || user.emailAddresses?.[0]?.emailAddress || '')
 
   if (!isAdmin) {
     return (

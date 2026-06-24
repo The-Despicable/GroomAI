@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useAuth } from '@/context/AuthContext'
+import { useUser } from '@clerk/nextjs'
 import { signInWithGoogle } from '@/lib/auth'
 import { getBookings } from '@/lib/api'
 import { CalendarDays, Search, RotateCcw, XCircle, Star } from 'lucide-react'
@@ -17,7 +17,7 @@ const statusBadge: Record<string, string> = {
 const timeSlots = ['9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM','8:00 PM']
 
 export default function BookingsPage() {
-  const { user, loading: authLoading } = useAuth()
+  const { isSignedIn, user, isLoaded } = useUser()
   const [bookings, setBookings] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -29,7 +29,7 @@ export default function BookingsPage() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return }
-    getBookings(user.uid).then(data => {
+    getBookings(user.id).then(data => {
       setBookings(data)
       setLoading(false)
     })
@@ -87,7 +87,7 @@ export default function BookingsPage() {
     return matchesSearch && matchesStatus
   })
 
-  if (authLoading || loading) {
+  if (!isLoaded || loading) {
     return <div className="px-4 py-6 max-w-2xl mx-auto"><div className="h-32 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" /></div>
   }
 
