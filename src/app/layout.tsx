@@ -3,8 +3,8 @@ import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 import Navbar from '@/components/Navbar'
-import BottomNav from '@/components/BottomNav'
 import Footer from '@/components/Footer'
+import PageTransition from '@/components/PageTransition'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -39,8 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} bg-[#0A0A0A] text-white`}>
         <ClerkProvider>
           <Navbar />
-          <main className="min-h-screen pt-20 lg:pt-16 pb-16">{children}</main>
-          <BottomNav />
+          <main className="min-h-screen pt-20 lg:pt-16"><PageTransition>{children}</PageTransition></main>
           <Footer />
         </ClerkProvider>
       </body>

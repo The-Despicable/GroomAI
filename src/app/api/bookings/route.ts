@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const userId = searchParams.get('user_id')
 
-  const { data: ctx } = await createServerClient(request)
+  const { data: ctx } = await createAdminClient(request)
   if (ctx) {
     let query = ctx.supabase.from('bookings').select('*, salons (id, name, address, image_url, rating)')
     if (userId) query = query.eq('user_id', userId)

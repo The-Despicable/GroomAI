@@ -1,8 +1,9 @@
 'use client'
 import { Suspense, useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { Navigation, Search } from 'lucide-react'
+import { Navigation } from 'lucide-react'
 import SalonCard from '@/components/SalonCard'
+import SearchAutocomplete from '@/components/SearchAutocomplete'
 import { getSalons } from '@/lib/api'
 import { haversineDistance } from '@/lib/distance'
 
@@ -50,12 +51,8 @@ function ExploreContent() {
 
   return (
     <>
-      <div className="flex gap-2 mb-4">
-        <div className="flex-1 relative">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
-          <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search salons..."
-            className="w-full bg-[#111111] border border-[#1a1a1a] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-[#C9A84C]/50" />
-        </div>
+      <div className="mb-4">
+        <SearchAutocomplete onSearch={q => setQuery(q)} />
       </div>
       <div className="flex gap-2 mb-3 overflow-x-auto pb-1">
         {services.map(s => (
@@ -74,7 +71,7 @@ function ExploreContent() {
         ))}
       </div>
       {loading ? (
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3].map(i => <div key={i} className="h-48 bg-[#111111] rounded-2xl animate-pulse border border-[#1a1a1a]" />)}
         </div>
       ) : sortedSalons.length === 0 ? (
@@ -86,8 +83,8 @@ function ExploreContent() {
               <Navigation size={12} /> Sorted by nearest
             </p>
           )}
-          <div className="grid grid-cols-1 gap-4">
-            {sortedSalons.map((s: any) => <SalonCard key={s.id} id={s.id} name={s.name} location={s.location} rating={s.rating} priceFrom={s.priceFrom} imageUrl={s.imageUrl} />)}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {sortedSalons.map((s: any, i: number) => <SalonCard key={s.id} id={s.id} name={s.name} location={s.location} rating={s.rating} priceFrom={s.priceFrom} imageUrl={s.imageUrl} index={i} />)}
           </div>
         </div>
       )}
@@ -97,7 +94,7 @@ function ExploreContent() {
 
 export default function ExplorePage() {
   return (
-    <div className="px-4 py-6 max-w-2xl mx-auto">
+    <div className="px-4 py-6 max-w-7xl mx-auto">
       <Suspense fallback={<div className="text-center py-8 text-gray-500">Loading...</div>}>
         <ExploreContent />
       </Suspense>

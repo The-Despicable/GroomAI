@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase-server'
+import { createAdminClient } from '@/lib/supabase-server'
 import realSalons from '@/data/real_salons.json'
 
 const mockSalons: Record<string, any> = Object.fromEntries(
@@ -12,7 +12,7 @@ export async function GET(
 ) {
   const { id } = await params
 
-  const { data: ctx } = await createServerClient(_request)
+  const { data: ctx } = await createAdminClient(_request)
   if (ctx) {
     const { data: salon, error } = await ctx.supabase.from('salons').select('*').eq('id', id).single()
     if (!error && salon) {

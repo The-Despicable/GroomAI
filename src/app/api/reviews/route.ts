@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { createServerClient, createAdminClient } from '@/lib/supabase-server'
+import { createAdminClient } from '@/lib/supabase-server'
 
 import realSalons from '@/data/real_salons.json'
 const rSalons = realSalons as any[]
@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const salonId = searchParams.get('salonId')
 
-  const { data: ctx } = await createServerClient(request)
+  const { data: ctx } = await createAdminClient(request)
   if (ctx) {
     let query = ctx.supabase.from('reviews').select('*')
     if (salonId) query = query.eq('salon_id', salonId)
